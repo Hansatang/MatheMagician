@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
     // Move player in 2D space
     private Vector2 _movementDirection;
-    private float _movementSpeed = 3f;
+    private float _movementSpeed = 10f;
 
     void Start()
     {
