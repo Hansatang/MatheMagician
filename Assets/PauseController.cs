@@ -5,7 +5,7 @@ public class PauseController : MonoBehaviour
 {
     public static bool gamePaused;
     public GameObject pausePanel;
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -38,7 +38,7 @@ public class PauseController : MonoBehaviour
 
     public void Menu()
     {
-        SceneManager.LoadScene((int) Scenes.MainmenuScene);
+        SceneManager.LoadScene((int) Scenes.MainMenuScene);
     }
 
     public void Quit()
