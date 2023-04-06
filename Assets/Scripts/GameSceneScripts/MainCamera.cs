@@ -1,16 +1,17 @@
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 public class MainCamera : MonoBehaviour
 {
+    public GameObject player;
     private Camera _cam;
-    public float maxZoom = 5;
-    public float minZoom = 20;
+    public float maxZoom = 2;
+    public float minZoom = 7;
     public float sensitivity = 1;
     public float speed = 30;
     private float _targetZoom;
     public UnityEvent cameraZoom;
+
 
     void Start()
     {
@@ -20,11 +21,13 @@ public class MainCamera : MonoBehaviour
 
     void Update()
     {
-        _targetZoom -= Input.mouseScrollDelta.y * sensitivity;
-        _targetZoom = Mathf.Clamp(_targetZoom, maxZoom, minZoom);
-        float newSize = Mathf.MoveTowards(_cam.orthographicSize, _targetZoom, speed * Time.deltaTime);
-        if (_cam.orthographicSize != newSize)
+        Vector3 pos = player.transform.position;
+        transform.position = new Vector3(pos.x, pos.y, -10);
+        if (Input.mouseScrollDelta.y != 0)
         {
+            _targetZoom -= Input.mouseScrollDelta.y * sensitivity;
+            _targetZoom = Mathf.Clamp(_targetZoom, maxZoom, minZoom);
+            float newSize = Mathf.MoveTowards(_cam.orthographicSize, _targetZoom, speed * Time.deltaTime);
             _cam.orthographicSize = newSize;
             cameraZoom.Invoke();
         }

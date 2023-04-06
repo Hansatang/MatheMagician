@@ -1,5 +1,5 @@
 ﻿public enum Scenes
 {
-    MainmenuScene = 0,
+    MainMenuScene = 0,
     GameScene = 1
 }
