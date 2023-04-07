@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WorldScript : MonoBehaviour
+public class WorldBackground : MonoBehaviour
 {
     [SerializeField] private Transform _playerTransform;
     Vector2Int _currentTilePosition = new(0, 0);
@@ -32,8 +32,6 @@ public class WorldScript : MonoBehaviour
         playerTilePosition.x -= _playerTransform.position.x < 0 ? 1 : 0;
         playerTilePosition.y -= _playerTransform.position.y < 0 ? 1 : 0;
 
-        Debug.Log(playerTilePosition.y + " POLE " + playerTilePosition.x);
-        Debug.Log(_currentTilePosition.y + " Current " + _currentTilePosition.x);
         if (_currentTilePosition != playerTilePosition)
         {
             _currentTilePosition = playerTilePosition;
