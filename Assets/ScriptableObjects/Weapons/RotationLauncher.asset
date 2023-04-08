@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45ffb0629fd2d674a9bdacb8ccdd4e14, type: 3}
   m_Name: RotationLauncher
   m_EditorClassIdentifier: 
-  weaponIndex: 0
-  weaponName: 
-  weaponDescription: 
+  weaponIndex: 1
+  weaponName: Rotation
+  weaponDescription: It rotates around you
   weaponDamage: 0
   weaponImage: {fileID: 0}
-  weaponObject: {fileID: 0}
+  weaponObject: {fileID: 5892690902659690379, guid: 7db3549e0d1dc2b4eb4b25036eefe9a0, type: 3}

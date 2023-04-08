@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: -8699775544430878988}
   - component: {fileID: -2759983712134645163}
   - component: {fileID: 2839553997101359865}
+  - component: {fileID: 5154338982848799836}
   m_Layer: 6
-  m_Name: SinBullet
+  m_Name: SinusBullet
   m_TagString: SinBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -232,3 +233,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5154338982848799836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033957587514547960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a08a00af451ef949850a6d565e07167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 5
+  frequency: 5
+  magnitude: 0.5

@@ -17,4 +17,4 @@ MonoBehaviour:
   weaponDescription: Shoot a bullet in sinusoidal patttern
   weaponDamage: 2
   weaponImage: {fileID: 0}
-  weaponObject: {fileID: 0}
+  weaponObject: {fileID: 5892690902659690379, guid: 7db3549e0d1dc2b4eb4b25036eefe9a0, type: 3}
