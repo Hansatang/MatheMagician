@@ -35,11 +35,6 @@ public class SinusBullet : MonoBehaviour
     }
 
 
-    public void Stop()
-    {
-        throw new System.NotImplementedException();
-    }
-
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Enemies"))
@@ -47,10 +42,5 @@ public class SinusBullet : MonoBehaviour
             // other.gameObject.GetComponent<Enemy>().TakeDamage(_power);
             Destroy(gameObject);
         }
-    }
-
-    public void SetDirection(Quaternion quaternion)
-    {
-        transform.rotation = quaternion;
     }
 }

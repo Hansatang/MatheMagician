@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: -2759983712134645163}
   - component: {fileID: 2839553997101359865}
   - component: {fileID: 5154338982848799836}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: SinusBullet
-  m_TagString: SinBullet
+  m_TagString: Bullets
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
