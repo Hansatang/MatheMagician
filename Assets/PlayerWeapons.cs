@@ -37,7 +37,7 @@ public class PlayerWeapons : MonoBehaviour
     public void AddWeapon(GameObject weaponObject)
     {
         StopWeapons();
-        GameObject go = Instantiate(weaponObject, new Vector3 (0,0,0), Quaternion.identity); 
+        GameObject go = Instantiate(weaponObject, new Vector3(0, 0, 0), Quaternion.identity);
         go.transform.parent = gameObject.transform;
         IWeaponSystem weaponSystemToAdd = (IWeaponSystem) go.GetComponent(typeof(IWeaponSystem));
         _weaponSystems.Add(weaponSystemToAdd);

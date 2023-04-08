@@ -12,7 +12,7 @@ public class LevelUpController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             if (gamePausedLevelUp)
             {
@@ -25,7 +25,7 @@ public class LevelUpController : MonoBehaviour
         }
     }
 
-    public void OpenLevelUpWindow()
+    private void OpenLevelUpWindow()
     {
         levelUpMenu.SetActive(true);
         Time.timeScale = 0f;

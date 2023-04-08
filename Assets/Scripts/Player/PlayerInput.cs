@@ -4,7 +4,7 @@ public class PlayerInput : MonoBehaviour
 {
     public float Horizontal { get; private set; }
     public float Vertical { get; private set; }
-    
+
     public Quaternion Rotation { get; private set; }
 
     void Update()
@@ -23,7 +23,7 @@ public class PlayerInput : MonoBehaviour
     {
         return Input.GetAxis("Vertical");
     }
-    
+
     private Quaternion GetRotation()
     {
         if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") < 0)
@@ -68,5 +68,4 @@ public class PlayerInput : MonoBehaviour
 
         return Rotation;
     }
-  
 }

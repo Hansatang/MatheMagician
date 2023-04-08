@@ -1,4 +1,4 @@
 internal interface IWeaponLauncher
 {
-  // void Launch(WeaponSystem weapon);
+    // void Launch(WeaponSystem weapon);
 }

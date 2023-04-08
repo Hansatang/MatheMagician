@@ -51,13 +51,17 @@ public class WaveSpawner : MonoBehaviour
     {
         Debug.Log(camera.orthographicSize);
         var position = camera.transform.position;
-        
+
         return _currentWave.AttackDirections[Random.Range(0, _currentWave.AttackDirections.Length)] switch
         {
-            SpawnDirections.WEST => new Vector3(position.x - _orthographicSize - 10f,Random.Range(-_orthographicSize, _orthographicSize), 0f),
-            SpawnDirections.EAST => new Vector3(position.x + _orthographicSize + 10f, Random.Range(-_orthographicSize, _orthographicSize), 0f),
-            SpawnDirections.NORTH => new Vector3(Random.Range(-_orthographicSize, _orthographicSize), _orthographicSize * camera.aspect + 10f, 0f),
-            _ => new Vector3(Random.Range(-_orthographicSize, _orthographicSize), -_orthographicSize * camera.aspect - 10f, 0f)
+            SpawnDirections.WEST => new Vector3(position.x - _orthographicSize - 10f,
+                Random.Range(-_orthographicSize, _orthographicSize), 0f),
+            SpawnDirections.EAST => new Vector3(position.x + _orthographicSize + 10f,
+                Random.Range(-_orthographicSize, _orthographicSize), 0f),
+            SpawnDirections.NORTH => new Vector3(Random.Range(-_orthographicSize, _orthographicSize),
+                _orthographicSize * camera.aspect + 10f, 0f),
+            _ => new Vector3(Random.Range(-_orthographicSize, _orthographicSize),
+                -_orthographicSize * camera.aspect - 10f, 0f)
         };
     }
 

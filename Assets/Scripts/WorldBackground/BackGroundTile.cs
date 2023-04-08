@@ -6,6 +6,6 @@ public class BackGroundTile : MonoBehaviour
 
     private void Start()
     {
-        GetComponentInParent<WorldBackground>().AddTile(gameObject,tilePosition);
+        GetComponentInParent<WorldBackground>().AddTile(gameObject, tilePosition);
     }
 }
