@@ -30,15 +30,13 @@ public class PlayerWeapons : MonoBehaviour
         }
         else if (upgradeData is WeaponData weaponData)
         {
-            AddWeapon(weaponData.weaponObject, weaponData.upgradeIndex);
-        }
-
-        else if (upgradeData is WeaponUpgradeData weaponUpgradeData)
-        {
-            int modifyingWeapon = _weaponSystems.FindIndex(x => x.WeaponId == weaponUpgradeData.upgradeIndex);
-            _weaponSystems[modifyingWeapon].Stop();
-            _weaponSystems.RemoveAt(modifyingWeapon);
-            AddWeapon(weaponUpgradeData.UpgradedWeaponObject, weaponUpgradeData.upgradeIndex);
+            int modifyingWeapon = _weaponSystems.FindIndex(x => x.WeaponId == weaponData.upgradeIndex);
+            if (modifyingWeapon != -1)
+            {
+                _weaponSystems[modifyingWeapon].Stop();
+                _weaponSystems.RemoveAt(modifyingWeapon);
+            }
+            AddWeapon(weaponData);
         }
     }
 
@@ -51,12 +49,12 @@ public class PlayerWeapons : MonoBehaviour
     }
 
 
-    public void AddWeapon(GameObject weaponObject, int index)
+    public void AddWeapon(WeaponData weaponObject)
     {
-        GameObject instantiatedWeapon = Instantiate(weaponObject, transform.position, Quaternion.identity);
+        GameObject instantiatedWeapon = Instantiate(weaponObject.weaponObject, transform.position, Quaternion.identity);
         instantiatedWeapon.transform.parent = gameObject.transform;
         IWeaponSystem weaponSystemToAdd = (IWeaponSystem) instantiatedWeapon.GetComponent(typeof(IWeaponSystem));
-        weaponSystemToAdd.WeaponId = index;
+        weaponSystemToAdd.WeaponId = weaponObject.upgradeIndex;
         _weaponSystems.Add(weaponSystemToAdd);
         weaponSystemToAdd.Arm(_speedEnhancements, _powerEnhancements, _areaEnhancements);
     }

@@ -16,5 +16,5 @@ MonoBehaviour:
   upgradeName: Sinus
   upgradeDescription: It move like a sin function
   upgradeImage: {fileID: 21300000, guid: 6ebe9ab612d0ec646a7e7cb81e3d4f98, type: 3}
-  nextUpgrade: {fileID: 11400000, guid: eee9225d09f25e64b976ec231b3f2d24, type: 2}
+  nextUpgrade: {fileID: 11400000, guid: 8fc4e8e166c53084496b3c0c7c38040f, type: 2}
   weaponObject: {fileID: 5892690902659690379, guid: 7db3549e0d1dc2b4eb4b25036eefe9a0, type: 3}
