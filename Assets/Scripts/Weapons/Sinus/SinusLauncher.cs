@@ -1,40 +1,44 @@
 using System.Collections;
 using UnityEngine;
 
-public class SinusLauncher : MonoBehaviour, IWeaponSystem
+public class SinusLauncher : IWeaponSystem
 {
     [SerializeField] public SinusBullet sinBullet;
     private PlayerInput _playerInput;
+    private Coroutine _spawningBulletCoroutine;
 
     public void Awake()
     {
         _playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
-        Arm();
     }
 
-    public void Upgrade(float area, float power, float speed)
+    public override void Arm(float speedEnhancements, float powerEnhancements, float areaEnhancements)
     {
-        //  sinBullet.Upgrade(area, power, speed);
+        _spawningBulletCoroutine =
+            StartCoroutine(SpawnSinBullet(speedEnhancements, powerEnhancements, areaEnhancements));
     }
 
-    public void Arm()
-    {
-        StartCoroutine(nameof(SpawnSinBullet));
-    }
-
-    private IEnumerator SpawnSinBullet()
+    private IEnumerator SpawnSinBullet(float speedEnhancements, float powerEnhancements, float areaEnhancements)
     {
         while (true)
         {
             SinusBullet instantiatedBullet =
                 Instantiate(sinBullet, transform.position, _playerInput.Rotation, gameObject.transform);
+            instantiatedBullet.UpgradeAll(speedEnhancements, powerEnhancements, areaEnhancements);
             yield return new WaitForSeconds(2);
         }
     }
 
 
-    public void Stop()
+    public override void Stop()
     {
-        StopCoroutine(nameof(SpawnSinBullet));
+        Destroy(gameObject);
+        StopCoroutine(_spawningBulletCoroutine);
+    }
+
+    public override void UpgradeAll(float speedEnhancements, float powerEnhancements, float areaEnhancements)
+    {
+        Stop();
+        Arm(speedEnhancements, powerEnhancements, areaEnhancements);
     }
 }

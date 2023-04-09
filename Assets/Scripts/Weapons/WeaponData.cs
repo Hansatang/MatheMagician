@@ -1,12 +1,11 @@
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Weapon", menuName = "Scriptable Objects/Weapons")]
-public class WeaponData : ScriptableObject
+namespace Weapons
 {
-    public int weaponIndex;
-    public string weaponName;
-    public string weaponDescription;
-    public float weaponDamage;
-    public Sprite weaponImage;
-    public GameObject weaponObject;
+    [CreateAssetMenu(fileName = "New Weapon", menuName = "Scriptable Objects/Upgrade/Weapons")]
+    public class WeaponData : UpgradeData
+    {
+        public GameObject weaponObject;
+    }
 }
