@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using Weapons;
+using Weapons.Circle;
 
 public class CircleBullet : MonoBehaviour
 {

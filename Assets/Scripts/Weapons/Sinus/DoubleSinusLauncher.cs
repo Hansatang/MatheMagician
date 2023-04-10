@@ -1,7 +1,10 @@
 using System.Collections;
+using Player;
 using UnityEngine;
+using Weapons;
+using Weapons.Sinus;
 
-public class DoubleSinusLauncher : IWeaponSystem
+public class DoubleSinusLauncher : WeaponSystem
 {
     [SerializeField] public SinusBullet sinBullet;
     private PlayerInput _playerInput;

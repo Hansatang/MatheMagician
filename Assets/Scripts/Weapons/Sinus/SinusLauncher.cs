@@ -1,7 +1,10 @@
 using System.Collections;
+using Player;
 using UnityEngine;
+using Weapons;
+using Weapons.Sinus;
 
-public class SinusLauncher : IWeaponSystem
+public class SinusLauncher : WeaponSystem
 {
     [SerializeField] public SinusBullet sinBullet;
     private PlayerInput _playerInput;
@@ -33,7 +36,6 @@ public class SinusLauncher : IWeaponSystem
     public override void Stop()
     {
         Destroy(gameObject);
-        StopCoroutine(_spawningBulletCoroutine);
     }
 
     public override void UpgradeAll(float speedEnhancements, float powerEnhancements, float areaEnhancements)
