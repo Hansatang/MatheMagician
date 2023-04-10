@@ -245,6 +245,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a08a00af451ef949850a6d565e07167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  frequency: 5
-  magnitude: 0.5

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea3f9735cb244cbcb6105a02369779c9, type: 3}
-  m_Name: Speed Enhancement
+  m_Name: Power Enhancement
   m_EditorClassIdentifier: 
-  upgradeIndex: 11
-  upgradeName: Speed
-  upgradeDescription: Incease the speed by 20%
-  upgradeImage: {fileID: 21300000, guid: 2dc54d0e5f639ff419cc7ff535de3a0f, type: 3}
+  upgradeIndex: 12
+  upgradeName: Power
+  upgradeDescription: Increase the power by 20%
+  upgradeImage: {fileID: 21300000, guid: f4c4dd8db878acb46bb981bc35d908ce, type: 3}
   nextUpgrade: {fileID: 11400000}
-  enhancementType: 1
+  enhancementType: 0
   enhancementMultiplier: 0.2

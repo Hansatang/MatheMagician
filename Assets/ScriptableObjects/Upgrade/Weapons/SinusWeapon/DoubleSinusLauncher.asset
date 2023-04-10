@@ -18,3 +18,6 @@ MonoBehaviour:
   upgradeImage: {fileID: 0}
   nextUpgrade: {fileID: 0}
   weaponObject: {fileID: 5892690902659690379, guid: 453e1d5d01743334daeea827c15a6b0d, type: 3}
+  speed: 5
+  area: 0.5
+  power: 2

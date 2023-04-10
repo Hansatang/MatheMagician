@@ -1,5 +1,5 @@
+using Managers;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace MainMenuScripts
 {
@@ -7,7 +7,7 @@ namespace MainMenuScripts
     {
         public void Play()
         {
-            SceneManager.LoadScene((int) Scenes.GameScene);
+            UnityEngine.SceneManagement.SceneManager.LoadScene((int) Scenes.GameScene);
         }
 
         public void Quit()

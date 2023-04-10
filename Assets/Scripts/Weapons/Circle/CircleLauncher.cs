@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Weapons.Circle
@@ -6,22 +7,23 @@ namespace Weapons.Circle
     {
         [SerializeField] public CircleBullet circleBullet;
 
-        public override void Arm(float speedEnhancements, float powerEnhancements, float areaEnhancements)
+        public override void Arm()
         {
             CircleBullet instantiatedBullet = Instantiate(circleBullet, transform.parent.position, Quaternion.identity,
                 gameObject.transform);
             circleBullet = instantiatedBullet;
-            circleBullet.UpgradeAll(speedEnhancements, powerEnhancements, areaEnhancements);
+            circleBullet.SetStatistics(speed, power, area);
         }
 
-        public void Stop()
+        public override void Stop()
         {
             circleBullet.Stop();
         }
 
         public override void UpgradeAll(float speedEnhancements, float powerEnhancements, float areaEnhancements)
         {
-            circleBullet.UpgradeAll(speedEnhancements, powerEnhancements, areaEnhancements);
+            base.UpgradeAll(speedEnhancements,  powerEnhancements, areaEnhancements);
+            circleBullet.SetStatistics(speed, power, area);
         }
     }
 }

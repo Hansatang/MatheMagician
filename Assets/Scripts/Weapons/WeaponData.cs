@@ -6,5 +6,8 @@ namespace Weapons
     public class WeaponData : UpgradeData
     {
         public GameObject weaponObject;
+        public float speed;
+        public float area;
+        public int power;
     }
 }

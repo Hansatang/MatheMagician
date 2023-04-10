@@ -25,7 +25,7 @@ namespace GameSceneScripts
         {
             Vector3 pos = player.transform.position;
             transform.position = new Vector3(pos.x, pos.y, -10);
-            if (Input.mouseScrollDelta.y != 0)
+            if (Input.mouseScrollDelta.y != 0 && !Managers.GameManager.GamePaused)
             {
                 _targetZoom -= Input.mouseScrollDelta.y * sensitivity;
                 _targetZoom = Mathf.Clamp(_targetZoom, maxZoom, minZoom);
