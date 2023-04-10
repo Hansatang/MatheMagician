@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace GameManager
+namespace Managers
 {
     [CreateAssetMenu(fileName = "Wave", menuName = "ScriptableObjects/Waves", order = 1)]
     public class Wave : ScriptableObject

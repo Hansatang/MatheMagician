@@ -6,6 +6,8 @@ namespace Player
     {
         public float Horizontal { get; private set; }
         public float Vertical { get; private set; }
+        public float LastHorizontal { get; private set; }
+        public float LastVertical { get; private set; }
 
         public Quaternion Rotation { get; private set; }
 
@@ -13,6 +15,15 @@ namespace Player
         {
             Horizontal = GetHorizontalAxisValue();
             Vertical = GetVerticalAxisValue();
+
+            if (Horizontal == 1 || Horizontal == -1 || Vertical == 1 || Vertical == -1)
+            {
+                LastHorizontal = Horizontal;
+                LastVertical = Vertical;
+            }
+
+       
+
             Rotation = GetRotation();
         }
 
@@ -24,6 +35,16 @@ namespace Player
         private float GetVerticalAxisValue()
         {
             return Input.GetAxis("Vertical");
+        }
+
+        private float GetLastHorizontalAxisValue()
+        {
+            return LastHorizontal;
+        }
+
+        private float GetLastVerticalAxisValue()
+        {
+            return LastVertical;
         }
 
         private Quaternion GetRotation()

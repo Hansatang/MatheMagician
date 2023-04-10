@@ -1,13 +1,12 @@
-using System;
 using System.Collections;
-using TMPro;
 using UnityEngine;
 
-namespace GameManager
+namespace Managers
 {
     public class GameManager : MonoBehaviour
     {
-        public TextMeshProUGUI clock;
+        public GameUI gameUI;
+        public static bool GamePaused;
         public int gameTime;
 
         public void Start()
@@ -28,8 +27,15 @@ namespace GameManager
         private void TimeCount()
         {
             gameTime += 1;
-            TimeSpan t = TimeSpan.FromSeconds(gameTime);
-            clock.text = $"{t.Minutes:D2}:{t.Seconds:D2}";
+            gameUI.UpdateClock(gameTime);
+        }
+
+        void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                GamePaused = !GamePaused;
+            }
         }
     }
 }

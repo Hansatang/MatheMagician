@@ -1,10 +1,10 @@
 using UnityEngine;
 
-namespace GameManager
+namespace Managers
 {
     public class WaveSpawner : MonoBehaviour
     {
-        [SerializeField] public Camera camera;
+        [SerializeField] public Camera cam;
         public Wave[] waves;
 
         private Wave _currentWave;
@@ -19,7 +19,7 @@ namespace GameManager
         {
             _currentWave = waves[_currentWaveIndex];
             _timeBetweenSpawns = _currentWave.TimeBeforeThisWave;
-            _orthographicSize = camera.orthographicSize;
+            _orthographicSize = cam.orthographicSize;
         }
 
         private void Update()
@@ -51,7 +51,7 @@ namespace GameManager
 
         private Vector3 SelectSpawningPoint()
         {
-            var position = camera.transform.position;
+            var position = cam.transform.position;
 
             return _currentWave.AttackDirections[Random.Range(0, _currentWave.AttackDirections.Length)] switch
             {
@@ -60,9 +60,9 @@ namespace GameManager
                 SpawnDirections.East => new Vector3(position.x + _orthographicSize + 10f,
                     Random.Range(-_orthographicSize, _orthographicSize), 0f),
                 SpawnDirections.North => new Vector3(Random.Range(-_orthographicSize, _orthographicSize),
-                    _orthographicSize * camera.aspect + 10f, 0f),
+                    _orthographicSize * cam.aspect + 10f, 0f),
                 _ => new Vector3(Random.Range(-_orthographicSize, _orthographicSize),
-                    -_orthographicSize * camera.aspect - 10f, 0f)
+                    -_orthographicSize * cam.aspect - 10f, 0f)
             };
         }
 

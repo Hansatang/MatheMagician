@@ -1,4 +1,4 @@
-﻿namespace GameManager
+﻿namespace Managers
 {
     public enum SpawnDirections
     {

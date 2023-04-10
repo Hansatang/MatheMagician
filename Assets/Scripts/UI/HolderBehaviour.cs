@@ -11,7 +11,7 @@ namespace GameManager
         public Image image;
         public TextMeshProUGUI text;
         private UpgradeData _upgrade;
-        public UnityEvent<UpgradeData> selectEvent;
+        public UnityEvent<int> selectEvent;
 
     
         public void Populate(ScriptableObject serializableObject)
@@ -23,7 +23,7 @@ namespace GameManager
 
         public void AddUpgrade()
         {
-            selectEvent.Invoke(_upgrade);
+            selectEvent.Invoke(_upgrade.upgradeIndex);
         }
     }
 }
