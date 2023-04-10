@@ -1,48 +1,51 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseController : MonoBehaviour
+namespace GameManager
 {
-    public static bool gamePaused;
-    public GameObject pausePanel;
-
-    // Update is called once per frame
-    void Update()
+    public class PauseController : MonoBehaviour
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        public static bool gamePaused;
+        public GameObject pausePanel;
+
+        // Update is called once per frame
+        void Update()
         {
-            if (gamePaused)
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                Resume();
-            }
-            else
-            {
-                Pause();
+                if (gamePaused)
+                {
+                    Resume();
+                }
+                else
+                {
+                    Pause();
+                }
             }
         }
-    }
 
-    private void Pause()
-    {
-        pausePanel.SetActive(true);
-        Time.timeScale = 0f;
-        gamePaused = true;
-    }
+        private void Pause()
+        {
+            pausePanel.SetActive(true);
+            Time.timeScale = 0f;
+            gamePaused = true;
+        }
 
-    public void Resume()
-    {
-        pausePanel.SetActive(false);
-        Time.timeScale = 1f;
-        gamePaused = false;
-    }
+        public void Resume()
+        {
+            pausePanel.SetActive(false);
+            Time.timeScale = 1f;
+            gamePaused = false;
+        }
 
-    public void Menu()
-    {
-        SceneManager.LoadScene((int) Scenes.MainMenuScene);
-    }
+        public void Menu()
+        {
+            SceneManager.LoadScene((int) Scenes.MainMenuScene);
+        }
 
-    public void Quit()
-    {
-        Application.Quit();
+        public void Quit()
+        {
+            Application.Quit();
+        }
     }
 }

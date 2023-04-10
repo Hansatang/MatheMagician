@@ -3,30 +3,33 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+namespace GameManager
 {
-    public TextMeshProUGUI clock;
-    public int gameTime;
-
-    public void Start()
+    public class GameManager : MonoBehaviour
     {
-        StartCoroutine(Time());
-    }
+        public TextMeshProUGUI clock;
+        public int gameTime;
 
-    private IEnumerator Time()
-    {
-        while (true)
+        public void Start()
         {
-            TimeCount();
-
-            yield return new WaitForSeconds(1);
+            StartCoroutine(Time());
         }
-    }
 
-    private void TimeCount()
-    {
-        gameTime += 1;
-        TimeSpan t = TimeSpan.FromSeconds(gameTime);
-        clock.text = $"{t.Minutes:D2}:{t.Seconds:D2}";
+        private IEnumerator Time()
+        {
+            while (true)
+            {
+                TimeCount();
+
+                yield return new WaitForSeconds(1);
+            }
+        }
+
+        private void TimeCount()
+        {
+            gameTime += 1;
+            TimeSpan t = TimeSpan.FromSeconds(gameTime);
+            clock.text = $"{t.Minutes:D2}:{t.Seconds:D2}";
+        }
     }
 }

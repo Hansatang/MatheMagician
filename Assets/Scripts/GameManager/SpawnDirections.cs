@@ -1,7 +1,10 @@
-﻿public enum SpawnDirections
+﻿namespace GameManager
 {
-    WEST,
-    EAST,
-    NORTH,
-    SOUTH
+    public enum SpawnDirections
+    {
+        West,
+        East,
+        North,
+        South
+    }
 }

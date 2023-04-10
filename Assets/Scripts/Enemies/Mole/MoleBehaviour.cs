@@ -1,27 +1,30 @@
 using UnityEngine;
 
-public class MoleBehaviour : MonoBehaviour
+namespace Enemies.Mole
 {
-    private GameObject _player;
-    private float _speed = 2.0f;
-
-    void Start()
+    public class MoleBehaviour : Enemy
     {
-        _player = GameObject.FindGameObjectWithTag("Player");
-    }
+        private GameObject _player;
+        private float _speed = 2.0f;
 
-    void Update()
-    {
-        transform.position = Vector2.MoveTowards(MolePosition(), TargetPosition(), _speed * Time.deltaTime);
-    }
+        void Start()
+        {
+            _player = GameObject.FindGameObjectWithTag("Player");
+        }
 
-    public Vector3 MolePosition()
-    {
-        return transform.position;
-    }
+        void Update()
+        {
+            transform.position = Vector2.MoveTowards(MolePosition(), TargetPosition(), _speed * Time.deltaTime);
+        }
 
-    public Vector3 TargetPosition()
-    {
-        return _player.transform.position;
+        public Vector3 MolePosition()
+        {
+            return transform.position;
+        }
+
+        public Vector3 TargetPosition()
+        {
+            return _player.transform.position;
+        }
     }
 }

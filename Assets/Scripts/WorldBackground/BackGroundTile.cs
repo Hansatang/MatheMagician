@@ -1,11 +1,14 @@
 using UnityEngine;
 
-public class BackGroundTile : MonoBehaviour
+namespace WorldBackground
 {
-    [SerializeField] private Vector2Int tilePosition;
-
-    private void Start()
+    public class BackGroundTile : MonoBehaviour
     {
-        GetComponentInParent<WorldBackground>().AddTile(gameObject, tilePosition);
+        [SerializeField] private Vector2Int tilePosition;
+
+        private void Start()
+        {
+            GetComponentInParent<BackgroundWorld>().AddTile(gameObject, tilePosition);
+        }
     }
 }

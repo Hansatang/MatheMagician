@@ -1,29 +1,32 @@
 using UnityEngine;
 
-public class AnimateMole : MonoBehaviour
+namespace Enemies.Mole
 {
-    private MoleBehaviour _moleBehaviour;
-    public Animator anim;
-    public float hf;
-    public float vf;
-    private static readonly int Horizontal = Animator.StringToHash("Horizontal");
-    private static readonly int Vertical = Animator.StringToHash("Vertical");
-
-    void Start()
+    public class AnimateMole : MonoBehaviour
     {
-        anim = GetComponent<Animator>();
-        _moleBehaviour = GetComponentInParent<MoleBehaviour>();
-    }
+        private MoleBehaviour _moleBehaviour;
+        private Animator _anim;
+        public float hf;
+        public float vf;
+        private static readonly int Horizontal = Animator.StringToHash("Horizontal");
+        private static readonly int Vertical = Animator.StringToHash("Vertical");
 
-    void Update()
-    {
-        //Logic for getting the distance between this GameObject and player and transforming it into the Vertical and Horizontal Axis values (between -1 an 1)
-        hf = (Mathf.InverseLerp(-10, 10, _moleBehaviour.MolePosition().x - _moleBehaviour.TargetPosition().x) - 0.5f) *
-             -2.0f;
-        vf = (Mathf.InverseLerp(-10, 10, _moleBehaviour.MolePosition().y - _moleBehaviour.TargetPosition().y) - 0.5f) *
-             -2.0f;
+        void Start()
+        {
+            _anim = GetComponent<Animator>();
+            _moleBehaviour = GetComponentInParent<MoleBehaviour>();
+        }
 
-        anim.SetFloat(Horizontal, hf);
-        anim.SetFloat(Vertical, vf);
+        void Update()
+        {
+            //Logic for getting the distance between this GameObject and player and transforming it into the Vertical and Horizontal Axis values (between -1 an 1)
+            hf = (Mathf.InverseLerp(-10, 10, _moleBehaviour.MolePosition().x - _moleBehaviour.TargetPosition().x) - 0.5f) *
+                 -2.0f;
+            vf = (Mathf.InverseLerp(-10, 10, _moleBehaviour.MolePosition().y - _moleBehaviour.TargetPosition().y) - 0.5f) *
+                 -2.0f;
+
+            _anim.SetFloat(Horizontal, hf);
+            _anim.SetFloat(Vertical, vf);
+        }
     }
 }

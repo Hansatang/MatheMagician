@@ -2,24 +2,28 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using Weapons;
 
-public class HolderBehaviour : MonoBehaviour
+namespace GameManager
 {
-    public Image image;
-    public TextMeshProUGUI text;
-    private UpgradeData _upgrade;
-    public UnityEvent<UpgradeData> selectEvent;
+    public class HolderBehaviour : MonoBehaviour
+    {
+        public Image image;
+        public TextMeshProUGUI text;
+        private UpgradeData _upgrade;
+        public UnityEvent<UpgradeData> selectEvent;
 
     
-    public void Populate(ScriptableObject serializableObject)
-    {
-        _upgrade = (UpgradeData) serializableObject;
-        image.sprite = _upgrade.upgradeImage;
-        text.text = _upgrade.upgradeDescription;
-    }
+        public void Populate(ScriptableObject serializableObject)
+        {
+            _upgrade = (UpgradeData) serializableObject;
+            image.sprite = _upgrade.upgradeImage;
+            text.text = _upgrade.upgradeDescription;
+        }
 
-    public void AddUpgrade()
-    {
-        selectEvent.Invoke(_upgrade);
+        public void AddUpgrade()
+        {
+            selectEvent.Invoke(_upgrade);
+        }
     }
 }
