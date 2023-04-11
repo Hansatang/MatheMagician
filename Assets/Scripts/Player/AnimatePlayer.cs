@@ -27,7 +27,7 @@ namespace Player
             vf = _playerInput.Vertical;
 
 
-            if (hf is >= 0.2f or <= -0.2f || vf is >= 0.2f or <= -0.2f)
+            if (hf is >= 0.1f or <= -0.1f || vf is >= 0.1f or <= -0.1f)
             {
                 _anim.SetFloat(HorizontalX, hf);
                 _anim.SetFloat(VerticalY, vf);
