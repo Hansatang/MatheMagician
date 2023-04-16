@@ -10,6 +10,5 @@ namespace Weapons
         public string upgradeDescription;
         public Sprite upgradeImage;
         public UpgradeData nextUpgrade;
-   
     }
 }

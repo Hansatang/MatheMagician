@@ -8,7 +8,7 @@ namespace Weapons.Sinus
     {
         [SerializeField] public SinusBullet sinBullet;
         private PlayerInput _playerInput;
-        
+
 
         public void Awake()
         {
@@ -17,7 +17,7 @@ namespace Weapons.Sinus
 
         public override void Arm()
         {
-           StartCoroutine(SpawnSinBullet());
+            StartCoroutine(SpawnSinBullet());
         }
 
         private IEnumerator SpawnSinBullet()

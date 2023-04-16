@@ -21,9 +21,9 @@ namespace Weapons
 
         public virtual void UpgradeAll(float speedEnhancements, float powerEnhancements, float areaEnhancements)
         {
-            speed = (float) Math.Ceiling(speed *speedEnhancements);
-            power = (int) Math.Ceiling(power *powerEnhancements);
-            area = (float) Math.Ceiling(area *areaEnhancements);
+            speed = (float) Math.Ceiling(speed * speedEnhancements);
+            power = (int) Math.Ceiling(power * powerEnhancements);
+            area = (float) Math.Ceiling(area * areaEnhancements);
         }
     }
 }

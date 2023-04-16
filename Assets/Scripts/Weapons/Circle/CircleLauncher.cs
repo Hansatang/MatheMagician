@@ -22,7 +22,7 @@ namespace Weapons.Circle
 
         public override void UpgradeAll(float speedEnhancements, float powerEnhancements, float areaEnhancements)
         {
-            base.UpgradeAll(speedEnhancements,  powerEnhancements, areaEnhancements);
+            base.UpgradeAll(speedEnhancements, powerEnhancements, areaEnhancements);
             circleBullet.SetStatistics(speed, power, area);
         }
     }

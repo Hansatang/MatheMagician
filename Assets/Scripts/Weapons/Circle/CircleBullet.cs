@@ -28,7 +28,7 @@ namespace Weapons.Circle
         {
             if (other.gameObject.CompareTag("Enemies"))
             {
-                other.gameObject.GetComponent<Enemy>().TakeDamage(_power);
+                other.gameObject.GetComponent<EntityHealth>().TakeDamage(_power);
             }
         }
 

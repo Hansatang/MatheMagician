@@ -20,9 +20,11 @@ namespace Enemies.Mole
         void Update()
         {
             //Logic for getting the distance between this GameObject and player and transforming it into the Vertical and Horizontal Axis values (between -1 an 1)
-            hf = (Mathf.InverseLerp(-10, 10, _moleBehaviour.MolePosition().x - _moleBehaviour.TargetPosition().x) - 0.5f) *
+            hf = (Mathf.InverseLerp(-10, 10, _moleBehaviour.MolePosition().x - _moleBehaviour.TargetPosition().x) -
+                  0.5f) *
                  -2.0f;
-            vf = (Mathf.InverseLerp(-10, 10, _moleBehaviour.MolePosition().y - _moleBehaviour.TargetPosition().y) - 0.5f) *
+            vf = (Mathf.InverseLerp(-10, 10, _moleBehaviour.MolePosition().y - _moleBehaviour.TargetPosition().y) -
+                  0.5f) *
                  -2.0f;
 
             _anim.SetFloat(Horizontal, hf);

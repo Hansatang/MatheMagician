@@ -5,13 +5,11 @@ namespace Enemies.Mole
     public class MoleBehaviour : Enemy
     {
         private GameObject _player;
-        [SerializeField] public EnemyData enemyData;
-        
+
+
         void Start()
         {
             _player = GameObject.FindGameObjectWithTag("Player");
-            Speed = enemyData.speed;
-            Health = enemyData.health;
         }
 
         void Update()

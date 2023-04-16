@@ -1,42 +1,31 @@
-﻿using System;
-using Managers;
+﻿using Managers;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Enemies
 {
     public abstract class Enemy : MonoBehaviour
     {
-        public PopUpManager popUpManager;
-        protected float Health;
+        [SerializeField] public EnemyData enemyData;
+        protected int Health;
         protected float Speed;
+        protected int Damage;
 
         private void Awake()
         {
-            popUpManager = FindObjectOfType<PopUpManager>();
+            Speed = enemyData.speed;
+            Health = enemyData.health;
+            Damage = enemyData.damage;
+            GetComponent<EntityHealth>().SetHealth(Health);
         }
 
-        /// <summary>
-        /// Method with logic for lowering health variable on collision, also passes info to show the damage pop ups
-        /// </summary>
-        public void TakeDamage(float damage)
+
+        public virtual void OnCollisionEnter2D(Collision2D other)
         {
-            popUpManager.ShowDamagePopUp(damage.ToString(), transform.position);
-            Debug.Log("Taking " + damage + " damage");
-            Health -= damage;
-            Debug.Log("Remaining health: " + Health);
-            if (Health <= 0)
+            if (other.gameObject.CompareTag("Player"))
             {
-                Die();
+                other.gameObject.GetComponent<EntityHealth>().TakeDamage(Damage);
+                Destroy(gameObject);
             }
-        }
-
-        /// <summary>
-        /// Destroys the object
-        /// </summary>
-        public void Die()
-        {
-            Destroy(gameObject);
         }
     }
 }
