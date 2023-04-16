@@ -6,7 +6,6 @@ namespace UI
 {
     public class LevelUpController : MonoBehaviour
     {
-        
         public HolderBehaviour firstHolder;
         public HolderBehaviour secondHolder;
         public HolderBehaviour thirdHolder;
@@ -20,7 +19,7 @@ namespace UI
             Time.timeScale = 0f;
         }
 
-        public void PopulateUI(ScriptableObject sOb1,ScriptableObject sOb2,ScriptableObject sOb3)
+        public void PopulateUI(ScriptableObject sOb1, ScriptableObject sOb2, ScriptableObject sOb3)
         {
             firstHolder.Populate(sOb1);
             secondHolder.Populate(sOb2);

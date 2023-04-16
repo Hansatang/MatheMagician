@@ -13,7 +13,7 @@ namespace GameManager
         private UpgradeData _upgrade;
         public UnityEvent<int> selectEvent;
 
-    
+
         public void Populate(ScriptableObject serializableObject)
         {
             _upgrade = (UpgradeData) serializableObject;
