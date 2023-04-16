@@ -12,7 +12,7 @@ namespace Managers
         //Upgrades Containers
         [SerializeField] private List<UpgradeData> possibleUpgrades = new();
         [SerializeField] private List<UpgradeData> chosenUpgrades = new();
-    
+
         //Necessary Components
         public LevelUpController levelUpController;
         public PlayerWeapons playerWeapons;

@@ -38,6 +38,7 @@ namespace Player
                     _weaponSystems[modifyingWeapon].Stop();
                     _weaponSystems.RemoveAt(modifyingWeapon);
                 }
+
                 CreateWeaponLauncher(weaponData);
             }
         }
@@ -53,7 +54,8 @@ namespace Player
 
         public void CreateWeaponLauncher(WeaponData weaponObject)
         {
-            GameObject instantiatedWeapon = Instantiate(weaponObject.weaponObject, transform.position, Quaternion.identity);
+            GameObject instantiatedWeapon =
+                Instantiate(weaponObject.weaponObject, transform.position, Quaternion.identity);
             instantiatedWeapon.transform.parent = gameObject.transform;
             WeaponSystem weaponSystemToAdd = (WeaponSystem) instantiatedWeapon.GetComponent(typeof(WeaponSystem));
             SetWeaponStatistics(weaponObject, weaponSystemToAdd);

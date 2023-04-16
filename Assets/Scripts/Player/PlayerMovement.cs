@@ -26,7 +26,13 @@ namespace Player
         private void MovePlayer()
         {
             _movementDirection = new Vector2(_playerInput.Horizontal, _playerInput.Vertical);
-            _playerBody.MovePosition(_playerBody.position + _movementDirection * (_movementSpeed * Time.fixedDeltaTime));
+            _playerBody.MovePosition(_playerBody.position +
+                                     _movementDirection * (_movementSpeed * Time.fixedDeltaTime));
+        }
+
+        public void SetSpeed(float characterDataCharacterSpeed)
+        {
+            _movementSpeed = characterDataCharacterSpeed;
         }
     }
 }

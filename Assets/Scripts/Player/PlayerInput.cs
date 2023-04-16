@@ -22,7 +22,6 @@ namespace Player
                 LastVertical = Vertical;
             }
 
-       
 
             Rotation = GetRotation();
         }

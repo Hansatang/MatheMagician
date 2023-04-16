@@ -4,7 +4,6 @@ namespace Managers
 {
     public class SceneManager : MonoBehaviour
     {
-
         public void StartGame(CharacterData characterData)
         {
             SelectedCharacter.selectedCharacter = characterData;
