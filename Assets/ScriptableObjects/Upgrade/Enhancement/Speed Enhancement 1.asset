@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3f9735cb244cbcb6105a02369779c9, type: 3}
+  m_Name: Speed Enhancement 1
+  m_EditorClassIdentifier: 
+  upgradeIndex: 3
+  upgradeName: Speed
+  upgradeDescription: Increase the speed by 10%
+  upgradeImage: {fileID: 21300000, guid: 384f096438e6ce64d8d0ce0cc29739c5, type: 3}
+  nextUpgrade:
+  - {fileID: 11400000, guid: c94c663054f5eca4fa4b0db4c9bb9886, type: 2}
+  enhancementType: 1
+  enhancementMultiplier: 0.1
