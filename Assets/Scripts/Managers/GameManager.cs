@@ -6,7 +6,7 @@ namespace Managers
     public class GameManager : MonoBehaviour
     {
         public GameUI gameUI;
-        public static bool GamePaused;
+ 
         public int gameTime;
 
         public void Start()
@@ -30,12 +30,6 @@ namespace Managers
             gameUI.UpdateClock(gameTime);
         }
 
-        void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                GamePaused = !GamePaused;
-            }
-        }
+       
     }
 }

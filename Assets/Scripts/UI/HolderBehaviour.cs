@@ -4,7 +4,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using Weapons;
 
-namespace GameManager
+namespace UI
 {
     public class HolderBehaviour : MonoBehaviour
     {

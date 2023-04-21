@@ -17,14 +17,6 @@ namespace Managers
         public LevelUpController levelUpController;
         public PlayerWeapons playerWeapons;
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                PopulateLevelUpOptions();
-            }
-        }
-
         /// <summary>
         /// Method for randomly selecting 3 upgrades, that are being used by the UI for selection
         /// </summary>
@@ -37,6 +29,7 @@ namespace Managers
 
             levelUpController.PopulateUI(possibleUpgrades[option1Index], possibleUpgrades[option2Index],
                 possibleUpgrades[option3Index]);
+            
         }
 
         /// <summary>
@@ -47,12 +40,18 @@ namespace Managers
             UpgradeData selected = possibleUpgrades.Find(x => x.upgradeIndex == upgradeDataIndex);
             if (selected.nextUpgrade != null)
             {
-                possibleUpgrades.Add(selected.nextUpgrade);
+                possibleUpgrades.AddRange(selected.nextUpgrade);
             }
 
             chosenUpgrades.Add(selected);
             possibleUpgrades.Remove(selected);
             playerWeapons.AddUpgrade(selected);
+        }
+
+        public void LevelUp()
+        {
+            PopulateLevelUpOptions();
+            PauseManager.LevelUpPaused = true;
         }
     }
 }

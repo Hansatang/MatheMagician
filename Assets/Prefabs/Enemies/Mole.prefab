@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4284501993928441445}
   - component: {fileID: 4303599971381973377}
   - component: {fileID: 6867874658747105874}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mole
   m_TagString: Enemies
   m_Icon: {fileID: 0}
@@ -111,6 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 0
   currentHealth: 0
+  experienceOrb: {fileID: 5285708265491337852, guid: fc66a1447a2d54647b8a69a3e786720f, type: 3}
 --- !u!1 &2907665466939775500
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,7 +124,7 @@ GameObject:
   - component: {fileID: 6576285468988712379}
   - component: {fileID: 5784882418567693295}
   - component: {fileID: 4475093960033041753}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,9 +283,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4877215595464302264, guid: 157a8988fd04cd741bd21af8aee8ac5a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5511308401295999410, guid: 157a8988fd04cd741bd21af8aee8ac5a, type: 3}
       propertyPath: m_Name
       value: HealthBarBaseContainer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5511308401295999410, guid: 157a8988fd04cd741bd21af8aee8ac5a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5775766629044996785, guid: 157a8988fd04cd741bd21af8aee8ac5a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7282292583574744901, guid: 157a8988fd04cd741bd21af8aee8ac5a, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7282292583574744901, guid: 157a8988fd04cd741bd21af8aee8ac5a, type: 3}
       propertyPath: m_IsActive
