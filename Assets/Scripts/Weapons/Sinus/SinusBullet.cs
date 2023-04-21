@@ -6,7 +6,7 @@ namespace Weapons.Sinus
     public class SinusBullet : MonoBehaviour
     {
         //Weapon specific Stats
-        private float _frequency = 5f; // Speed of sine movement
+        private float _frequency = 10f; // Speed of sine movement
         private float _magnitude; // Size of sine movement
 
         //Weapon general Stats

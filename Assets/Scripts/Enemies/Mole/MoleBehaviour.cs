@@ -6,7 +6,6 @@ namespace Enemies.Mole
     {
         private GameObject _player;
 
-
         void Start()
         {
             _player = GameObject.FindGameObjectWithTag("Player");

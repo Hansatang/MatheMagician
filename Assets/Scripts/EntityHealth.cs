@@ -1,15 +1,13 @@
-﻿using UI;
-using UnityEngine;
+﻿using UnityEngine;
 
 public abstract class EntityHealth : MonoBehaviour
 {
     public int maxHealth;
     public int currentHealth;
-    private HealthBarBase _healthBarBase;
 
-    public void SetHealth(int health)
+
+    public virtual void SetHealth(int health)
     {
-        _healthBarBase = GetComponentInChildren<HealthBarBase>();
         maxHealth = health;
         currentHealth = health;
     }
@@ -21,10 +19,10 @@ public abstract class EntityHealth : MonoBehaviour
     {
         Debug.Log("Taking " + damageTaken + " damage");
         currentHealth -= damageTaken;
-        _healthBarBase.SetHealth(currentHealth, maxHealth);
         Debug.Log("Remaining health: " + currentHealth);
         if (currentHealth <= 0)
         {
+            Debug.Log(currentHealth+"LOL");
             Die();
         }
     }

@@ -1,5 +1,4 @@
-﻿using Managers;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Enemies
 {
@@ -9,6 +8,7 @@ namespace Enemies
         protected int Health;
         protected float Speed;
         protected int Damage;
+        private readonly float _magnitude = 2500;
 
         private void Awake()
         {
@@ -24,7 +24,10 @@ namespace Enemies
             if (other.gameObject.CompareTag("Player"))
             {
                 other.gameObject.GetComponent<EntityHealth>().TakeDamage(Damage);
-                Destroy(gameObject);
+                var force = other.collider.transform.position - transform.position;
+                Debug.Log("Pain" + force);
+                force.Normalize();
+                other.gameObject.GetComponent<Rigidbody2D>().AddForce(force * _magnitude);
             }
         }
     }

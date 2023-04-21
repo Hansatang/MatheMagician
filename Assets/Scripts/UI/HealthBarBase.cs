@@ -2,16 +2,22 @@ using UnityEngine;
 
 namespace UI
 {
-    public class HealthBarBase : MonoBehaviour
+    public class HealthBarBase : HealthBar
     {
-        [SerializeField] Transform bar;
+        [SerializeField] private Transform bar;
         public GameObject healthSprite;
+        private int _maximumHealth;
 
-        public void SetHealth(int currentHealth, int maxHealth)
+        public override void SetHealth(int currentHealth)
         {
             healthSprite.SetActive(true);
-            float proportion = (float) currentHealth / maxHealth;
+            float proportion = (float) currentHealth / _maximumHealth;
             bar.transform.localScale = new Vector3(proportion, 1, 1);
+        }
+        
+        public override void SetMaxHealth(int maxHealth)
+        {
+            _maximumHealth = maxHealth;
         }
     }
 }
