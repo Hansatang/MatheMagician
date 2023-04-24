@@ -6,24 +6,51 @@ namespace UI
 {
     public class PlayerHealthBar : HealthBar
     {
-        public Slider slider;
         public Gradient gradient;
-
-        public Image fill;
+        public Image healthBar;
         public TextMeshProUGUI healthText;
-    
+        private float _fillValue = 10, _maxFillValue = 10;
+        private float _currentHealthValue;
+        private float _lerpSpeed;
+
+        private void Update()
+        {
+            _lerpSpeed = 2f * Time.deltaTime;
+            if (_fillValue > _maxFillValue)
+            {
+                _fillValue = _maxFillValue;
+            }
+
+            _currentHealthValue = _fillValue / _maxFillValue;
+            FillHealthBar();
+            ColorChanger();
+        }
+
+        private void FillHealthBar()
+        {
+            healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, _currentHealthValue, _lerpSpeed);
+        }
+
+        private void ColorChanger()
+        {
+            healthBar.color = gradient.Evaluate(_currentHealthValue);
+        }
+
         public override void SetHealth(int health)
         {
-            slider.value = health;
-            healthText.text = slider.value + "/" + slider.maxValue;
-            fill.color = gradient.Evaluate(slider.value / slider.maxValue);
+            _fillValue = health;
+            healthText.text = _fillValue.ToString();
         }
 
         public override void SetMaxHealth(int maxHealth)
         {
-            slider.maxValue = maxHealth;
-            healthText.text = slider.maxValue + "/" + slider.maxValue;
-            fill.color = gradient.Evaluate(1f);
+            _maxFillValue = maxHealth;
+            healthText.text = _maxFillValue.ToString();
+        }
+
+        public float GetHealth()
+        {
+            return _currentHealthValue;
         }
     }
 }
