@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16deb351bcd545cf9b22cde338d69ba2, type: 3}
   m_Name: DoubleSinusLauncher
   m_EditorClassIdentifier: 
-  upgradeIndex: 3
+  upgradeIndex: 101
   upgradeName: Double Sinus
   upgradeDescription: Double the trouble
-  upgradeImage: {fileID: 0}
-  nextUpgrade: {fileID: 0}
+  upgradeImage: {fileID: 21300000, guid: a4452197917f106499fe55c7b5705314, type: 3}
+  nextUpgrade:
+  - {fileID: 0}
   weaponObject: {fileID: 5892690902659690379, guid: 453e1d5d01743334daeea827c15a6b0d, type: 3}
   speed: 5
   area: 0.5

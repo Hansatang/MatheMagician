@@ -22,8 +22,9 @@ public class PlayerExperience : MonoBehaviour
         {
             _currentExp -= _nextLevelExp;
             _nextLevelExp *= 2;
-            levelUpManager.LevelUp();
             playerExpBar.SetNextLevelExperience(_nextLevelExp);
+            levelUpManager.LevelUp();
         }
+        playerExpBar.SetCurrentExperience(_currentExp);
     }
 }
