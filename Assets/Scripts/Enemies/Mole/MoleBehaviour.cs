@@ -13,7 +13,12 @@ namespace Enemies.Mole
 
         private void FixedUpdate()
         {
-            EnemyBody.velocity = (TargetPosition() - MolePosition()).normalized * Speed;
+            //  = (TargetPosition() - MolePosition()).normalized * Speed;
+        }
+
+        public void Move(Vector2 moveDirection)
+        {
+            EnemyBody.velocity = moveDirection * Speed;
         }
 
 
