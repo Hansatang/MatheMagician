@@ -5,6 +5,7 @@ namespace Enemies
     public abstract class Enemy : MonoBehaviour
     {
         [SerializeField] public EnemyData enemyData;
+        protected Rigidbody2D EnemyBody;
         protected int Health;
         protected float Speed;
         protected int Damage;
@@ -15,6 +16,7 @@ namespace Enemies
             Speed = enemyData.speed;
             Health = enemyData.health;
             Damage = enemyData.damage;
+            EnemyBody = GetComponent<Rigidbody2D>();
             GetComponent<EntityHealth>().SetHealth(Health);
         }
 

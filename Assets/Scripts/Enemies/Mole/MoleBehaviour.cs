@@ -11,10 +11,11 @@ namespace Enemies.Mole
             _player = GameObject.FindGameObjectWithTag("Player");
         }
 
-        void Update()
+        private void FixedUpdate()
         {
-            transform.position = Vector2.MoveTowards(MolePosition(), TargetPosition(), Speed * Time.deltaTime);
+            EnemyBody.velocity = (TargetPosition() - MolePosition()).normalized * Speed;
         }
+
 
         public Vector3 MolePosition()
         {
