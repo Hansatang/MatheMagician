@@ -7,8 +7,8 @@ namespace Weapons.Sinus
     public class SinusLauncher : WeaponSystem
     {
         [SerializeField] public SinusBullet sinBullet;
+        private readonly float _attackDelay = 1.5f;
         private PlayerInput _playerInput;
-
 
         public void Awake()
         {
@@ -24,13 +24,12 @@ namespace Weapons.Sinus
         {
             while (true)
             {
-                SinusBullet instantiatedBullet =
+                var instantiatedBullet =
                     Instantiate(sinBullet, transform.position, _playerInput.Rotation, gameObject.transform);
-                instantiatedBullet.SetStatistics(speed, power, area);
-                yield return new WaitForSeconds(2);
+                instantiatedBullet.SetStatistics(speedEnhanced, powerEnhanced, areaEnhanced);
+                yield return new WaitForSeconds(_attackDelay);
             }
         }
-
 
         public override void Stop()
         {

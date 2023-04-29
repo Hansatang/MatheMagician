@@ -1,15 +1,16 @@
-using Enemies;
 using UnityEngine;
 
 namespace Weapons.Circle
 {
     public class CircleBullet : MonoBehaviour
     {
+        private float _angle;
+        private float _area;
+
+        private int _power;
+
         //Weapon general Stats
         private float _speed;
-        private float _area;
-        private int _power;
-        private float _angle;
 
         private void Update()
         {
@@ -19,17 +20,15 @@ namespace Weapons.Circle
             transform.position = transform.parent.position + offset;
         }
 
-        public void Stop()
-        {
-            Destroy(gameObject);
-        }
-
         private void OnCollisionEnter2D(Collision2D other)
         {
             if (other.gameObject.CompareTag("Enemies"))
-            {
                 other.gameObject.GetComponent<EntityHealth>().TakeDamage(_power);
-            }
+        }
+
+        public void Stop()
+        {
+            Destroy(gameObject);
         }
 
         public void SetStatistics(float speed, int power, float area)

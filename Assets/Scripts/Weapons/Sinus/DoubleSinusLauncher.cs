@@ -24,23 +24,21 @@ namespace Weapons.Sinus
         private IEnumerator SpawnSinBullet(bool upper)
         {
             while (true)
-            {
                 if (upper)
                 {
-                    SinusBullet instantiatedBullet =
+                    var instantiatedBullet =
                         Instantiate(sinBullet, transform.position, _playerInput.Rotation, gameObject.transform);
-                    instantiatedBullet.SetStatistics(speed, power, area);
+                    instantiatedBullet.SetStatistics(speedEnhanced, powerEnhanced, areaEnhanced);
                     yield return new WaitForSeconds(2);
                 }
                 else
                 {
-                    SinusBullet instantiatedBullet =
+                    var instantiatedBullet =
                         Instantiate(sinBullet, transform.position, _playerInput.Rotation, gameObject.transform);
-                    instantiatedBullet.SetStatistics(speed, power, area);
+                    instantiatedBullet.SetStatistics(speedEnhanced, powerEnhanced, areaEnhanced);
                     instantiatedBullet.Reverse();
                     yield return new WaitForSeconds(2);
                 }
-            }
         }
 
         public override void Stop()

@@ -8,10 +8,10 @@ namespace Weapons.Circle
 
         public override void Arm()
         {
-            CircleBullet instantiatedBullet = Instantiate(circleBullet, transform.parent.position, Quaternion.identity,
+            var instantiatedBullet = Instantiate(circleBullet, transform.parent.position, Quaternion.identity,
                 gameObject.transform);
             circleBullet = instantiatedBullet;
-            circleBullet.SetStatistics(speed, power, area);
+            circleBullet.SetStatistics(speedEnhanced, powerEnhanced, areaEnhanced);
         }
 
         public override void Stop()
@@ -22,7 +22,7 @@ namespace Weapons.Circle
         public override void UpgradeAll(float speedEnhancements, float powerEnhancements, float areaEnhancements)
         {
             base.UpgradeAll(speedEnhancements, powerEnhancements, areaEnhancements);
-            circleBullet.SetStatistics(speed, power, area);
+            circleBullet.SetStatistics(speedEnhanced, powerEnhanced, areaEnhanced);
         }
     }
 }
