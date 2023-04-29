@@ -4,21 +4,22 @@ namespace Player
 {
     public class PlayerMovement : MonoBehaviour
     {
-        //Player Components
-        private PlayerInput _playerInput;
-        private Rigidbody2D _playerBody;
-
         // Move player in 2D space
         private Vector2 _movementDirection;
         private float _movementSpeed = 10f;
 
-        void Start()
+        private Rigidbody2D _playerBody;
+
+        //Player Components
+        private PlayerInput _playerInput;
+
+        private void Start()
         {
             _playerInput = GetComponentInParent<PlayerInput>();
             _playerBody = GetComponent<Rigidbody2D>();
         }
 
-        void Update()
+        private void Update()
         {
             MovePlayer();
         }

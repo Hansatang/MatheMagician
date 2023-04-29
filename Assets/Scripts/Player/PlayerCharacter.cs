@@ -5,10 +5,10 @@ namespace Player
 {
     public class PlayerCharacter : MonoBehaviour
     {
-        private CharacterData _characterData;
         public UnityEvent<int> startingWeaponIndex;
+        private CharacterData _characterData;
 
-        void Awake()
+        private void Awake()
         {
             if (SelectedCharacter.selectedCharacter != null)
             {

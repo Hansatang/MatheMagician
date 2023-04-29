@@ -6,70 +6,76 @@ namespace Player
 {
     public class PlayerWeapons : MonoBehaviour
     {
-        private List<WeaponSystem> _weaponSystems = new();
-        private float _speedEnhancements = 1f;
-        private float _powerEnhancements = 1f;
         private float _areaEnhancements = 1f;
+        private float _powerEnhancements = 1f;
+        private float _speedEnhancements = 1f;
+        private readonly List<WeaponSystem> _weaponSystems = new();
 
         public void AddUpgrade(UpgradeData upgradeData)
         {
-            if (upgradeData is EnhancementData enhancementData)
+            switch (upgradeData)
             {
-                if (enhancementData.enhancementType == EnhancementTypes.Speed)
+                case EnhancementData enhancementData:
                 {
-                    _speedEnhancements += enhancementData.enhancementMultiplier;
+                    ModifyEnhancements(enhancementData);
+                    break;
                 }
-                else if (enhancementData.enhancementType == EnhancementTypes.Power)
+                case WeaponData weaponData:
                 {
-                    _powerEnhancements += enhancementData.enhancementMultiplier;
+                    ModifyWeaponSystems(weaponData);
+                    break;
                 }
-                else if (enhancementData.enhancementType == EnhancementTypes.Area)
-                {
-                    _areaEnhancements += enhancementData.enhancementMultiplier;
-                }
-
-                UpgradeAllWeapons(_speedEnhancements, _powerEnhancements, _areaEnhancements);
             }
-            else if (upgradeData is WeaponData weaponData)
+        }
+
+        private void ModifyWeaponSystems(WeaponData weaponData)
+        {
+            var modifyingWeapon =
+                _weaponSystems.FindIndex(x => x.weaponId == weaponData.previousUpgrade.upgradeIndex);
+            if (modifyingWeapon != -1)
             {
-                int modifyingWeapon = _weaponSystems.FindIndex(x => x.weaponId == weaponData.upgradeIndex);
-                if (modifyingWeapon != -1)
-                {
-                    _weaponSystems[modifyingWeapon].Stop();
-                    _weaponSystems.RemoveAt(modifyingWeapon);
-                }
-
-                CreateWeaponLauncher(weaponData);
+                _weaponSystems[modifyingWeapon].Stop();
+                _weaponSystems.RemoveAt(modifyingWeapon);
             }
+
+            CreateWeaponLauncher(weaponData);
+        }
+
+        private void ModifyEnhancements(EnhancementData enhancementData)
+        {
+            switch (enhancementData.enhancementType)
+            {
+                case EnhancementTypes.Speed:
+                    _speedEnhancements = enhancementData.enhancementMultiplier;
+                    break;
+                case EnhancementTypes.Power:
+                    _powerEnhancements = enhancementData.enhancementMultiplier;
+                    break;
+                case EnhancementTypes.Area:
+                    _areaEnhancements = enhancementData.enhancementMultiplier;
+                    break;
+            }
+
+            UpgradeAllWeapons(_speedEnhancements, _powerEnhancements, _areaEnhancements);
         }
 
         private void UpgradeAllWeapons(float speedEnhancements, float powerEnhancements, float areaEnhancements)
         {
-            foreach (WeaponSystem weapon in _weaponSystems)
-            {
+            foreach (var weapon in _weaponSystems)
                 weapon.UpgradeAll(speedEnhancements, powerEnhancements, areaEnhancements);
-            }
         }
 
 
         public void CreateWeaponLauncher(WeaponData weaponObject)
         {
-            GameObject instantiatedWeapon =
+            var instantiatedWeapon =
                 Instantiate(weaponObject.weaponObject, transform.position, Quaternion.identity);
             instantiatedWeapon.transform.parent = gameObject.transform;
-            WeaponSystem weaponSystemToAdd = (WeaponSystem) instantiatedWeapon.GetComponent(typeof(WeaponSystem));
-            SetWeaponStatistics(weaponObject, weaponSystemToAdd);
+            var weaponSystemToAdd = (WeaponSystem) instantiatedWeapon.GetComponent(typeof(WeaponSystem));
+            weaponSystemToAdd.SetEnhancedStats(weaponObject.speed, weaponObject.area, weaponObject.power);
             _weaponSystems.Add(weaponSystemToAdd);
             weaponSystemToAdd.UpgradeAll(_speedEnhancements, _powerEnhancements, _areaEnhancements);
             weaponSystemToAdd.Arm();
-        }
-
-        private void SetWeaponStatistics(WeaponData weaponObject, WeaponSystem weaponSystemToAdd)
-        {
-            weaponSystemToAdd.weaponId = weaponObject.upgradeIndex;
-            weaponSystemToAdd.area = weaponObject.area;
-            weaponSystemToAdd.power = weaponObject.power;
-            weaponSystemToAdd.speed = weaponObject.speed;
         }
     }
 }

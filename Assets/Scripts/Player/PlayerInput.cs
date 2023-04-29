@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Player
 {
@@ -6,22 +7,24 @@ namespace Player
     {
         public float Horizontal { get; private set; }
         public float Vertical { get; private set; }
-        public float LastHorizontal { get; private set; }
-        public float LastVertical { get; private set; }
 
         public Quaternion Rotation { get; private set; }
 
-        void Update()
+        public UnityEvent<bool, Vector2> movementEvent;
+
+        private void Update()
         {
             Horizontal = GetHorizontalAxisValue();
             Vertical = GetVerticalAxisValue();
 
-            if (Horizontal == 1 || Horizontal == -1 || Vertical == 1 || Vertical == -1)
+            if (Horizontal != 0 || Vertical != 0)
             {
-                LastHorizontal = Horizontal;
-                LastVertical = Vertical;
+                movementEvent?.Invoke(true, new Vector2(Horizontal, Vertical));
             }
-
+            else
+            {
+                movementEvent?.Invoke(false, new Vector2(Horizontal, Vertical));
+            }
 
             Rotation = GetRotation();
         }
@@ -36,59 +39,15 @@ namespace Player
             return Input.GetAxis("Vertical");
         }
 
-        private float GetLastHorizontalAxisValue()
-        {
-            return LastHorizontal;
-        }
-
-        private float GetLastVerticalAxisValue()
-        {
-            return LastVertical;
-        }
 
         private Quaternion GetRotation()
         {
-            if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") < 0)
+            if (Horizontal == 0 && Vertical == 0)
             {
-                return Rotation = Quaternion.Euler(0, 0, 180);
+                return Rotation;
             }
-
-            if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") > 0)
-            {
-                return Rotation = Quaternion.Euler(0, 0, 0);
-            }
-
-            if (Input.GetAxis("Horizontal") < 0 && Input.GetAxis("Vertical") == 0)
-            {
-                return Rotation = Quaternion.Euler(0, 0, 90);
-            }
-
-            if (Input.GetAxis("Horizontal") > 0 && Input.GetAxis("Vertical") == 0)
-            {
-                return Rotation = Quaternion.Euler(0, 0, 270);
-            }
-
-            if (Input.GetAxis("Horizontal") < 0 && Input.GetAxis("Vertical") < 0)
-            {
-                return Rotation = Quaternion.Euler(0, 0, 135);
-            }
-
-            if (Input.GetAxis("Horizontal") > 0 && Input.GetAxis("Vertical") < 0)
-            {
-                return Rotation = Quaternion.Euler(0, 0, -135);
-            }
-
-            if (Input.GetAxis("Horizontal") > 0 && Input.GetAxis("Vertical") > 0)
-            {
-                return Rotation = Quaternion.Euler(0, 0, -45);
-            }
-
-            if (Input.GetAxis("Horizontal") < 0 && Input.GetAxis("Vertical") > 0)
-            {
-                return Rotation = Quaternion.Euler(0, 0, 45);
-            }
-
-            return Rotation;
+            return Rotation = Quaternion.Euler(0, 0,
+                Mathf.Atan2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * -Mathf.Rad2Deg);
         }
     }
 }
