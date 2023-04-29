@@ -5,25 +5,20 @@ namespace WorldBackground
     public class BackgroundWorld : MonoBehaviour
     {
         [SerializeField] private Transform playerTransform;
-        Vector2Int _currentTilePosition = new(0, 0);
-        [SerializeField] Vector2Int playerTilePosition;
-        private Vector2Int _onTileGridPlayerPosition;
-        private GameObject[,] _terrainTiles;
+        [SerializeField] private Vector2Int playerTilePosition;
 
         [SerializeField] private int terrainTileHorizontalCount;
         [SerializeField] private int terrainTileVerticalCount;
         [SerializeField] private float tileSize = 40f;
-        [SerializeField] int fieldOfVisionHeight = 3;
-        [SerializeField] int fieldOfVisionWidth = 3;
+        [SerializeField] private int fieldOfVisionHeight = 3;
+        [SerializeField] private int fieldOfVisionWidth = 3;
+        private Vector2Int _currentTilePosition = new(0, 0);
+        private Vector2Int _onTileGridPlayerPosition;
+        private GameObject[,] _terrainTiles;
 
         private void Awake()
         {
             _terrainTiles = new GameObject[terrainTileHorizontalCount, terrainTileVerticalCount];
-        }
-
-        public void AddTile(GameObject tileGameObject, Vector2Int tilePosition)
-        {
-            _terrainTiles[tilePosition.x, tilePosition.y] = tileGameObject;
         }
 
         private void Update()
@@ -44,19 +39,22 @@ namespace WorldBackground
             }
         }
 
+        public void AddTile(GameObject tileGameObject, Vector2Int tilePosition)
+        {
+            _terrainTiles[tilePosition.x, tilePosition.y] = tileGameObject;
+        }
+
         private void UpdateTilesOnScreen()
         {
-            for (int pov_x = -(fieldOfVisionWidth / 2); pov_x <= fieldOfVisionWidth / 2; pov_x++)
+            for (var pov_x = -(fieldOfVisionWidth / 2); pov_x <= fieldOfVisionWidth / 2; pov_x++)
+            for (var pov_y = -(fieldOfVisionHeight / 2); pov_y <= fieldOfVisionHeight / 2; pov_y++)
             {
-                for (int pov_y = -(fieldOfVisionHeight / 2); pov_y <= fieldOfVisionHeight / 2; pov_y++)
-                {
-                    int tileToUpdate_x = CalculatePositionOnAxisWithWrap(playerTilePosition.x + pov_x, true);
-                    int tileToUpdate_y = CalculatePositionOnAxisWithWrap(playerTilePosition.y + pov_y, false);
+                var tileToUpdate_x = CalculatePositionOnAxisWithWrap(playerTilePosition.x + pov_x, true);
+                var tileToUpdate_y = CalculatePositionOnAxisWithWrap(playerTilePosition.y + pov_y, false);
 
-                    GameObject tile = _terrainTiles[tileToUpdate_x, tileToUpdate_y];
-                    tile.transform.position =
-                        CalculateTilePosition(playerTilePosition.x + pov_x, playerTilePosition.y + pov_y);
-                }
+                var tile = _terrainTiles[tileToUpdate_x, tileToUpdate_y];
+                tile.transform.position =
+                    CalculateTilePosition(playerTilePosition.x + pov_x, playerTilePosition.y + pov_y);
             }
         }
 

@@ -1,22 +1,21 @@
+using Player;
 using UnityEngine;
 
 public class ExpOrb : MonoBehaviour
 {
-    private int worth;
-
-    public void SetWorth(int value)
-    {
-        worth = value;
-    }
+    private int _worth;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
         if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<PlayerExperience>().AwardExperience(worth);
+            other.gameObject.GetComponent<PlayerExperience>().AwardExperience(_worth);
             Destroy(gameObject);
         }
     }
-    
+
+    public void SetWorth(int value)
+    {
+        _worth = value;
+    }
 }

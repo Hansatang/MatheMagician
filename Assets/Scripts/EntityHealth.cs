@@ -4,7 +4,7 @@ public abstract class EntityHealth : MonoBehaviour
 {
     public int maxHealth;
     public int currentHealth;
-
+    public bool isInvincible;
 
     public virtual void SetHealth(int health)
     {
@@ -13,7 +13,7 @@ public abstract class EntityHealth : MonoBehaviour
     }
 
     /// <summary>
-    /// Method with logic for lowering health variable on collision, also passes info to show the damage pop ups
+    ///     Method with logic for lowering health variable on collision, also passes info to show the damage pop ups
     /// </summary>
     public virtual void TakeDamage(int damageTaken)
     {
@@ -22,13 +22,13 @@ public abstract class EntityHealth : MonoBehaviour
         Debug.Log("Remaining health: " + currentHealth);
         if (currentHealth <= 0)
         {
-            Debug.Log(currentHealth+"LOL");
+            Debug.Log(currentHealth + "LOL");
             Die();
         }
     }
 
     /// <summary>
-    /// Destroys the object
+    ///     Destroys the object
     /// </summary>
     public virtual void Die()
     {
