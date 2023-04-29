@@ -3,7 +3,7 @@
 namespace Enemies
 {
     /// <summary>
-    /// ScriptableObject used for storing Enemy data
+    ///     ScriptableObject used for storing Enemy data
     /// </summary>
     [CreateAssetMenu(fileName = "New Enemy", menuName = "Scriptable Objects/Enemies")]
     public class EnemyData : ScriptableObject

@@ -1,37 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ObstacleDetector : Detector
+namespace AI
 {
-    [SerializeField]
-    private float detectionRadius = 2;
-
-    [SerializeField]
-    private LayerMask layerMask;
-
-    [SerializeField]
-    private bool showGizmos = true;
-
-    Collider2D[] colliders;
-
-    public override void Detect(AIData aiData)
+    public class ObstacleDetector : Detector
     {
-        colliders = Physics2D.OverlapCircleAll(transform.position, detectionRadius, layerMask);
-        aiData.obstacles = colliders;
-    }
+        [SerializeField] private float detectionRadius = 2;
 
-    private void OnDrawGizmos()
-    {
-        if (showGizmos == false)
-            return;
-        if (Application.isPlaying && colliders != null)
+        [SerializeField] private LayerMask layerMask;
+
+        [SerializeField] private bool showGizmos = true;
+
+        private Collider2D[] _colliders;
+
+        private void OnDrawGizmos()
         {
-            Gizmos.color = Color.red;
-            foreach (Collider2D obstacleCollider in colliders)
+            if (showGizmos == false)
+                return;
+            if (Application.isPlaying && _colliders != null)
             {
-                Gizmos.DrawSphere(obstacleCollider.transform.position, 0.2f);
+                Gizmos.color = Color.red;
+                foreach (var obstacleCollider in _colliders) Gizmos.DrawSphere(obstacleCollider.transform.position, 0.2f);
             }
+        }
+
+        public override void Detect(AIData aiData)
+        {
+            _colliders = Physics2D.OverlapCircleAll(transform.position, detectionRadius, layerMask);
+            aiData.obstacles = _colliders;
         }
     }
 }

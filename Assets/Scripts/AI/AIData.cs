@@ -1,13 +1,18 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIData : MonoBehaviour
+namespace AI
 {
-    public List<Transform> targets = null;
-    public Collider2D[] obstacles = null;
+    public class AIData : MonoBehaviour
+    {
+        public List<Transform> targets;
+        public Collider2D[] obstacles;
 
-    public Transform currentTarget;
+        public Transform currentTarget;
 
-    public int GetTargetsCount() => targets == null ? 0 : targets.Count;
+        public int GetTargetsCount()
+        {
+            return targets?.Count ?? 0;
+        }
+    }
 }

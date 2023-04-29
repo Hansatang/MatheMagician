@@ -1,63 +1,55 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ContextSolver : MonoBehaviour
+namespace AI
 {
-    [SerializeField]
-    private bool showGizmos = true;
-
-    //gozmo parameters
-    float[] interestGizmo = new float[0];
-    Vector2 resultDirection = Vector2.zero;
-    private float rayLength = 2;
-
-    private void Start()
+    public class ContextSolver : MonoBehaviour
     {
-        interestGizmo = new float[8];
-    }
+        [SerializeField] private bool showGizmos = true;
 
-    public Vector2 GetDirectionToMove(List<SteeringBehaviour> behaviours, AIData aiData)
-    {
-        float[] danger = new float[8];
-        float[] interest = new float[8];
+        //gizmo parameters
+        private float[] _interestGizmo = new float[0];
+        private const float RayLength = 2;
+        private Vector2 _resultDirection = Vector2.zero;
 
-        //Loop through each behaviour
-        foreach (SteeringBehaviour behaviour in behaviours)
+        private void Start()
         {
-            (danger, interest) = behaviour.GetSteering(danger, interest, aiData);
+            _interestGizmo = new float[8];
         }
 
-        //subtract danger values from interest array
-        for (int i = 0; i < 8; i++)
+
+        private void OnDrawGizmos()
         {
-            interest[i] = Mathf.Clamp01(interest[i] - danger[i]);
+            if (Application.isPlaying && showGizmos)
+            {
+                Gizmos.color = Color.yellow;
+                Gizmos.DrawRay(transform.position, _resultDirection * RayLength);
+            }
         }
 
-        interestGizmo = interest;
-
-        //get the average direction
-        Vector2 outputDirection = Vector2.zero;
-        for (int i = 0; i < 8; i++)
+        public Vector2 GetDirectionToMove(List<SteeringBehaviour> behaviours, AIData aiData)
         {
-            outputDirection += Directions.eightDirections[i] * interest[i];
-        }
+            var danger = new float[8];
+            var interest = new float[8];
 
-        outputDirection.Normalize();
+            //Loop through each behaviour
+            foreach (var behaviour in behaviours) (danger, interest) = behaviour.GetSteering(danger, interest, aiData);
 
-        resultDirection = outputDirection;
+            //subtract danger values from interest array
+            for (var i = 0; i < 8; i++) interest[i] = Mathf.Clamp01(interest[i] - danger[i]);
 
-        //return the selected movement direction
-        return resultDirection;
-    }
+            _interestGizmo = interest;
 
+            //get the average direction
+            var outputDirection = Vector2.zero;
+            for (var i = 0; i < 8; i++) outputDirection += Directions.EightDirections[i] * interest[i];
 
-    private void OnDrawGizmos()
-    {
-        if (Application.isPlaying && showGizmos)
-        {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawRay(transform.position, resultDirection * rayLength);
+            outputDirection.Normalize();
+
+            _resultDirection = outputDirection;
+
+            //return the selected movement direction
+            return _resultDirection;
         }
     }
 }

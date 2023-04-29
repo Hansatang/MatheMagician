@@ -1,85 +1,79 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObstacleAvoidanceBehaviour : SteeringBehaviour
+namespace AI
 {
-    [SerializeField]
-    private float radius = 2f, agentColliderSize = 0.6f;
-
-    [SerializeField]
-    private bool showGizmo = true;
-
-    //gizmo parameters
-    float[] dangersResultTemp = null;
-
-    public override (float[] danger, float[] interest) GetSteering(float[] danger, float[] interest, AIData aiData)
+    public class ObstacleAvoidanceBehaviour : SteeringBehaviour
     {
-        foreach (Collider2D obstacleCollider in aiData.obstacles)
+        [SerializeField] private float radius = 2f, agentColliderSize = 0.6f;
+
+        [SerializeField] private bool showGizmo = true;
+
+        //gizmo parameters
+        private float[] _dangersResultTemp;
+
+        private void OnDrawGizmos()
         {
-            Vector2 directionToObstacle
-                = obstacleCollider.ClosestPoint(transform.position) - (Vector2)transform.position;
-            float distanceToObstacle = directionToObstacle.magnitude;
+            if (showGizmo == false)
+                return;
 
-            //calculate weight based on the distance Enemy<--->Obstacle
-            float weight
-                = distanceToObstacle <= agentColliderSize
-                ? 1
-                : (radius - distanceToObstacle) / radius;
-
-            Vector2 directionToObstacleNormalized = directionToObstacle.normalized;
-
-            //Add obstacle parameters to the danger array
-            for (int i = 0; i < Directions.eightDirections.Count; i++)
-            {
-                float result = Vector2.Dot(directionToObstacleNormalized, Directions.eightDirections[i]);
-
-                float valueToPutIn = result * weight;
-
-                //override value only if it is higher than the current one stored in the danger array
-                if (valueToPutIn > danger[i])
+            if (Application.isPlaying && _dangersResultTemp != null)
+                if (_dangersResultTemp != null)
                 {
-                    danger[i] = valueToPutIn;
-                }
-            }
-        }
-        dangersResultTemp = danger;
-        return (danger, interest);
-    }
-
-    private void OnDrawGizmos()
-    {
-        if (showGizmo == false)
-            return;
-
-        if (Application.isPlaying && dangersResultTemp != null)
-        {
-            if (dangersResultTemp != null)
-            {
-                Gizmos.color = Color.red;
-                for (int i = 0; i < dangersResultTemp.Length; i++)
-                {
-                    Gizmos.DrawRay(
-                        transform.position,
-                        Directions.eightDirections[i] * dangersResultTemp[i]*2
+                    Gizmos.color = Color.red;
+                    for (var i = 0; i < _dangersResultTemp.Length; i++)
+                        Gizmos.DrawRay(
+                            transform.position,
+                            Directions.EightDirections[i] * _dangersResultTemp[i] * 2
                         );
                 }
-            }
         }
 
-    }
-}
+        public override (float[] danger, float[] interest) GetSteering(float[] danger, float[] interest, AIData aiData)
+        {
+            foreach (var obstacleCollider in aiData.obstacles)
+            {
+                var directionToObstacle
+                    = obstacleCollider.ClosestPoint(transform.position) - (Vector2) transform.position;
+                var distanceToObstacle = directionToObstacle.magnitude;
 
-public static class Directions
-{
-    public static List<Vector2> eightDirections = new List<Vector2>{
-            new Vector2(0,1).normalized,
-            new Vector2(1,1).normalized,
-            new Vector2(1,0).normalized,
-            new Vector2(1,-1).normalized,
-            new Vector2(0,-1).normalized,
-            new Vector2(-1,-1).normalized,
-            new Vector2(-1,0).normalized,
-            new Vector2(-1,1).normalized
+                //calculate weight based on the distance Enemy<--->Obstacle
+                var weight
+                    = distanceToObstacle <= agentColliderSize
+                        ? 1
+                        : (radius - distanceToObstacle) / radius;
+
+                var directionToObstacleNormalized = directionToObstacle.normalized;
+
+                //Add obstacle parameters to the danger array
+                for (var i = 0; i < Directions.EightDirections.Count; i++)
+                {
+                    var result = Vector2.Dot(directionToObstacleNormalized, Directions.EightDirections[i]);
+
+                    var valueToPutIn = result * weight;
+
+                    //override value only if it is higher than the current one stored in the danger array
+                    if (valueToPutIn > danger[i]) danger[i] = valueToPutIn;
+                }
+            }
+
+            _dangersResultTemp = danger;
+            return (danger, interest);
+        }
+    }
+
+    public static class Directions
+    {
+        public static readonly List<Vector2> EightDirections = new()
+        {
+            new Vector2(0, 1).normalized,
+            new Vector2(1, 1).normalized,
+            new Vector2(1, 0).normalized,
+            new Vector2(1, -1).normalized,
+            new Vector2(0, -1).normalized,
+            new Vector2(-1, -1).normalized,
+            new Vector2(-1, 0).normalized,
+            new Vector2(-1, 1).normalized
         };
+    }
 }

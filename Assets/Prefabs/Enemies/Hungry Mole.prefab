@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 4303599971381973377}
   - component: {fileID: 6867874658747105874}
   - component: {fileID: 6377905282259970130}
-  - component: {fileID: 6973693255500167453}
   - component: {fileID: 6677171414704691054}
+  - component: {fileID: 2549570863450283455}
   m_Layer: 8
-  m_Name: Mole
+  m_Name: Hungry Mole
   m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,6 +38,7 @@ Transform:
   - {fileID: 2582849666394358544}
   - {fileID: 6245160003846023616}
   - {fileID: 1096677326349596588}
+  - {fileID: 67654435123900985}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -74,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9fad1765b4efb048b6f0cc89a580fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: 0db4e967b0c54984da2c9b4e5f347ada, type: 2}
+  enemyData: {fileID: 11400000, guid: 0a28ef0a491453b4297fa80cc8e9f73c, type: 2}
 --- !u!114 &6867874658747105874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,7 +107,23 @@ MonoBehaviour:
   targets: []
   obstacles: []
   currentTarget: {fileID: 0}
---- !u!114 &6973693255500167453
+--- !u!70 &6677171414704691054
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797429542227971265}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.004378331, y: -0.0065888166}
+  m_Size: {x: 0.09363525, y: 0.18432127}
+  m_Direction: 0
+--- !u!114 &2549570863450283455
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,7 +132,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1797429542227971265}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a6376dc2687431697e6f0f6738b4b53, type: 3}
+  m_Script: {fileID: 11500000, guid: 23a8da0ccfe89c64cb6967fd17d8d3f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   steeringBehaviours:
@@ -125,8 +142,8 @@ MonoBehaviour:
   - {fileID: 8443290835782181859}
   - {fileID: 8325680854261402353}
   aiData: {fileID: 6377905282259970130}
-  detectionDelay: 0.05
-  aiUpdateDelay: 0.06
+  detectionDelay: 0.1
+  aiUpdateDelay: 0.1
   onMovementInput:
     m_PersistentCalls:
       m_Calls:
@@ -159,22 +176,38 @@ MonoBehaviour:
         m_CallState: 2
   movementInput: {x: 0, y: 0}
   movementDirectionSolver: {fileID: 6776892866877016021}
---- !u!70 &6677171414704691054
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797429542227971265}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.004378331, y: -0.0065888166}
-  m_Size: {x: 0.09363525, y: 0.18432127}
-  m_Direction: 0
+  attackDelay: 4
+  attackDistance: 10
+  onAttackPressed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1976452894681097261}
+        m_TargetAssemblyTypeName: Enemies.EnemyBulletLauncher, Assembly-CSharp
+        m_MethodName: ShootTowards
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  isAttacking:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4475093960033041753}
+        m_TargetAssemblyTypeName: Enemies.Mole.AnimateMole, Assembly-CSharp
+        m_MethodName: SetAttackingState
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2907665466939775500
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,7 +304,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 28c8e703b209dec498ede51b4cc93b54, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.09805238, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -472,6 +505,51 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   showGizmos: 0
+--- !u!1 &6360956622722601267
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 67654435123900985}
+  - component: {fileID: 1976452894681097261}
+  m_Layer: 8
+  m_Name: EnemyBulletLauncher
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &67654435123900985
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6360956622722601267}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1797429542227971268}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1976452894681097261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6360956622722601267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9083e9f8cc161a47b88e27bcd70a84e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyBullet: {fileID: 8570054461343514559, guid: 2c73b738c11fb8744ba29cb248d40a69, type: 3}
 --- !u!1 &8467635412682266120
 GameObject:
   m_ObjectHideFlags: 0

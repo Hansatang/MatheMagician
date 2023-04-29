@@ -4,12 +4,13 @@ namespace Enemies
 {
     public abstract class Enemy : MonoBehaviour
     {
+        private const float Magnitude = 2500;
         [SerializeField] public EnemyData enemyData;
+        protected int Damage;
         protected Rigidbody2D EnemyBody;
+        protected EntityHealth EnemyHealth;
         protected int Health;
         protected float Speed;
-        protected int Damage;
-        private readonly float _magnitude = 2500;
 
         private void Awake()
         {
@@ -17,7 +18,8 @@ namespace Enemies
             Health = enemyData.health;
             Damage = enemyData.damage;
             EnemyBody = GetComponent<Rigidbody2D>();
-            GetComponent<EntityHealth>().SetHealth(Health);
+            EnemyHealth = GetComponent<EntityHealth>();
+            EnemyHealth.SetHealth(Health);
         }
 
 
@@ -25,11 +27,16 @@ namespace Enemies
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                other.gameObject.GetComponent<EntityHealth>().TakeDamage(Damage);
+                if (!other.gameObject.GetComponent<EntityHealth>().isInvincible)
+                {
+                    other.gameObject.GetComponent<EntityHealth>().TakeDamage(Damage);
+                    EnemyHealth.TakeDamage(1);
+                }
+
                 var force = other.collider.transform.position - transform.position;
                 Debug.Log("Pain" + force);
                 force.Normalize();
-                other.gameObject.GetComponent<Rigidbody2D>().AddForce(force * _magnitude);
+                other.gameObject.GetComponent<Rigidbody2D>().AddForce(force * Magnitude);
             }
         }
     }
