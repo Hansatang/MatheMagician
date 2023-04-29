@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Weapons
@@ -9,7 +8,10 @@ namespace Weapons
         public int upgradeIndex;
         public string upgradeName;
         public string upgradeDescription;
+        public int tier;
         public Sprite upgradeImage;
-        public List<UpgradeData> nextUpgrade;
+        public UpgradeData nextUpgrade;
+        public UpgradeData previousUpgrade;
+        public UpgradeData neededToUnlockUpgrade;
     }
 }

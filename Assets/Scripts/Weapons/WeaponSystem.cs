@@ -6,9 +6,12 @@ namespace Weapons
     public abstract class WeaponSystem : MonoBehaviour
     {
         public int weaponId;
-        public float speed;
-        public float area;
-        public int power;
+        public float initialSpeed;
+        public float initialArea;
+        public int initialPower;
+        public float speedEnhanced;
+        public float areaEnhanced;
+        public int powerEnhanced;
 
         public virtual void Arm()
         {
@@ -21,9 +24,16 @@ namespace Weapons
 
         public virtual void UpgradeAll(float speedEnhancements, float powerEnhancements, float areaEnhancements)
         {
-            speed = (float) Math.Ceiling(speed * speedEnhancements);
-            power = (int) Math.Ceiling(power * powerEnhancements);
-            area = (float) Math.Ceiling(area * areaEnhancements);
+            speedEnhanced = initialSpeed * speedEnhancements;
+            powerEnhanced = (int) Math.Ceiling(initialPower * powerEnhancements);
+            areaEnhanced = initialArea * areaEnhancements;
+        }
+
+        public void SetEnhancedStats(float speed, float area, float power)
+        {
+            initialSpeed = speed;
+            initialPower = (int) Math.Ceiling(power);
+            initialArea = area;
         }
     }
 }
