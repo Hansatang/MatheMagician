@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea3f9735cb244cbcb6105a02369779c9, type: 3}
   m_Name: Speed Enhancement 5
   m_EditorClassIdentifier: 
-  upgradeIndex: 3
+  upgradeIndex: 15
   upgradeName: Speed
-  upgradeDescription: Increase the speed by another 50%
+  upgradeDescription: Increase the speed to 150%
+  tier: 5
   upgradeImage: {fileID: 21300000, guid: 22057aef5fa19f9489473012c242bba0, type: 3}
-  nextUpgrade: []
+  nextUpgrade: {fileID: 0}
+  previousUpgrade: {fileID: 11400000, guid: 82ba50d8038e4064cae1cb4ccaf58f25, type: 2}
+  neededToUnlockUpgrade: {fileID: 0}
   enhancementType: 1
-  enhancementMultiplier: 0.5
+  enhancementMultiplier: 1.5

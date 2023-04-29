@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea3f9735cb244cbcb6105a02369779c9, type: 3}
   m_Name: Area Enhancement 5
   m_EditorClassIdentifier: 
-  upgradeIndex: 1
+  upgradeIndex: 5
   upgradeName: Area
-  upgradeDescription: Increase the area by another 50%
+  upgradeDescription: Increase the area to 150%
+  tier: 5
   upgradeImage: {fileID: 21300000, guid: c47d07607041a9e46ac5a017fa569294, type: 3}
-  nextUpgrade: []
+  nextUpgrade: {fileID: 0}
+  previousUpgrade: {fileID: 11400000, guid: 37a132971f8b71147be6063dd0f9e20d, type: 2}
+  neededToUnlockUpgrade: {fileID: 0}
   enhancementType: 2
-  enhancementMultiplier: 0.5
+  enhancementMultiplier: 1.5

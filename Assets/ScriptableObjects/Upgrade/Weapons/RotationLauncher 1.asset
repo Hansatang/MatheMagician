@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16deb351bcd545cf9b22cde338d69ba2, type: 3}
   m_Name: RotationLauncher 1
   m_EditorClassIdentifier: 
-  upgradeIndex: 102
+  upgradeIndex: 103
   upgradeName: Rotation
   upgradeDescription: Rotate Around Player
-  upgradeImage: {fileID: 21300000, guid: 9fc74ae594568504ab55909dfbe23bf9, type: 3}
-  nextUpgrade: []
+  tier: 1
+  upgradeImage: {fileID: 21300000, guid: 22538c55dffce6f47834b48a5970cd81, type: 3}
+  nextUpgrade: {fileID: 0}
+  previousUpgrade: {fileID: 0}
+  neededToUnlockUpgrade: {fileID: 0}
   weaponObject: {fileID: 3269109243607921219, guid: 125abcdc26243d24293f6fa651cb96b3, type: 3}
   speed: 2
   area: 2
-  power: 5
+  power: 2
