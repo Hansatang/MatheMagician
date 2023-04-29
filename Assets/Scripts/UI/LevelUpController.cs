@@ -10,7 +10,7 @@ namespace UI
         public HolderBehaviour secondHolder;
         public HolderBehaviour thirdHolder;
         public UnityEvent<int> upgradeSelectionEvent;
-        
+
         public void PopulateUI(ScriptableObject sOb1, ScriptableObject sOb2, ScriptableObject sOb3)
         {
             firstHolder.Populate(sOb1);

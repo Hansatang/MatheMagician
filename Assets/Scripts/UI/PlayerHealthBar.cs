@@ -9,17 +9,14 @@ namespace UI
         public Gradient gradient;
         public Image healthBar;
         public TextMeshProUGUI healthText;
-        private float _fillValue = 10, _maxFillValue = 10;
         private float _currentHealthValue;
+        private float _fillValue = 10, _maxFillValue = 10;
         private float _lerpSpeed;
 
         private void Update()
         {
             _lerpSpeed = 2f * Time.deltaTime;
-            if (_fillValue > _maxFillValue)
-            {
-                _fillValue = _maxFillValue;
-            }
+            if (_fillValue > _maxFillValue) _fillValue = _maxFillValue;
 
             _currentHealthValue = _fillValue / _maxFillValue;
             FillHealthBar();

@@ -10,8 +10,8 @@ namespace UI
     {
         public Image image;
         public TextMeshProUGUI text;
-        private UpgradeData _upgrade;
         public UnityEvent<int> selectEvent;
+        private UpgradeData _upgrade;
 
 
         public void Populate(ScriptableObject serializableObject)

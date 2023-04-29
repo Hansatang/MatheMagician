@@ -4,9 +4,9 @@ namespace UI
 {
     public class PopUp : MonoBehaviour
     {
-        private float _timeToDestroy = 1f;
+        private readonly float _timeToDestroy = 1f;
 
-        void Start()
+        private void Start()
         {
             Destroy(gameObject, _timeToDestroy);
         }

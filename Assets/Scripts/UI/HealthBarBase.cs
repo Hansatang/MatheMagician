@@ -11,10 +11,10 @@ namespace UI
         public override void SetHealth(int currentHealth)
         {
             healthSprite.SetActive(true);
-            float proportion = (float) currentHealth / _maximumHealth;
+            var proportion = (float) currentHealth / _maximumHealth;
             bar.transform.localScale = new Vector3(proportion, 1, 1);
         }
-        
+
         public override void SetMaxHealth(int maxHealth)
         {
             _maximumHealth = maxHealth;

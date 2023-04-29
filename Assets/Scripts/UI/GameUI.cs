@@ -2,13 +2,16 @@ using System;
 using TMPro;
 using UnityEngine;
 
-public class GameUI : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private TextMeshProUGUI clockText;
-
-    public void UpdateClock(int gameTime)
+    public class GameUI : MonoBehaviour
     {
-        TimeSpan t = TimeSpan.FromSeconds(gameTime);
-        clockText.text = $"{t.Minutes:D2}:{t.Seconds:D2}";
+        [SerializeField] private TextMeshProUGUI clockText;
+
+        public void UpdateClock(int gameTime)
+        {
+            var t = TimeSpan.FromSeconds(gameTime);
+            clockText.text = $"{t.Minutes:D2}:{t.Seconds:D2}";
+        }
     }
 }
