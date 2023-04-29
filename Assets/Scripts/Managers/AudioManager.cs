@@ -4,7 +4,7 @@ namespace Managers
 {
     public class AudioManager : MonoBehaviour
     {
-        void Start()
+        private void Start()
         {
             GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("volume");
         }

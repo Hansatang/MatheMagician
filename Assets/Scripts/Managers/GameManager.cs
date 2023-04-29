@@ -1,4 +1,5 @@
 using System.Collections;
+using UI;
 using UnityEngine;
 
 namespace Managers
@@ -6,7 +7,7 @@ namespace Managers
     public class GameManager : MonoBehaviour
     {
         public GameUI gameUI;
- 
+
         public int gameTime;
 
         public void Start()
@@ -29,7 +30,5 @@ namespace Managers
             gameTime += 1;
             gameUI.UpdateClock(gameTime);
         }
-
-       
     }
 }
