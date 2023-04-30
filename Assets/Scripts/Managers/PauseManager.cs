@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Managers
@@ -6,37 +7,54 @@ namespace Managers
     {
         public static bool GamePaused;
         public static bool LevelUpPaused;
+        public static bool GameOver;
         public GameObject menuPanel;
         public GameObject levelUpPanel;
+        public GameObject defeatPanel;
+
+        private void Start()
+        {
+            GamePaused = false;
+            LevelUpPaused = false;
+            GameOver = false;
+        }
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape)) ManualPause();
-
-            if (!GamePaused && !LevelUpPaused)
-                Resume();
-            else if (LevelUpPaused)
-                LevelUpPause();
-            else if (GamePaused) Time.timeScale = 0f;
+            if (!GameOver)
+            {
+                if (Input.GetKeyDown(KeyCode.Escape)) ManualPause();
+                if (!GamePaused && !LevelUpPaused)
+                    Time.timeScale = 1f;
+            }
         }
 
         public void ManualPause()
         {
             GamePaused = !GamePaused;
             menuPanel.SetActive(GamePaused);
+            Time.timeScale = 0f;
         }
 
-        private void LevelUpPause()
+        public void LevelUpPause()
         {
+            LevelUpPaused = true;
             levelUpPanel.SetActive(true);
             Time.timeScale = 0f;
         }
 
-        private void Resume()
+        public void LevelUpUnPause()
         {
-            menuPanel.SetActive(false);
+            LevelUpPaused = false;
             levelUpPanel.SetActive(false);
-            Time.timeScale = 1f;
+        }
+
+
+        public void GameIsOver()
+        {
+            Time.timeScale = 0f;
+            GameOver = true;
+            defeatPanel.SetActive(true);
         }
     }
 }

@@ -21,7 +21,6 @@ namespace UI
         public void AddUpgrade(int upgradeDataIndex)
         {
             upgradeSelectionEvent.Invoke(upgradeDataIndex);
-            PauseManager.LevelUpPaused = false;
         }
     }
 }

@@ -10,7 +10,11 @@ namespace UI
 
         public void UpdateUI(List<UpgradeData> chosenUpgrades)
         {
-            for (var i = 0; i < chosenUpgrades.Count; i++) upgradeHolders[i].PopulateWithUpgrade(chosenUpgrades[i]);
+            for (var i = 0; i < chosenUpgrades.Count; i++)
+            {
+                upgradeHolders[i].PopulateWithUpgrade(chosenUpgrades[i]);
+                upgradeHolders[i].gameObject.SetActive(true);
+            }
         }
     }
 }

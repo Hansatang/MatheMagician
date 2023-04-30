@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using Player;
 using UI;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Serialization;
 using Weapons;
 using Random = System.Random;
 
@@ -18,6 +20,9 @@ namespace Managers
         public LevelUpController levelUpController;
         public PlayerWeapons playerWeapons;
 
+        public UnityEvent levelUpPause;
+        public UnityEvent levelUpUnpause;
+
         /// <summary>
         ///     Method for randomly selecting 3 upgrades, that are being used by the UI for selection
         /// </summary>
@@ -30,6 +35,13 @@ namespace Managers
 
             levelUpController.PopulateUI(possibleUpgrades[option1Index], possibleUpgrades[option2Index],
                 possibleUpgrades[option3Index]);
+        }
+
+
+        public void LevelUp()
+        {
+            PopulateLevelUpOptions();
+            levelUpPause?.Invoke();
         }
 
         /// <summary>
@@ -45,6 +57,7 @@ namespace Managers
             possibleUpgrades.Remove(selected);
             upgradesUI.UpdateUI(chosenUpgrades);
             playerWeapons.AddUpgrade(selected);
+            levelUpUnpause?.Invoke();
         }
 
         private void CheckNextUpgrade(UpgradeData selected)
@@ -53,12 +66,6 @@ namespace Managers
                 if (selected.neededToUnlockUpgrade == null ||
                     possibleUpgrades.Find(x => x == selected.neededToUnlockUpgrade))
                     possibleUpgrades.Add(selected.nextUpgrade);
-        }
-
-        public void LevelUp()
-        {
-            PopulateLevelUpOptions();
-            PauseManager.LevelUpPaused = true;
         }
     }
 }
