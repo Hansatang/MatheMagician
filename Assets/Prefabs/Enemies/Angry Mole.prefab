@@ -90,6 +90,7 @@ MonoBehaviour:
   maxHealth: 0
   currentHealth: 0
   isInvincible: 0
+  deathExplosion: {fileID: 8274877615094582550, guid: 102bb8f5e97a240478521be0527b3a97, type: 3}
   experienceOrb: {fileID: 5285708265491337852, guid: fc66a1447a2d54647b8a69a3e786720f, type: 3}
 --- !u!114 &6377905282259970130
 MonoBehaviour:
@@ -652,6 +653,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4452786478135107690, guid: 157a8988fd04cd741bd21af8aee8ac5a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4877215595464302264, guid: 157a8988fd04cd741bd21af8aee8ac5a, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -663,6 +668,10 @@ PrefabInstance:
     - target: {fileID: 5511308401295999410, guid: 157a8988fd04cd741bd21af8aee8ac5a, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5564334137392129935, guid: 157a8988fd04cd741bd21af8aee8ac5a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5775766629044996785, guid: 157a8988fd04cd741bd21af8aee8ac5a, type: 3}
       propertyPath: m_Layer

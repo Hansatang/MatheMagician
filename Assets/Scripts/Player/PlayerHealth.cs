@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UI;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Player
 {
@@ -10,6 +11,7 @@ namespace Player
         [SerializeField] private float invincibilityDurationSeconds;
         [SerializeField] private float invincibilityDeltaTime;
         private AnimatePlayer _model;
+        public UnityEvent deathEvent;
 
         public override void SetHealth(int health)
         {
@@ -32,9 +34,11 @@ namespace Player
         /// <summary>
         ///     Destroys the object
         /// </summary>
-        public override void Die()
+        protected override void Die()
         {
             Debug.Log("Dead");
+            deathEvent?.Invoke();
+            
         }
 
         private IEnumerator BecomeTemporarilyInvincible()
@@ -43,10 +47,7 @@ namespace Player
 
             for (float i = 0; i < invincibilityDurationSeconds; i += invincibilityDeltaTime)
             {
-                if (_model.transform.localScale == Vector3.one)
-                    ScaleModelTo(Vector3.zero);
-                else
-                    ScaleModelTo(Vector3.one);
+                ScaleModelTo(_model.transform.localScale == Vector3.one ? Vector3.zero : Vector3.one);
 
                 yield return new WaitForSeconds(invincibilityDeltaTime);
             }

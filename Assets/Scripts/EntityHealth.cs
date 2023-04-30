@@ -5,6 +5,7 @@ public abstract class EntityHealth : MonoBehaviour
     public int maxHealth;
     public int currentHealth;
     public bool isInvincible;
+    public ParticleSystem deathExplosion;
 
     public virtual void SetHealth(int health)
     {
@@ -30,8 +31,9 @@ public abstract class EntityHealth : MonoBehaviour
     /// <summary>
     ///     Destroys the object
     /// </summary>
-    public virtual void Die()
+    protected virtual void Die()
     {
+        Instantiate(deathExplosion, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

@@ -10,13 +10,14 @@ namespace Managers
         private Wave _currentWave;
         private int _currentWaveIndex;
         private float _negativeRange;
-        private readonly float _offset = 10;
+        private readonly float _offset = 15;
         private float _orthographicSize;
         private float _positiveRange;
 
-        private bool _stopSpawning;
+        private bool _stopSpawning = true;
 
         private float _timeBetweenSpawns;
+        private float _gameTime;
 
         private void Awake()
         {
@@ -25,18 +26,19 @@ namespace Managers
             _orthographicSize = cam.orthographicSize;
             _negativeRange = -_orthographicSize - _offset;
             _positiveRange = _orthographicSize + _offset;
+            _stopSpawning = false;
         }
 
         private void Update()
         {
             if (_stopSpawning) return;
 
-            if (Time.time >= _timeBetweenSpawns)
+            if (_gameTime >= _timeBetweenSpawns)
             {
                 SpawnWave();
                 IncWave();
 
-                _timeBetweenSpawns = Time.time + _currentWave.TimeBeforeThisWave;
+                _timeBetweenSpawns = _gameTime + _currentWave.TimeBeforeThisWave;
             }
         }
 
@@ -79,6 +81,11 @@ namespace Managers
             {
                 _stopSpawning = true;
             }
+        }
+
+        public void SetTime(int gameTime)
+        {
+            _gameTime = gameTime;
         }
     }
 }
