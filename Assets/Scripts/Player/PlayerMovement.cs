@@ -6,7 +6,7 @@ namespace Player
     {
         // Move player in 2D space
         private Vector2 _movementDirection;
-        private float _movementSpeed = 10f;
+        private float _movementSpeed = 4f;
 
         private Rigidbody2D _playerBody;
 

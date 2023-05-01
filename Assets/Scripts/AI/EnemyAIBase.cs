@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 namespace AI
 {
@@ -21,6 +20,7 @@ namespace AI
 
         public UnityEvent<Vector2> onMovementInput;
         public UnityEvent<Vector2> onPointerInput;
+        public UnityEvent<bool> isAttacking;
 
         [SerializeField] protected Vector2 movementInput;
 
@@ -70,16 +70,26 @@ namespace AI
                 if (aiData.currentTarget == null)
                 {
                     //Stopping Logic
-                    Debug.Log("Stopping");
-                    movementInput = Vector2.zero;
-                    following = false;
+                    StopLogic();
                     yield break;
                 }
 
                 //Chase logic
-                movementInput = movementDirectionSolver.GetDirectionToMove(steeringBehaviours, aiData);
-                yield return new WaitForSeconds(aiUpdateDelay);
+                yield return ChaseLogic();
             }
+        }
+
+        public object ChaseLogic()
+        {
+            movementInput = movementDirectionSolver.GetDirectionToMove(steeringBehaviours, aiData);
+            isAttacking?.Invoke(false);
+            return new WaitForSeconds(aiUpdateDelay);
+        }
+
+        public void StopLogic()
+        {
+            movementInput = Vector2.zero;
+            following = false;
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿public static class SelectedCharacter
+﻿using Player;
+
+public static class SelectedCharacter
 {
     public static CharacterData selectedCharacter;
 }
