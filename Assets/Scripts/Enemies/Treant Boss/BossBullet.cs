@@ -1,13 +1,12 @@
 using UnityEngine;
 
-
-namespace Enemies.EnemyProjectiles
+namespace Enemies.Treant_Boss
 {
     public class BossBullet : MonoBehaviour
     {
-        public float force = 2;
+        private const float Force = 3;
         private Rigidbody2D _bulletBody;
-        private readonly float _rotationSpeed = 150f;
+        private const float RotationSpeed = 150f;
 
         private void Start()
         {
@@ -16,14 +15,14 @@ namespace Enemies.EnemyProjectiles
 
         private void Update()
         {
-            transform.Rotate(Vector3.forward * (_rotationSpeed * Time.deltaTime));
+            transform.Rotate(Vector3.forward * (RotationSpeed * Time.deltaTime));
         }
 
         public void SetTarget(Vector2 target)
         {
             _bulletBody = GetComponent<Rigidbody2D>();
             _bulletBody.velocity =
-                new Vector2(target.x, target.y).normalized * force;
+                new Vector2(target.x, target.y).normalized * Force;
         }
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Enemies
 {
-    public class EnemyExplosionAttackIndicator : MonoBehaviour
+    public class BossExplosionAttackIndicator : MonoBehaviour
     {
         public ParticleSystem sporeExplosion;
         private float _currentScale = InitScale;
@@ -17,10 +17,10 @@ namespace Enemies
 
         private void Start()
         {
-            StartCoroutine(Breath());
+            StartCoroutine(ExpandArea());
         }
 
-        private IEnumerator Breath()
+        private IEnumerator ExpandArea()
         {
             while (true)
             {
@@ -37,12 +37,12 @@ namespace Enemies
                     yield return new WaitForSeconds(_deltaTime);
                 }
 
-                Explode();
+                SpawnExplosionParticles();
                 yield break;
             }
         }
 
-        private void Explode()
+        private void SpawnExplosionParticles()
         {
             Instantiate(sporeExplosion, transform.position, Quaternion.identity);
             Destroy(gameObject);

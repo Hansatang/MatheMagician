@@ -4,22 +4,23 @@ namespace Enemies
 {
     public abstract class Enemy : MonoBehaviour
     {
-        private const float Magnitude = 2500;
         [SerializeField] public EnemyData enemyData;
-        protected int Damage;
-        protected Rigidbody2D EnemyBody;
-        protected EntityHealth EnemyHealth;
-        protected int Health;
-        protected float Speed;
+        private const float Magnitude = 2500;
+
+        protected Rigidbody2D enemyBody;
+        private EntityHealth _enemyHealth;
+        private int _health;
+        protected float speed;
+        private int _damage;
 
         private void Awake()
         {
-            Speed = enemyData.speed;
-            Health = enemyData.health;
-            Damage = enemyData.damage;
-            EnemyBody = GetComponent<Rigidbody2D>();
-            EnemyHealth = GetComponent<EntityHealth>();
-            EnemyHealth.SetHealth(Health);
+            speed = enemyData.speed;
+            _health = enemyData.health;
+            _damage = enemyData.damage;
+            enemyBody = GetComponent<Rigidbody2D>();
+            _enemyHealth = GetComponent<EntityHealth>();
+            _enemyHealth.SetHealth(_health);
         }
 
 
@@ -29,12 +30,11 @@ namespace Enemies
             {
                 if (!other.gameObject.GetComponent<EntityHealth>().isInvincible)
                 {
-                    other.gameObject.GetComponent<EntityHealth>().TakeDamage(Damage);
-                    EnemyHealth.TakeDamage(1);
+                    other.gameObject.GetComponent<EntityHealth>().TakeDamage(_damage);
+                    _enemyHealth.TakeDamage(1);
                 }
 
                 var force = other.collider.transform.position - transform.position;
-                Debug.Log("Pain" + force);
                 force.Normalize();
                 other.gameObject.GetComponent<Rigidbody2D>().AddForce(force * Magnitude);
             }

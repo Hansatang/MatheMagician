@@ -7,28 +7,6 @@ namespace AI
     {
         [SerializeField] private float radius = 2f, agentColliderSize = 0.6f;
 
-        [SerializeField] private bool showGizmo = true;
-
-        //gizmo parameters
-        private float[] _dangersResultTemp;
-
-        private void OnDrawGizmos()
-        {
-            if (showGizmo == false)
-                return;
-
-            if (Application.isPlaying && _dangersResultTemp != null)
-                if (_dangersResultTemp != null)
-                {
-                    Gizmos.color = Color.red;
-                    for (var i = 0; i < _dangersResultTemp.Length; i++)
-                        Gizmos.DrawRay(
-                            transform.position,
-                            Directions.EightDirections[i] * _dangersResultTemp[i] * 2
-                        );
-                }
-        }
-
         public override (float[] danger, float[] interest) GetSteering(float[] danger, float[] interest, AIData aiData)
         {
             foreach (var obstacleCollider in aiData.obstacles)
@@ -57,7 +35,6 @@ namespace AI
                 }
             }
 
-            _dangersResultTemp = danger;
             return (danger, interest);
         }
     }

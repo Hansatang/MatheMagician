@@ -15,7 +15,7 @@ namespace AI
         public UnityEvent<Vector2> onDash;
 
 
-        public override IEnumerator BehaviourLogic()
+        protected override IEnumerator BehaviourLogic()
         {
             while (true)
             {
@@ -37,9 +37,9 @@ namespace AI
                 {
                     if (_currentAttackType == AttackType.Chase)
                     {
+                        //Select Attack Type
                         _currentAttackType = (AttackType) Random.Range(1, 4);
                     }
-                    //Select Attack Type
 
                     if (_currentAttackType == AttackType.Dash)
                     {
@@ -76,7 +76,7 @@ namespace AI
         {
             onAttackMelee?.Invoke(aiData.currentTarget.position);
             _currentAttackType = AttackType.Chase;
-            return new WaitForSeconds(attackDelay / 2);
+            return new WaitForSeconds(attackDelay);
         }
 
         private object RangedAttackLogic()

@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4284501993928441445}
   - component: {fileID: 6677171414704691054}
   - component: {fileID: 4303599971381973377}
-  - component: {fileID: 6867874658747105874}
   - component: {fileID: 6377905282259970130}
   - component: {fileID: 7085244520757096809}
+  - component: {fileID: 1370423390773089153}
   m_Layer: 8
   m_Name: Boss Treant
   m_TagString: Enemies
@@ -95,23 +95,6 @@ MonoBehaviour:
   enemyData: {fileID: 11400000, guid: 019426f886670ad4aa88b0dcc2ec174d, type: 2}
   startDashTime: 2
   dashSpeed: 3
---- !u!114 &6867874658747105874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797429542227971265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b9bf7672eed4be5b2899a0e6236e11f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 0
-  currentHealth: 0
-  isInvincible: 0
-  deathExplosion: {fileID: 8274877615094582550, guid: 102bb8f5e97a240478521be0527b3a97, type: 3}
-  experienceOrb: {fileID: 5285708265491337852, guid: fc66a1447a2d54647b8a69a3e786720f, type: 3}
 --- !u!114 &6377905282259970130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,6 +226,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1370423390773089153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797429542227971265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3bcf0ecd78c9da47b273a4f978398a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  currentHealth: 0
+  isInvincible: 0
+  deathExplosion: {fileID: 8274877615094582550, guid: 102bb8f5e97a240478521be0527b3a97, type: 3}
+  portal: {fileID: 4720687236375783633, guid: 4a7c97f3b12d07c4ca761d5de15d6c3c, type: 3}
 --- !u!1 &2907665466939775500
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,7 +453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0721ddbc4ca6ec1499ea0ffc3aa6ffb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyExplosionAttackIndicator: {fileID: -3056610083493482213, guid: 65bcff16c0cd7344db62db4dea86d7f7, type: 3}
+  bossExplosionAttackIndicator: {fileID: -3056610083493482213, guid: 65bcff16c0cd7344db62db4dea86d7f7, type: 3}
 --- !u!1 &3521500085782859945
 GameObject:
   m_ObjectHideFlags: 0

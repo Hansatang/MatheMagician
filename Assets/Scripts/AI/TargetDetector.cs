@@ -8,24 +8,9 @@ namespace AI
         [SerializeField] private float targetDetectionRange = 5;
 
         [SerializeField] private LayerMask obstaclesLayerMask, playerLayerMask;
-
-        [SerializeField] private bool showGizmos;
-
+        
         //gizmo parameters
         private List<Transform> _colliders;
-
-        private void OnDrawGizmosSelected()
-        {
-            if (showGizmos == false)
-                return;
-
-            Gizmos.DrawWireSphere(transform.position, targetDetectionRange);
-
-            if (_colliders == null)
-                return;
-            Gizmos.color = Color.magenta;
-            foreach (var item in _colliders) Gizmos.DrawSphere(item.position, 0.3f);
-        }
 
         public override void Detect(AIData aiData)
         {

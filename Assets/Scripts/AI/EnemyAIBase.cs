@@ -8,7 +8,6 @@ namespace AI
     public class EnemyAIBase : MonoBehaviour
     {
         [SerializeField] protected List<SteeringBehaviour> steeringBehaviours;
-
         [SerializeField] protected List<Detector> detectors;
 
         [SerializeField] protected AIData aiData;
@@ -17,7 +16,6 @@ namespace AI
         [SerializeField] protected float aiUpdateDelay = 0.10f;
 
         //Inputs sent from the Enemy AI to the Enemy controller
-
         public UnityEvent<Vector2> onMovementInput;
         public UnityEvent<Vector2> onPointerInput;
         public UnityEvent<bool> isAttacking;
@@ -63,7 +61,7 @@ namespace AI
             }
         }
 
-        public virtual IEnumerator BehaviourLogic()
+        protected virtual IEnumerator BehaviourLogic()
         {
             while (true)
             {
@@ -79,14 +77,14 @@ namespace AI
             }
         }
 
-        public object ChaseLogic()
+        protected object ChaseLogic()
         {
             movementInput = movementDirectionSolver.GetDirectionToMove(steeringBehaviours, aiData);
             isAttacking?.Invoke(false);
             return new WaitForSeconds(aiUpdateDelay);
         }
 
-        public void StopLogic()
+        protected void StopLogic()
         {
             movementInput = Vector2.zero;
             following = false;

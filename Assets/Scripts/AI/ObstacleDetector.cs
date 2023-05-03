@@ -8,20 +8,7 @@ namespace AI
 
         [SerializeField] private LayerMask layerMask;
 
-        [SerializeField] private bool showGizmos = true;
-
         private Collider2D[] _colliders;
-
-        private void OnDrawGizmos()
-        {
-            if (showGizmos == false)
-                return;
-            if (Application.isPlaying && _colliders != null)
-            {
-                Gizmos.color = Color.red;
-                foreach (var obstacleCollider in _colliders) Gizmos.DrawSphere(obstacleCollider.transform.position, 0.2f);
-            }
-        }
 
         public override void Detect(AIData aiData)
         {

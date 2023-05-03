@@ -21,10 +21,11 @@ namespace Enemies
         {
             //Logic for getting the distance between this GameObject and player and transforming it into
             //the Vertical and Horizontal Axis values (between -1 an 1)
-            hf = (Mathf.InverseLerp(-10, 10, transform.position.x - lookAtVector.x) -
+            var position = transform.position;
+            hf = (Mathf.InverseLerp(-10, 10, position.x - lookAtVector.x) -
                   0.5f) *
                  -2.0f;
-            vf = (Mathf.InverseLerp(-10, 10, transform.position.y - lookAtVector.y) -
+            vf = (Mathf.InverseLerp(-10, 10, position.y - lookAtVector.y) -
                   0.5f) *
                  -2.0f;
 

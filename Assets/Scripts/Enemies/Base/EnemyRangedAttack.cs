@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Enemies.EnemyProjectiles
+namespace Enemies.Base
 {
     public class EnemyRangedAttack : MonoBehaviour
     {

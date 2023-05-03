@@ -1,40 +1,19 @@
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace AI
 {
     public class SeekBehaviour : SteeringBehaviour
     {
-        [SerializeField] private float targetRechedThreshold = 0.5f;
+        [FormerlySerializedAs("targetRechedThreshold")] [SerializeField] private float targetReachedThreshold = 0.5f;
 
-        [SerializeField] private bool showGizmo = true;
-        private float[] _interestsTemp;
+        
 
         private bool _reachedLastTarget = true;
 
         //gizmo parameters
         private Vector2 _targetPositionCached;
-
-        private void OnDrawGizmos()
-        {
-            if (showGizmo == false)
-                return;
-            Gizmos.DrawSphere(_targetPositionCached, 0.2f);
-
-            if (Application.isPlaying && _interestsTemp != null)
-                if (_interestsTemp != null)
-                {
-                    Gizmos.color = Color.green;
-                    for (var i = 0; i < _interestsTemp.Length; i++)
-                        Gizmos.DrawRay(transform.position, Directions.EightDirections[i] * _interestsTemp[i] * 2);
-
-                    if (_reachedLastTarget == false)
-                    {
-                        Gizmos.color = Color.red;
-                        Gizmos.DrawSphere(_targetPositionCached, 0.1f);
-                    }
-                }
-        }
 
         public override (float[] danger, float[] interest) GetSteering(float[] danger, float[] interest, AIData aiData)
         {
@@ -58,7 +37,7 @@ namespace AI
                 _targetPositionCached = aiData.currentTarget.position;
 
             //First check if we have reached the target
-            if (Vector2.Distance(transform.position, _targetPositionCached) < targetRechedThreshold)
+            if (Vector2.Distance(transform.position, _targetPositionCached) < targetReachedThreshold)
             {
                 _reachedLastTarget = true;
                 aiData.currentTarget = null;
@@ -78,8 +57,7 @@ namespace AI
                     if (valueToPutIn > interest[i]) interest[i] = valueToPutIn;
                 }
             }
-
-            _interestsTemp = interest;
+            
             return (danger, interest);
         }
     }

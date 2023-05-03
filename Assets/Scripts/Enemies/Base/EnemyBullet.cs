@@ -6,7 +6,7 @@ namespace Enemies
     {
         public float force = 5;
         private Rigidbody2D _bulletBody;
-        private readonly float _rotationSpeed = 150f;
+        private const float RotationSpeed = 150f;
 
         private void Start()
         {
@@ -15,7 +15,7 @@ namespace Enemies
 
         private void Update()
         {
-            transform.Rotate(Vector3.forward * (_rotationSpeed * Time.deltaTime));
+            transform.Rotate(Vector3.forward * (RotationSpeed * Time.deltaTime));
         }
 
         private void OnCollisionEnter2D(Collision2D other)
@@ -31,8 +31,9 @@ namespace Enemies
         public void SetTarget(Vector2 target)
         {
             _bulletBody = GetComponent<Rigidbody2D>();
+            var position = transform.position;
             _bulletBody.velocity =
-                new Vector2(target.x - transform.position.x, target.y - transform.position.y).normalized * force;
+                new Vector2(target.x - position.x, target.y - position.y).normalized * force;
         }
     }
 }

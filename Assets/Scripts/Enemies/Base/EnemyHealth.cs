@@ -1,9 +1,9 @@
 ﻿using Managers;
+using Misc;
 using UI;
 using UnityEngine;
-using UnityEngine.Events;
 
-namespace Enemies
+namespace Enemies.Base
 {
     public class EnemyHealth : EntityHealth
     {

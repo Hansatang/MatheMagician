@@ -9,8 +9,8 @@ namespace AI
         [SerializeField] private float attackDelay = 2.0f;
         [SerializeField] private float attackDistance = 5.0f;
         public UnityEvent<Vector2> onAttackPressed;
-       
-        public override IEnumerator BehaviourLogic()
+
+        protected override IEnumerator BehaviourLogic()
         {
             while (true)
             {
