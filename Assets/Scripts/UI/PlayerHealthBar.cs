@@ -47,6 +47,7 @@ namespace UI
 
         public override void SetMaxHealth(int maxHealth)
         {
+            _fillValue = maxHealth;
             _maxFillValue = maxHealth;
             healthText.text = _maxFillValue.ToString();
         }

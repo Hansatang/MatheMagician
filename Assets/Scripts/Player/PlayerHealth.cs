@@ -47,7 +47,6 @@ namespace Player
         private IEnumerator BecomeTemporarilyInvincible()
         {
             isInvincible = true;
-
             for (float i = 0; i < invincibilityDurationSeconds; i += invincibilityDeltaTime)
             {
                 ScaleModelTo(_model.transform.localScale == Vector3.one ? Vector3.zero : Vector3.one);

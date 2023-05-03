@@ -23,10 +23,13 @@ namespace Misc
         /// </summary>
         public virtual void TakeDamage(int damageTaken)
         {
-            currentHealth -= damageTaken;
-            if (currentHealth <= 0)
+            if (currentHealth - damageTaken <= maxHealth)
             {
-                Die();
+                currentHealth -= damageTaken;
+                if (currentHealth <= 0)
+                {
+                    Die();
+                }
             }
         }
 
