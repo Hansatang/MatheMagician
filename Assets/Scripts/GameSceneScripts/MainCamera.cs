@@ -7,8 +7,8 @@ namespace GameSceneScripts
     public class MainCamera : MonoBehaviour
     {
         public GameObject player;
-        public float maxZoom = 2;
-        public float minZoom = 7;
+        public float maxZoom = 5;
+        public float minZoom = 9;
         public float sensitivity = 1;
         public float speed = 30;
         public UnityEvent cameraZoom;

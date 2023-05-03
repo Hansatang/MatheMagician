@@ -66,7 +66,7 @@ namespace Player
         }
 
 
-        public void CreateWeaponLauncher(WeaponData weaponObject)
+        private void CreateWeaponLauncher(WeaponData weaponObject)
         {
             var instantiatedWeapon =
                 Instantiate(weaponObject.weaponObject, transform.position, Quaternion.identity);

@@ -7,8 +7,7 @@ namespace UI
         private static readonly int Health = Animator.StringToHash("Health");
         private Animator _anim;
         private PlayerHealthBar _playerHealthBar;
-
-
+        
         private void Start()
         {
             _anim = GetComponent<Animator>();

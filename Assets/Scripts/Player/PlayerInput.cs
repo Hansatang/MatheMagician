@@ -5,29 +5,33 @@ namespace Player
 {
     public class PlayerInput : MonoBehaviour
     {
-        public float Horizontal { get; private set; }
-        public float Vertical { get; private set; }
-
-        public Quaternion Rotation { get; private set; }
+        public Vector2 inputAxis;
+        public Quaternion rotation;
 
         public UnityEvent<bool, Vector2> movementEvent;
 
+        private bool _isAlive = true;
+
         private void Update()
         {
-            Horizontal = GetHorizontalAxisValue();
-            Vertical = GetVerticalAxisValue();
-
-            if (Horizontal != 0 || Vertical != 0)
+            if (_isAlive)
             {
-                movementEvent?.Invoke(true, new Vector2(Horizontal, Vertical));
-            }
-            else
-            {
-                movementEvent?.Invoke(false, new Vector2(Horizontal, Vertical));
-            }
+                inputAxis.Set(GetHorizontalAxisValue(), GetVerticalAxisValue());
 
-            Rotation = GetRotation();
+
+                if (inputAxis.x != 0 || inputAxis.y != 0)
+                {
+                    movementEvent?.Invoke(true, new Vector2(inputAxis.x, inputAxis.y));
+                }
+                else
+                {
+                    movementEvent?.Invoke(false, new Vector2(inputAxis.x, inputAxis.y));
+                }
+
+                rotation = GetRotation();
+            }
         }
+
 
         private float GetHorizontalAxisValue()
         {
@@ -42,12 +46,18 @@ namespace Player
 
         private Quaternion GetRotation()
         {
-            if (Horizontal == 0 && Vertical == 0)
+            if (inputAxis.x == 0 && inputAxis.y == 0)
             {
-                return Rotation;
+                return rotation;
             }
-            return Rotation = Quaternion.Euler(0, 0,
+
+            return rotation = Quaternion.Euler(0, 0,
                 Mathf.Atan2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * -Mathf.Rad2Deg);
+        }
+
+        public void DenyInput()
+        {
+            _isAlive = false;
         }
     }
 }

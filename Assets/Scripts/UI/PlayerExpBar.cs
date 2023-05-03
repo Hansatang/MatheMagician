@@ -8,7 +8,7 @@ namespace UI
     public class PlayerExpBar : MonoBehaviour
     {
         public Slider slider;
-        [FormerlySerializedAs("healthText")] public TextMeshProUGUI expText;
+        public TextMeshProUGUI expText;
 
         public void SetCurrentExperience(int experience)
         {

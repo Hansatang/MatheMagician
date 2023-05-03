@@ -48,7 +48,6 @@ namespace Managers
             {
                 var num = Random.Range(0, _currentWave.EnemiesInWave.Length);
                 var spawnPosition = SelectSpawningPoint();
-                Debug.Log(spawnPosition);
                 Instantiate(_currentWave.EnemiesInWave[num], spawnPosition, Quaternion.identity);
             }
         }

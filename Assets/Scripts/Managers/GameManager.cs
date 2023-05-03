@@ -8,12 +8,13 @@ namespace Managers
     public class GameManager : MonoBehaviour
     {
         public GameUI gameUI;
-        public DefeatCanvas defeatCanvas;
+        public ResultCanvas resultCanvas;
         public WaveSpawner waveSpawner;
 
         public int gameTime;
         public int enemyCounter;
         public UnityEvent gameOverEvent;
+        public UnityEvent victoryEvent;
 
         public void Start()
         {
@@ -46,7 +47,13 @@ namespace Managers
         public void GameIsOver()
         {
             gameOverEvent?.Invoke();
-            defeatCanvas.SetStatistics(gameTime, enemyCounter);
+            resultCanvas.Defeat(gameTime, enemyCounter);
+        }
+
+        public void Victory()
+        {
+            victoryEvent?.Invoke();
+            resultCanvas.Victory(gameTime, enemyCounter);
         }
     }
 }

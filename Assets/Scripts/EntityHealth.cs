@@ -18,12 +18,9 @@ public abstract class EntityHealth : MonoBehaviour
     /// </summary>
     public virtual void TakeDamage(int damageTaken)
     {
-        Debug.Log("Taking " + damageTaken + " damage");
         currentHealth -= damageTaken;
-        Debug.Log("Remaining health: " + currentHealth);
         if (currentHealth <= 0)
         {
-            Debug.Log(currentHealth + "LOL");
             Die();
         }
     }

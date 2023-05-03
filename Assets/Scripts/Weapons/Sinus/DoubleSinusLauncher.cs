@@ -27,14 +27,14 @@ namespace Weapons.Sinus
                 if (upper)
                 {
                     var instantiatedBullet =
-                        Instantiate(sinBullet, transform.position, _playerInput.Rotation, gameObject.transform);
+                        Instantiate(sinBullet, transform.position, _playerInput.rotation, gameObject.transform);
                     instantiatedBullet.SetStatistics(speedEnhanced, powerEnhanced, areaEnhanced);
                     yield return new WaitForSeconds(2);
                 }
                 else
                 {
                     var instantiatedBullet =
-                        Instantiate(sinBullet, transform.position, _playerInput.Rotation, gameObject.transform);
+                        Instantiate(sinBullet, transform.position, _playerInput.rotation, gameObject.transform);
                     instantiatedBullet.SetStatistics(speedEnhanced, powerEnhanced, areaEnhanced);
                     instantiatedBullet.Reverse();
                     yield return new WaitForSeconds(2);
