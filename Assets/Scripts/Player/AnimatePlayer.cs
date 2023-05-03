@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Player
 {
+    /// <summary>
+    ///    Class responsible for animating the player
+    /// </summary>
     public class AnimatePlayer : MonoBehaviour
     {
         private static readonly int Horizontal = Animator.StringToHash("Horizontal");

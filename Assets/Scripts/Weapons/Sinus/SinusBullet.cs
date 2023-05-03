@@ -1,7 +1,11 @@
+using Misc;
 using UnityEngine;
 
 namespace Weapons.Sinus
 {
+    /// <summary>
+    ///    Class responsible for moving the projectile in sinusoidal manner
+    /// </summary>
     public class SinusBullet : MonoBehaviour
     {
         private Vector3 _axis;
@@ -14,8 +18,6 @@ namespace Weapons.Sinus
         private float _moveSpeed;
 
         private Vector3 _pos;
-
-        //Weapon general Stats
         private int _power;
 
         private void Start()

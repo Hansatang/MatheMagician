@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Player
 {
+    /// <summary>
+    ///    Class responsible for moving the player
+    /// </summary>
     public class PlayerMovement : MonoBehaviour
     {
         // Move player in 2D space

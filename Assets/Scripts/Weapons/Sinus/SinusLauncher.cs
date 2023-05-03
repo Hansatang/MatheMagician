@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Weapons.Sinus
 {
+    /// <summary>
+    ///    Class responsible for creating and managing the stats of projectiles 
+    /// </summary>
     public class SinusLauncher : WeaponSystem
     {
         [SerializeField] public SinusBullet sinBullet;

@@ -5,6 +5,9 @@ using Quaternion = UnityEngine.Quaternion;
 
 namespace Enemies.Treant_Boss
 {
+    /// <summary>
+    ///     Class responsible for Boss health and death behaviour - spawning the Victory Portal
+    /// </summary>
     public class BossHealth : EntityHealth
     {
         public Portal portal;

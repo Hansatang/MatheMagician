@@ -1,7 +1,11 @@
-﻿using UnityEngine;
+﻿using Misc;
+using UnityEngine;
 
 namespace Enemies
 {
+    /// <summary>
+    ///     Baseline for enemy stats, movement and body collision
+    /// </summary>
     public abstract class Enemy : MonoBehaviour
     {
         [SerializeField] public EnemyData enemyData;
@@ -23,7 +27,9 @@ namespace Enemies
             _enemyHealth.SetHealth(_health);
         }
 
-
+        /// <summary>
+        ///     Responsible for damaging player and itself if player is not in isInvincible State, and applying knock-back
+        /// </summary>
         public virtual void OnCollisionEnter2D(Collision2D other)
         {
             if (other.gameObject.CompareTag("Player"))

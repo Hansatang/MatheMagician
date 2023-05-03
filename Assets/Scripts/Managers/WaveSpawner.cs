@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Managers
 {
+    /// <summary>
+    ///    Class responsible for spawning enemies based on game time
+    /// </summary>
     public class WaveSpawner : MonoBehaviour
     {
         [SerializeField] public Camera cam;
@@ -42,6 +45,9 @@ namespace Managers
             }
         }
 
+        /// <summary>
+        ///   Spawn the enemy in its psawning point
+        /// </summary>
         private void SpawnWave()
         {
             for (var i = 0; i < _currentWave.NumberToSpawn; i++)
@@ -52,6 +58,9 @@ namespace Managers
             }
         }
 
+        /// <summary>
+        ///    Select the spawning point outside of current camera view, so spawning is hidden from player
+        /// </summary>
         private Vector3 SelectSpawningPoint()
         {
             var position = cam.transform.position;

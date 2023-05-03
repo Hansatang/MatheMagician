@@ -1,8 +1,11 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Enemies
+namespace Enemies.Treant_Boss
 {
+    /// <summary>
+    ///     Class responsible for managing the expanding attack indicator, which at the end spawn the actual projectiles
+    /// </summary>
     public class BossExplosionAttackIndicator : MonoBehaviour
     {
         public ParticleSystem sporeExplosion;
@@ -20,6 +23,9 @@ namespace Enemies
             StartCoroutine(ExpandArea());
         }
 
+        /// <summary>
+        ///    Increases scale over time up to TargetScale
+        /// </summary>
         private IEnumerator ExpandArea()
         {
             while (true)

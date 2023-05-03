@@ -2,22 +2,19 @@ using UnityEngine;
 
 namespace Enemies.Treant_Boss
 {
+    /// <summary>
+    ///     Class responsible for Boss ranged projectile
+    /// </summary>
     public class BossBullet : MonoBehaviour
     {
         private const float Force = 3;
         private Rigidbody2D _bulletBody;
-        private const float RotationSpeed = 150f;
 
         private void Start()
         {
             Destroy(gameObject, 15.0f);
         }
-
-        private void Update()
-        {
-            transform.Rotate(Vector3.forward * (RotationSpeed * Time.deltaTime));
-        }
-
+        
         public void SetTarget(Vector2 target)
         {
             _bulletBody = GetComponent<Rigidbody2D>();

@@ -3,6 +3,9 @@ using UnityEngine.Events;
 
 namespace UI
 {
+    /// <summary>
+    ///    Class responsible for populating the upgrade holders and invoking the upgrade selection
+    /// </summary>
     public class LevelUpController : MonoBehaviour
     {
         public HolderBehaviour firstHolder;

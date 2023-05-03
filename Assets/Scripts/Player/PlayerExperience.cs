@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Player
 {
+    /// <summary>
+    ///    Class responsible for managing player experience and invoking the level up in Manager
+    /// </summary>
     public class PlayerExperience : MonoBehaviour
     {
         [SerializeField] public PlayerExpBar playerExpBar;

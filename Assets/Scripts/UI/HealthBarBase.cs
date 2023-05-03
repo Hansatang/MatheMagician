@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace UI
 {
+    /// <summary>
+    ///    Class responsible for health for entities
+    /// </summary>
     public class HealthBarBase : HealthBar
     {
         [SerializeField] private Transform bar;

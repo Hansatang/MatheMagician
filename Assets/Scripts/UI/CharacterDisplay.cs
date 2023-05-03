@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 namespace UI
 {
+    /// <summary>
+    ///    Class responsible for displaying the character in character selection
+    /// </summary>
     public class CharacterDisplay : MonoBehaviour
     {
         [SerializeField] public TextMeshProUGUI characterName;

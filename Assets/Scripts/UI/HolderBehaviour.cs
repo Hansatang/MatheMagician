@@ -6,6 +6,9 @@ using Weapons;
 
 namespace UI
 {
+    /// <summary>
+    ///    Class responsible for presenting the data about possible upgrade to player
+    /// </summary>
     public class HolderBehaviour : MonoBehaviour
     {
         public Image image;

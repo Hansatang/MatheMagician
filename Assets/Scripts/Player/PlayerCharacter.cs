@@ -1,8 +1,12 @@
+using Misc;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace Player
 {
+    /// <summary>
+    ///    Class responsible for setting the player statistics after awakening, and for player death
+    /// </summary>
     public class PlayerCharacter : MonoBehaviour
     {
         public UnityEvent<int> startingWeaponIndex;

@@ -4,6 +4,9 @@ using Weapons;
 
 namespace Player
 {
+    /// <summary>
+    ///    Class responsible for holding and modifying the player weapons
+    /// </summary>
     public class PlayerWeapons : MonoBehaviour
     {
         private float _areaEnhancements = 1f;
@@ -11,6 +14,9 @@ namespace Player
         private float _speedEnhancements = 1f;
         private readonly List<WeaponSystem> _weaponSystems = new();
 
+        /// <summary>
+        ///    Check the type of upgrade and acts based on it
+        /// </summary>
         public void AddUpgrade(UpgradeData upgradeData)
         {
             switch (upgradeData)
@@ -37,7 +43,6 @@ namespace Player
                 _weaponSystems[modifyingWeapon].Stop();
                 _weaponSystems.RemoveAt(modifyingWeapon);
             }
-
             CreateWeaponLauncher(weaponData);
         }
 
@@ -65,7 +70,10 @@ namespace Player
                 weapon.UpgradeAll(speedEnhancements, powerEnhancements, areaEnhancements);
         }
 
-
+        /// <summary>
+        ///    First it creates the weapon Launcher, the it's being added to the active weapons, so upgrades can be done in a for loop
+        ///    Second it set the already obtained stats upgrades to the weapon
+        /// </summary>
         private void CreateWeaponLauncher(WeaponData weaponObject)
         {
             var instantiatedWeapon =

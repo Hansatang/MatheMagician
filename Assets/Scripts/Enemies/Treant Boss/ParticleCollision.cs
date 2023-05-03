@@ -1,7 +1,11 @@
+using Misc;
 using UnityEngine;
 
 namespace Enemies.Treant_Boss
 {
+    /// <summary>
+    ///     Class responsible for explosion attack
+    /// </summary>
     public class ParticleCollision : MonoBehaviour
     {
         void OnParticleCollision(GameObject other)

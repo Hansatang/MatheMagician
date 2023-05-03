@@ -1,7 +1,11 @@
+using Misc;
 using UnityEngine;
 
 namespace Weapons.Circle
 {
+    /// <summary>
+    ///    Class responsible for rotating the projectile around its launcher
+    /// </summary>
     public class CircleBullet : MonoBehaviour
     {
         private float _angle;

@@ -3,6 +3,9 @@ using Weapons;
 
 namespace Player
 {
+    /// <summary>
+    ///    ScriptableObject responsible for holding the player statistics
+    /// </summary>
     [CreateAssetMenu(fileName = "New Character", menuName = "Scriptable Objects/Characters")]
     public class CharacterData : ScriptableObject
     {

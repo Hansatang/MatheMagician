@@ -4,6 +4,9 @@ using UnityEngine.Events;
 
 namespace GameSceneScripts
 {
+    /// <summary>
+    ///    Class responsible for camera following the player and zoom functionality
+    /// </summary>
     public class MainCamera : MonoBehaviour
     {
         public GameObject player;
@@ -22,6 +25,9 @@ namespace GameSceneScripts
             _targetZoom = _cam.orthographicSize;
         }
 
+        /// <summary>
+        ///     Makes the camera follow player, also if the game is not paused it allows for changing the zoom
+        /// </summary>
         private void Update()
         {
             var pos = player.transform.position;

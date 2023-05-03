@@ -5,6 +5,9 @@ using Weapons;
 
 namespace UI
 {
+    /// <summary>
+    ///    Class responsible for showing the player his chosen upgrades
+    /// </summary>
     public class UpgradeHolder : MonoBehaviour
     {
         public TextMeshProUGUI upgradeLevel;

@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Weapons.Circle
 {
+    /// <summary>
+    ///    Class responsible for creating and managing the rotating around it projectile
+    /// </summary>
     public class CircleLauncher : WeaponSystem
     {
         [SerializeField] public CircleBullet circleBullet;

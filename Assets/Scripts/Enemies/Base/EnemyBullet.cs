@@ -1,7 +1,11 @@
+using Misc;
 using UnityEngine;
 
-namespace Enemies
+namespace Enemies.Base
 {
+    /// <summary>
+    ///     Class responsible controlling the enemy projectile
+    /// </summary>
     public class EnemyBullet : MonoBehaviour
     {
         public float force = 5;
@@ -27,7 +31,9 @@ namespace Enemies
             }
         }
 
-
+        /// <summary>
+        ///     Set the velocity for the body of projectile, so it can move towards target
+        /// </summary>
         public void SetTarget(Vector2 target)
         {
             _bulletBody = GetComponent<Rigidbody2D>();

@@ -4,6 +4,9 @@ using Weapons;
 
 namespace UI
 {
+    /// <summary>
+    ///    Class responsible for populating the UpgradeHolders
+    /// </summary>
     public class UpgradesUI : MonoBehaviour
     {
         public List<UpgradeHolder> upgradeHolders;

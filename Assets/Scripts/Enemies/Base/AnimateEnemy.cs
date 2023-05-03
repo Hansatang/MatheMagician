@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Enemies
 {
+    /// <summary>
+    ///     Class responsible for animating the enemy
+    /// </summary>
     public class AnimateEnemy : MonoBehaviour
     {
         private static readonly int Horizontal = Animator.StringToHash("Horizontal");
@@ -16,18 +19,16 @@ namespace Enemies
             _anim = GetComponent<Animator>();
         }
 
-
-        public void LookAt(Vector2 lookAtVector)
+        /// <summary>
+        ///     Makes the enemy animate towards player, takes care of idle and active animations
+        /// </summary>
+        public void AnimateTowards(Vector2 lookAtVector)
         {
             //Logic for getting the distance between this GameObject and player and transforming it into
             //the Vertical and Horizontal Axis values (between -1 an 1)
             var position = transform.position;
-            hf = (Mathf.InverseLerp(-10, 10, position.x - lookAtVector.x) -
-                  0.5f) *
-                 -2.0f;
-            vf = (Mathf.InverseLerp(-10, 10, position.y - lookAtVector.y) -
-                  0.5f) *
-                 -2.0f;
+            hf = (Mathf.InverseLerp(-10, 10, position.x - lookAtVector.x) - 0.5f) * -2.0f;
+            vf = (Mathf.InverseLerp(-10, 10, position.y - lookAtVector.y) - 0.5f) * -2.0f;
 
             _anim.SetFloat(Horizontal, hf);
             _anim.SetFloat(Vertical, vf);

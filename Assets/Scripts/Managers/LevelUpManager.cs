@@ -9,6 +9,9 @@ using Random = System.Random;
 
 namespace Managers
 {
+    /// <summary>
+    ///    Class responsible for holding the possible upgrades and adding them to playerWeapons
+    /// </summary>
     public class LevelUpManager : MonoBehaviour
     {
         //Upgrades Containers

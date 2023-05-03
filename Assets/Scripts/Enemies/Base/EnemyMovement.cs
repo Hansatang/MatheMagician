@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Enemies.Base
 {
+    /// <summary>
+    ///     Class responsible for movement based enemy actions
+    /// </summary>
     public class EnemyMovement : Enemy
     {
         [SerializeField] private float startDashTime = 2f;
@@ -20,13 +23,16 @@ namespace Enemies.Base
             StartCoroutine(Dashing(dashDirection));
         }
 
+        /// <summary>
+        ///    Contains logic for dashing over time, then resetting the velocity of the body
+        /// </summary>
         private IEnumerator Dashing(Vector2 dashDirection)
         {
             _currentDashTime = startDashTime; // Reset the dash timer.
             while (_currentDashTime > 0f)
             {
                 _currentDashTime -= Time.deltaTime; // Lower the dash timer each frame.
-                enemyBody.velocity = dashDirection * dashSpeed; // Dash in the direction that was held down.
+                enemyBody.velocity = dashDirection * dashSpeed; // Dash in the direction.
 
                 yield return null; // Returns out of the coroutine this frame so we don't hit an infinite loop.
             }

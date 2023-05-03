@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Managers
 {
+    /// <summary>
+    ///    Class responsible for pop ups
+    /// </summary>
     public class PopUpManager : MonoBehaviour
     {
         [SerializeField] private PopUp popUpObject;

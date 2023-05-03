@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Managers
 {
+    /// <summary>
+    ///    Class responsible for all type of game pauses
+    /// </summary>
     public class PauseManager : MonoBehaviour
     {
         public static bool GamePaused;

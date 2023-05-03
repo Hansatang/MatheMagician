@@ -3,6 +3,9 @@ using UnityEngine.Events;
 
 namespace Player
 {
+    /// <summary>
+    ///    Class responsible for input and rotation of player
+    /// </summary>
     public class PlayerInput : MonoBehaviour
     {
         public Vector2 inputAxis;
@@ -43,7 +46,10 @@ namespace Player
             return Input.GetAxis("Vertical");
         }
 
-
+        /// <summary>
+        ///    As the player doesn't use rotation for movement, but it's still needed for shooting direction,
+        ///    the inputs are manually translated into rotation values
+        /// </summary>
         private Quaternion GetRotation()
         {
             if (inputAxis.x == 0 && inputAxis.y == 0)

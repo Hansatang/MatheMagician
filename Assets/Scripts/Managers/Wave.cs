@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Managers
 {
+    /// <summary>
+    ///    ScriptableObject responsible for holding the wave statistics
+    /// </summary>
     [CreateAssetMenu(fileName = "Wave", menuName = "ScriptableObjects/Waves", order = 1)]
     public class Wave : ScriptableObject
     {

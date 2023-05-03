@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 namespace UI
 {
+    /// <summary>
+    ///    Class responsible for presenting the player his experience
+    /// </summary>
     public class PlayerExpBar : MonoBehaviour
     {
         public Slider slider;

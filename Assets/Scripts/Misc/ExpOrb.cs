@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Misc
 {
+    /// <summary>
+    ///    Class responsible for experience orb behaviour
+    /// </summary>
     public class ExpOrb : MonoBehaviour
     {
         private int _worth;

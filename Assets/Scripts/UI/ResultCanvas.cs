@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace UI
 {
+    /// <summary>
+    ///    Class responsible for result canvas that is used for victory and defeat screen
+    /// </summary>
     public class ResultCanvas : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI summaryText;

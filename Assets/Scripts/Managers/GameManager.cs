@@ -5,6 +5,9 @@ using UnityEngine.Events;
 
 namespace Managers
 {
+    /// <summary>
+    ///    Class responsible for counting enemies defeated, game time and Victory and Defeat States
+    /// </summary>
     public class GameManager : MonoBehaviour
     {
         public GameUI gameUI;

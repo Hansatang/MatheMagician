@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace UI
 {
+    /// <summary>
+    ///    Class responsible for animating the hearth icon, if health below 50% the heart beats faster
+    /// </summary>
     public class HearthIconAnimationController : MonoBehaviour
     {
         private static readonly int Health = Animator.StringToHash("Health");

@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Weapons
 {
+    /// <summary>
+    ///    Baseline responsible for manipulating the weapon launchers
+    /// </summary>
     public abstract class WeaponSystem : MonoBehaviour
     {
         public int weaponId;

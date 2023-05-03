@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 namespace UI
 {
+    /// <summary>
+    ///    Class responsible for health for player
+    /// </summary>
     public class PlayerHealthBar : HealthBar
     {
         public Gradient gradient;
@@ -23,6 +26,9 @@ namespace UI
             ColorChanger();
         }
 
+        /// <summary>
+        ///    Uses Lerp to animate the lose of health, instead of dropping it contentiously
+        /// </summary>
         private void FillHealthBar()
         {
             healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, _currentHealthValue, _lerpSpeed);

@@ -1,8 +1,12 @@
+using Misc;
 using Player;
 using UnityEngine;
 
 namespace Managers
 {
+    /// <summary>
+    ///    Class responsible for managing the scenes and closing the game
+    /// </summary>
     public class SceneManager : MonoBehaviour
     {
         public void StartGame(CharacterData characterData)

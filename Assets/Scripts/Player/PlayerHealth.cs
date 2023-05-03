@@ -1,10 +1,14 @@
 ﻿using System.Collections;
+using Misc;
 using UI;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace Player
 {
+    /// <summary>
+    ///    Class responsible for player health, invisibility frames 
+    /// </summary>
     public class PlayerHealth : EntityHealth
     {
         public HealthBar playerHealthBar;

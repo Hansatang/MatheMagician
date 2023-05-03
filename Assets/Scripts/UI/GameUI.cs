@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace UI
 {
+    /// <summary>
+    ///    Class responsible for clock and enemy counter in player UI
+    /// </summary>
     public class GameUI : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI clockText;

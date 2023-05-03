@@ -5,12 +5,16 @@ using UnityEngine;
 
 namespace Enemies.Base
 {
+    /// <summary>
+    ///     Class responsible for managing Enemy health, including death logic
+    /// </summary>
     public class EnemyHealth : EntityHealth
     {
         public ExpOrb experienceOrb;
         private HealthBar _healthBarBase;
         private PopUpManager _popUpManager;
         private GameManager _gameManager;
+
         private void Awake()
         {
             _popUpManager = FindObjectOfType<PopUpManager>();
@@ -19,6 +23,9 @@ namespace Enemies.Base
             _healthBarBase.SetMaxHealth(maxHealth);
         }
 
+        /// <summary>
+        ///    Shows Damage pop up above enemy, reduces currentHealth variable by damage taken, and updates the health bar
+        /// </summary>
         public override void TakeDamage(int damageTaken)
         {
             _popUpManager.ShowDamagePopUp(damageTaken.ToString(), transform.position);
@@ -26,6 +33,9 @@ namespace Enemies.Base
             _healthBarBase.SetHealth(currentHealth);
         }
 
+        /// <summary>
+        ///    Creates Experience orb, updates enemy counter and creates death particles
+        /// </summary>
         protected override void Die()
         {
             var instantiatedObject = Instantiate(experienceOrb, transform.position, Quaternion.identity);

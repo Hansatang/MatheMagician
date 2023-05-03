@@ -151,7 +151,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4475093960033041753}
         m_TargetAssemblyTypeName: Enemies.AnimateEnemy, Assembly-CSharp
-        m_MethodName: LookAt
+        m_MethodName: AnimateTowards
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

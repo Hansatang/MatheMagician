@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Weapons
 {
+    /// <summary>
+    ///    ScriptableObject baseline for upgrades, contains general statistics
+    /// </summary>
     [CreateAssetMenu(fileName = "New Upgrade", menuName = "Scriptable Objects/Upgrade")]
     public class UpgradeData : ScriptableObject
     {

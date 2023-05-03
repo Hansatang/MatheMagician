@@ -2,11 +2,17 @@
 
 namespace Enemies.Treant_Boss
 {
+    /// <summary>
+    ///     Class responsible for creating Boss ranged attacks in a cone
+    /// </summary>
     public class BossRangedAttack : MonoBehaviour
     {
         public BossBullet enemyBullet;
         private const int SpreadDegree = 45;
 
+        /// <summary>
+        ///     In for loop it modifies the target by rotating its vector by -SpreadDegree and SpreadDegree
+        /// </summary>
         public void ShootTowards(Vector2 target)
         {
             Vector3 currentPosition = transform.position;
