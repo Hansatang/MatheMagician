@@ -36,9 +36,8 @@ namespace Player
         /// </summary>
         protected override void Die()
         {
-            Debug.Log("Dead");
+            isInvincible = true;
             deathEvent?.Invoke();
-            
         }
 
         private IEnumerator BecomeTemporarilyInvincible()

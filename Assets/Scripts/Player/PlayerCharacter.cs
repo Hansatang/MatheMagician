@@ -7,6 +7,7 @@ namespace Player
     {
         public UnityEvent<int> startingWeaponIndex;
         private CharacterData _characterData;
+        public UnityEvent defeatEvent;
 
         private void Awake()
         {
@@ -18,6 +19,11 @@ namespace Player
                 GetComponentInParent<EntityHealth>().SetHealth(_characterData.characterHealth);
                 GetComponentInParent<PlayerMovement>().SetSpeed(_characterData.characterSpeed);
             }
+        }
+
+        public void PlayerDeath()
+        {
+            defeatEvent?.Invoke();
         }
     }
 }

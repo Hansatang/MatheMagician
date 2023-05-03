@@ -98,8 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b5a1f4c68d75454390c95ac426321ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hf: 0
-  vf: 0
+  playerIsDead:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!95 &748806759
 Animator:
   serializedVersion: 5
