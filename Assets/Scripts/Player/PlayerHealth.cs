@@ -17,6 +17,7 @@ namespace Player
         
         public UnityEvent deathEvent;
         public UnityEvent<Vector3> invincibilityEvent;
+        public AudioSource painSound;
 
         public override void SetHealth(int health)
         {
@@ -32,6 +33,7 @@ namespace Player
             if (isInvincible) return;
             base.TakeDamage(damageTaken);
             playerHealthBar.SetHealth(currentHealth);
+            painSound.Play();
             StartCoroutine(BecomeTemporarilyInvincible());
         }
 
