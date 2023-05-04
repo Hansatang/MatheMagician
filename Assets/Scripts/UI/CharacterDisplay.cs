@@ -1,4 +1,5 @@
 using Player;
+using SO_Definitions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

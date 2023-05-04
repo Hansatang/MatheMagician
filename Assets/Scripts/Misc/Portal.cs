@@ -1,3 +1,4 @@
+using Managers;
 using UnityEngine;
 
 namespace Misc
@@ -7,11 +8,18 @@ namespace Misc
     /// </summary>
     public class Portal : MonoBehaviour
     {
+        private GameManager _gameManager;
+
+        private void Start()
+        {
+            _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        }
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                Debug.Log("Victory");
+                _gameManager.Victory();
             }
         }
     }

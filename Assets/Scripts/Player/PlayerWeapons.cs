@@ -43,6 +43,7 @@ namespace Player
                 _weaponSystems[modifyingWeapon].Stop();
                 _weaponSystems.RemoveAt(modifyingWeapon);
             }
+
             CreateWeaponLauncher(weaponData);
         }
 
@@ -81,6 +82,7 @@ namespace Player
             instantiatedWeapon.transform.parent = gameObject.transform;
             var weaponSystemToAdd = (WeaponSystem) instantiatedWeapon.GetComponent(typeof(WeaponSystem));
             weaponSystemToAdd.SetEnhancedStats(weaponObject.speed, weaponObject.area, weaponObject.power);
+            weaponSystemToAdd.SetID(weaponObject.upgradeIndex);
             _weaponSystems.Add(weaponSystemToAdd);
             weaponSystemToAdd.UpgradeAll(_speedEnhancements, _powerEnhancements, _areaEnhancements);
             weaponSystemToAdd.Arm();

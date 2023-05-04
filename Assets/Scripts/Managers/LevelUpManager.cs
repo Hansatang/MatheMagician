@@ -3,7 +3,6 @@ using Player;
 using UI;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 using Weapons;
 using Random = System.Random;
 

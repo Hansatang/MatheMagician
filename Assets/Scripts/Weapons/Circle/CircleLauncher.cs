@@ -17,11 +17,6 @@ namespace Weapons.Circle
             circleBullet.SetStatistics(speedEnhanced, powerEnhanced, areaEnhanced);
         }
 
-        public override void Stop()
-        {
-            circleBullet.Stop();
-        }
-
         public override void UpgradeAll(float speedEnhancements, float powerEnhancements, float areaEnhancements)
         {
             base.UpgradeAll(speedEnhancements, powerEnhancements, areaEnhancements);

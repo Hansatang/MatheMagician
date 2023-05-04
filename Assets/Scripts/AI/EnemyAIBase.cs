@@ -24,7 +24,7 @@ namespace AI
 
         [SerializeField] protected ContextSolver movementDirectionSolver;
 
-        protected bool following;
+        private bool _following;
 
         private void Start()
         {
@@ -54,9 +54,9 @@ namespace AI
         private void LookAtTarget()
         {
             onPointerInput?.Invoke(aiData.currentTarget.position);
-            if (following == false)
+            if (_following == false)
             {
-                following = true;
+                _following = true;
                 StartCoroutine(BehaviourLogic());
             }
         }
@@ -87,7 +87,7 @@ namespace AI
         protected void StopLogic()
         {
             movementInput = Vector2.zero;
-            following = false;
+            _following = false;
         }
     }
 }

@@ -1372,7 +1372,7 @@ Canvas:
   m_OverrideSorting: 1
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 1
   m_SortingLayerID: 0
   m_SortingOrder: 4
   m_TargetDisplay: 0
@@ -2442,7 +2442,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
 MonoBehaviour:
@@ -3030,7 +3030,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &573939015
 GameObject:
@@ -3358,7 +3358,7 @@ Transform:
   - {fileID: 1966098350}
   - {fileID: 1712161009}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &585140184
 MonoBehaviour:
@@ -3951,7 +3951,7 @@ GameObject:
   - component: {fileID: 675739083}
   - component: {fileID: 675739084}
   m_Layer: 0
-  m_Name: WaveSpawner
+  m_Name: WaveManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3964,13 +3964,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 675739082}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1029818475}
-  m_RootOrder: 1
+  m_Father: {fileID: 1262912151}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &675739084
 MonoBehaviour:
@@ -3986,12 +3986,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 519420031}
   waves:
-  - {fileID: 11400000, guid: 048018ce66f9bcf49956e1cb9e43d04a, type: 2}
   - {fileID: 11400000, guid: 6c25fd7517f0f4641b07ae65b8f2eaba, type: 2}
   - {fileID: 11400000, guid: fa5070da7182c5e4397549fd97eaa55c, type: 2}
   - {fileID: 11400000, guid: 657072ec24d7ef74982775c5ce52c69d, type: 2}
+  - {fileID: 11400000, guid: f48ddcbc253a2a64087e2d9df7735181, type: 2}
   - {fileID: 11400000, guid: 80765c3a4e693b34fb04e156159cef64, type: 2}
   - {fileID: 11400000, guid: 06f7acf89e715c84aac8cfb875843c9f, type: 2}
+  - {fileID: 11400000, guid: 85c68d4572e1a56479b8b08e6d400544, type: 2}
+  - {fileID: 11400000, guid: 8d71c7a5a29268745a4ac19a575daeff, type: 2}
+  - {fileID: 11400000, guid: cc8ace18bb868124bac169b515878ab3, type: 2}
+  - {fileID: 11400000, guid: 8d8bf46c717b90647a4ee49006db5ea6, type: 2}
 --- !u!1 &716958506
 GameObject:
   m_ObjectHideFlags: 0
@@ -4225,7 +4229,7 @@ Canvas:
   m_OverrideSorting: 1
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 1
   m_SortingLayerID: 0
   m_SortingOrder: 4
   m_TargetDisplay: 0
@@ -4577,7 +4581,7 @@ Canvas:
   m_OverrideSorting: 1
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 1
   m_SortingLayerID: 0
   m_SortingOrder: 4
   m_TargetDisplay: 0
@@ -5495,12 +5499,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e319a3b5970a54a48bde7ccbeccb7f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameUI: {fileID: 533421450}
-  resultCanvas: {fileID: 733200742}
-  waveSpawner: {fileID: 675739084}
   gameTime: 0
   enemyCounter: 0
-  gameOverEvent:
+  resultCanvas: {fileID: 733200742}
+  waveManager: {fileID: 675739084}
+  resultEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2049171257}
@@ -5515,13 +5518,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  victoryEvent:
+  timeUpdateEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2049171257}
-        m_TargetAssemblyTypeName: Managers.PauseManager, Assembly-CSharp
-        m_MethodName: GameIsOver
-        m_Mode: 1
+      - m_Target: {fileID: 533421450}
+        m_TargetAssemblyTypeName: UI.GameUI, Assembly-CSharp
+        m_MethodName: UpdateClock
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  enemyCounterUpdateEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 533421450}
+        m_TargetAssemblyTypeName: UI.GameUI, Assembly-CSharp
+        m_MethodName: UpdateCounter
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5543,7 +5561,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1933839612}
-  - {fileID: 675739083}
   m_Father: {fileID: 1262912151}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6738,6 +6755,7 @@ Transform:
   - {fileID: 2033375852}
   - {fileID: 384476340}
   - {fileID: 2049171256}
+  - {fileID: 675739083}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8884,7 +8902,6 @@ GameObject:
   - component: {fileID: 1805702442}
   - component: {fileID: 1805702441}
   - component: {fileID: 1805702444}
-  - component: {fileID: 1805702445}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -9015,11 +9032,14 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 10
   isInvincible: 0
-  deathExplosion: {fileID: 0}
+  deathExplosion: {fileID: 8274877615094582550, guid: 102bb8f5e97a240478521be0527b3a97, type: 3}
   playerHealthBar: {fileID: 393382228}
   invincibilityDurationSeconds: 1
   invincibilityDeltaTime: 0.2
   deathEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  invincibilityEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!61 &1805702443
@@ -9062,18 +9082,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerExpBar: {fileID: 1718857076}
   levelUpManager: {fileID: 384476341}
---- !u!114 &1805702445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1805702434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c86354abcc6cd3848bee3d65cad3bca9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1816337745
 GameObject:
   m_ObjectHideFlags: 0
@@ -9822,7 +9830,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933839611}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9939,7 +9947,7 @@ GameObject:
   - component: {fileID: 1958591437}
   - component: {fileID: 1958591436}
   m_Layer: 5
-  m_Name: UI Canvas
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10024,7 +10032,7 @@ RectTransform:
   - {fileID: 261565991}
   - {fileID: 533421449}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

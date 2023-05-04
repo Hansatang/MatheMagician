@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6377905282259970130}
   - component: {fileID: 6973693255500167453}
   - component: {fileID: 6677171414704691054}
+  - component: {fileID: -3817239166770159789}
   m_Layer: 8
   m_Name: Mole
   m_TagString: Enemies
@@ -74,7 +75,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9fad1765b4efb048b6f0cc89a580fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: 0db4e967b0c54984da2c9b4e5f347ada, type: 2}
 --- !u!114 &6867874658747105874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,21 +92,6 @@ MonoBehaviour:
   isInvincible: 0
   deathExplosion: {fileID: 8274877615094582550, guid: 102bb8f5e97a240478521be0527b3a97, type: 3}
   experienceOrb: {fileID: 5285708265491337852, guid: fc66a1447a2d54647b8a69a3e786720f, type: 3}
-  enemydeath:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &6377905282259970130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +158,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  isAttacking:
+    m_PersistentCalls:
+      m_Calls: []
   movementInput: {x: 0, y: 0}
   movementDirectionSolver: {fileID: 6776892866877016021}
 --- !u!70 &6677171414704691054
@@ -191,6 +179,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0.004378331, y: -0.0065888166}
   m_Size: {x: 0.09363525, y: 0.18432127}
   m_Direction: 0
+--- !u!114 &-3817239166770159789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797429542227971265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d9494d1eb1143b6846e4cee21a84315, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: 0db4e967b0c54984da2c9b4e5f347ada, type: 2}
 --- !u!1 &2907665466939775500
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,8 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36365385cc5c4f459235abfc400e9760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRechedThreshold: 0.5
-  showGizmo: 0
+  targetReachedThreshold: 0.5
 --- !u!1 &3521500085782859945
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,7 +435,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8180d2acd40e487cb908cd54d9ae827d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showGizmos: 0
 --- !u!1 &5842387332105803333
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,7 +486,6 @@ MonoBehaviour:
   playerLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  showGizmos: 0
 --- !u!1 &8467635412682266120
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,7 +534,6 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 128
-  showGizmos: 0
 --- !u!1 &8735829682194089044
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,7 +580,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 2
   agentColliderSize: 0.6
-  showGizmo: 0
 --- !u!1 &9002657705920641627
 GameObject:
   m_ObjectHideFlags: 0

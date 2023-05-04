@@ -30,6 +30,13 @@ namespace Weapons.Circle
                 other.gameObject.GetComponent<EntityHealth>().TakeDamage(_power);
         }
 
+        public void SetStartingAngle(float angle)
+        {
+            _angle = angle;
+            var offset = new Vector3(Mathf.Sin(_angle), Mathf.Cos(_angle), 0) * _area;
+            transform.position = transform.parent.position + offset;
+        }
+
         public void Stop()
         {
             Destroy(gameObject);

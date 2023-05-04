@@ -10,14 +10,15 @@ namespace Managers
     /// </summary>
     public class GameManager : MonoBehaviour
     {
-        public GameUI gameUI;
-        public ResultCanvas resultCanvas;
-        public WaveSpawner waveSpawner;
-
         public int gameTime;
         public int enemyCounter;
-        public UnityEvent gameOverEvent;
-        public UnityEvent victoryEvent;
+        
+        public ResultCanvas resultCanvas;
+        public WaveManager waveManager;
+        
+        public UnityEvent resultEvent;
+        public UnityEvent<int> timeUpdateEvent;
+        public UnityEvent<int> enemyCounterUpdateEvent;
 
         public void Start()
         {
@@ -29,7 +30,6 @@ namespace Managers
             while (true)
             {
                 TimeCount();
-
                 yield return new WaitForSeconds(1);
             }
         }
@@ -37,25 +37,25 @@ namespace Managers
         private void TimeCount()
         {
             gameTime += 1;
-            waveSpawner.SetTime(gameTime);
-            gameUI.UpdateClock(gameTime);
+            waveManager.SetTime(gameTime);
+            timeUpdateEvent?.Invoke(gameTime);
         }
 
         public void UpdateEnemyCounter()
         {
             enemyCounter += 1;
-            gameUI.UpdateCounter(enemyCounter);
+            enemyCounterUpdateEvent?.Invoke(enemyCounter);
         }
 
         public void GameIsOver()
         {
-            gameOverEvent?.Invoke();
+            resultEvent?.Invoke();
             resultCanvas.Defeat(gameTime, enemyCounter);
         }
 
         public void Victory()
         {
-            victoryEvent?.Invoke();
+            resultEvent?.Invoke();
             resultCanvas.Victory(gameTime, enemyCounter);
         }
     }

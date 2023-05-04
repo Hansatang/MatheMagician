@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6377905282259970130}
   - component: {fileID: 6677171414704691054}
   - component: {fileID: 2549570863450283455}
+  - component: {fileID: -1979925636482869567}
   m_Layer: 8
   m_Name: Hungry Mole
   m_TagString: Enemies
@@ -75,7 +76,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9fad1765b4efb048b6f0cc89a580fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: 0a28ef0a491453b4297fa80cc8e9f73c, type: 2}
 --- !u!114 &6867874658747105874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,6 +175,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  isAttacking:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4475093960033041753}
+        m_TargetAssemblyTypeName: Enemies.Mole.AnimateMole, Assembly-CSharp
+        m_MethodName: SetAttackingState
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   movementInput: {x: 0, y: 0}
   movementDirectionSolver: {fileID: 6776892866877016021}
   attackDelay: 4
@@ -194,21 +209,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  isAttacking:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4475093960033041753}
-        m_TargetAssemblyTypeName: Enemies.Mole.AnimateMole, Assembly-CSharp
-        m_MethodName: SetAttackingState
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+--- !u!114 &-1979925636482869567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797429542227971265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d9494d1eb1143b6846e4cee21a84315, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: 0a28ef0a491453b4297fa80cc8e9f73c, type: 2}
 --- !u!1 &2907665466939775500
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,8 +386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36365385cc5c4f459235abfc400e9760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRechedThreshold: 0.5
-  showGizmo: 0
+  targetReachedThreshold: 0.5
 --- !u!1 &3521500085782859945
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,7 +465,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8180d2acd40e487cb908cd54d9ae827d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showGizmos: 0
 --- !u!1 &5842387332105803333
 GameObject:
   m_ObjectHideFlags: 0
@@ -505,7 +516,6 @@ MonoBehaviour:
   playerLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  showGizmos: 0
 --- !u!1 &6360956622722601267
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,7 +609,6 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 128
-  showGizmos: 0
 --- !u!1 &8735829682194089044
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,7 +655,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 2
   agentColliderSize: 0.6
-  showGizmo: 0
 --- !u!1 &9002657705920641627
 GameObject:
   m_ObjectHideFlags: 0

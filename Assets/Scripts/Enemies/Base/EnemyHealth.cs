@@ -20,7 +20,6 @@ namespace Enemies.Base
             _popUpManager = FindObjectOfType<PopUpManager>();
             _gameManager = FindObjectOfType<GameManager>();
             _healthBarBase = GetComponentInChildren<HealthBarBase>();
-            _healthBarBase.SetMaxHealth(maxHealth);
         }
 
         /// <summary>
@@ -42,6 +41,13 @@ namespace Enemies.Base
             instantiatedObject.SetWorth(maxHealth * 2);
             _gameManager.UpdateEnemyCounter();
             base.Die();
+        }
+        
+        public override void SetHealth(int health)
+        {
+            maxHealth = health;
+            currentHealth = health;
+            _healthBarBase.SetMaxHealth(maxHealth);
         }
     }
 }

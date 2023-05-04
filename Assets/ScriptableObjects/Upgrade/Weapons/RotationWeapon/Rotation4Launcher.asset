@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16deb351bcd545cf9b22cde338d69ba2, type: 3}
+  m_Name: Rotation4Launcher
+  m_EditorClassIdentifier: 
+  upgradeIndex: 104
+  upgradeName: Quarduple Rotation
+  upgradeDescription: Rotate Around Player x4
+  tier: 2
+  upgradeImage: {fileID: 21300000, guid: d59ff638a09b0b84184c5dd3bdd73e5f, type: 3}
+  nextUpgrade: {fileID: 0}
+  previousUpgrade: {fileID: 11400000, guid: 7951c4b25e5b55243a6c1e43a34f692f, type: 2}
+  neededToUnlockUpgrade: {fileID: 0}
+  weaponObject: {fileID: 3269109243607921219, guid: edeb5c9f4e578b346b0fa1af917309f7, type: 3}
+  speed: 2
+  area: 2
+  power: 2

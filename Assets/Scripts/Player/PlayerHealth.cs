@@ -14,12 +14,12 @@ namespace Player
         public HealthBar playerHealthBar;
         [SerializeField] private float invincibilityDurationSeconds;
         [SerializeField] private float invincibilityDeltaTime;
-        private AnimatePlayer _model;
+        
         public UnityEvent deathEvent;
+        public UnityEvent<Vector3> invincibilityEvent;
 
         public override void SetHealth(int health)
         {
-            _model = GetComponentInChildren<AnimatePlayer>();
             base.SetHealth(health);
             playerHealthBar.SetMaxHealth(maxHealth);
         }
@@ -49,18 +49,12 @@ namespace Player
             isInvincible = true;
             for (float i = 0; i < invincibilityDurationSeconds; i += invincibilityDeltaTime)
             {
-                ScaleModelTo(_model.transform.localScale == Vector3.one ? Vector3.zero : Vector3.one);
-
+                invincibilityEvent?.Invoke(Vector3.zero);
                 yield return new WaitForSeconds(invincibilityDeltaTime);
             }
 
-            ScaleModelTo(Vector3.one);
+            invincibilityEvent?.Invoke(Vector3.one);
             isInvincible = false;
-        }
-
-        private void ScaleModelTo(Vector3 scale)
-        {
-            _model.transform.localScale = scale;
         }
     }
 }

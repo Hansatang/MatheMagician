@@ -38,5 +38,10 @@ namespace Weapons
             initialPower = (int) Math.Ceiling(power);
             initialArea = area;
         }
+
+        public void SetID(int weaponObjectUpgradeIndex)
+        {
+            weaponId = weaponObjectUpgradeIndex;
+        }
     }
 }

@@ -69,7 +69,7 @@ namespace WorldBackground
             {
                 if (currentValue >= 0)
                 {
-                    currentValue = currentValue % terrainTileHorizontalCount;
+                    currentValue %= terrainTileHorizontalCount;
                 }
                 else
                 {

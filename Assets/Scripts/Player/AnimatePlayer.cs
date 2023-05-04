@@ -20,8 +20,9 @@ namespace Player
             _anim = GetComponent<Animator>();
             GetComponentInParent<PlayerInput>().movementEvent.AddListener(IsMoving);
             GetComponentInParent<PlayerHealth>().deathEvent.AddListener(IsDead);
+            GetComponentInParent<PlayerHealth>().invincibilityEvent.AddListener(ScaleModelTo);
         }
-        
+
         private void IsMoving(bool moving, Vector2 movementVector)
         {
             _isMoving = moving;
@@ -35,7 +36,7 @@ namespace Player
             _anim.SetFloat(Horizontal, movementVector.x);
             _anim.SetFloat(Vertical, movementVector.y);
         }
-        
+
         private void IsDead()
         {
             GetComponentInParent<PlayerInput>().DenyInput();
@@ -45,6 +46,23 @@ namespace Player
         public void DeathAnimationFinished()
         {
             GetComponentInParent<PlayerCharacter>().PlayerDeath();
+        }
+
+        private void ScaleModelTo(Vector3 scale)
+        {
+            if (scale == Vector3.one)
+            {
+                transform.localScale = scale;
+            }
+            else if (transform.localScale == Vector3.one)
+            {
+                transform.localScale = Vector3.zero;
+            }
+            else if (transform.localScale == Vector3.zero)
+            {
+                transform.localScale = Vector3.one;
+            }
+          
         }
     }
 }

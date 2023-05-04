@@ -74,6 +74,7 @@ namespace AI
 
         private object MeleeAttackLogic()
         {
+            movementInput = Vector2.zero;
             onAttackMelee?.Invoke(aiData.currentTarget.position);
             _currentAttackType = AttackType.Chase;
             return new WaitForSeconds(attackDelay);

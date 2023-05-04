@@ -1,5 +1,6 @@
 using Misc;
 using Player;
+using SO_Definitions;
 using UnityEngine;
 
 namespace Managers
