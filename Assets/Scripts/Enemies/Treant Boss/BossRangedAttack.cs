@@ -13,7 +13,7 @@ namespace Enemies.Treant_Boss
         /// <summary>
         ///     In for loop it modifies the target by rotating its vector by -SpreadDegree and SpreadDegree
         /// </summary>
-        public void ShootTowards(Vector2 target)
+        public void ConeShootTowards(Vector2 target)
         {
             Vector3 currentPosition = transform.position;
             Vector2 targetVector = target - new Vector2(currentPosition.x, currentPosition.y);

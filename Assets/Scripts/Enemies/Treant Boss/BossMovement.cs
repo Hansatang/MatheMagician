@@ -21,16 +21,16 @@ namespace Enemies.Treant_Boss
         /// </summary>
         private IEnumerator Dashing(Vector2 dashDirection)
         {
-            _currentDashTime = startDashTime; // Reset the dash timer.
+            _currentDashTime = startDashTime; 
             while (_currentDashTime > 0f)
             {
-                _currentDashTime -= Time.deltaTime; // Lower the dash timer each frame.
-                enemyBody.velocity = dashDirection * dashSpeed; // Dash in the direction.
+                _currentDashTime -= Time.deltaTime; 
+                enemyBody.velocity = dashDirection * dashSpeed; 
 
-                yield return null; // Returns out of the coroutine this frame so we don't hit an infinite loop.
+                yield return null; 
             }
 
-            enemyBody.velocity = new Vector2(0f, 0f); // Stop dashing.
+            enemyBody.velocity = new Vector2(0f, 0f);
         }
     }
 }

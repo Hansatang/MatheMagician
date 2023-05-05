@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1797429542227971268}
   - component: {fileID: 4284501993928441445}
+  - component: {fileID: 6677171414704691054}
+  - component: {fileID: -6918229054591570186}
   - component: {fileID: 4303599971381973377}
   - component: {fileID: 6867874658747105874}
   - component: {fileID: 6377905282259970130}
   - component: {fileID: 6973693255500167453}
-  - component: {fileID: 6677171414704691054}
-  - component: {fileID: -5914446776564784741}
   m_Layer: 8
   m_Name: Angry Mole
   m_TagString: Enemies
@@ -63,6 +63,36 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!70 &6677171414704691054
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797429542227971265}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.004378331, y: -0.0065888166}
+  m_Size: {x: 0.09363525, y: 0.18432127}
+  m_Direction: 0
+--- !u!114 &-6918229054591570186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797429542227971265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46c53888db444f53b3e9f3447f2a347f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: 7c9f29dc997970d4b81cc7a250744225, type: 2}
+  experienceOrb: {fileID: 5285708265491337852, guid: fc66a1447a2d54647b8a69a3e786720f, type: 3}
 --- !u!114 &4303599971381973377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,7 +121,21 @@ MonoBehaviour:
   currentHealth: 0
   isInvincible: 0
   deathExplosion: {fileID: 8274877615094582550, guid: 102bb8f5e97a240478521be0527b3a97, type: 3}
-  experienceOrb: {fileID: 5285708265491337852, guid: fc66a1447a2d54647b8a69a3e786720f, type: 3}
+  spawnExpEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -6918229054591570186}
+        m_TargetAssemblyTypeName: Enemies.Base.MoleEnemy, Assembly-CSharp
+        m_MethodName: SpawnExpOrb
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6377905282259970130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,35 +207,6 @@ MonoBehaviour:
       m_Calls: []
   movementInput: {x: 0, y: 0}
   movementDirectionSolver: {fileID: 6776892866877016021}
---- !u!70 &6677171414704691054
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797429542227971265}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.004378331, y: -0.0065888166}
-  m_Size: {x: 0.09363525, y: 0.18432127}
-  m_Direction: 0
---- !u!114 &-5914446776564784741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797429542227971265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d9494d1eb1143b6846e4cee21a84315, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: 7c9f29dc997970d4b81cc7a250744225, type: 2}
 --- !u!1 &2907665466939775500
 GameObject:
   m_ObjectHideFlags: 0

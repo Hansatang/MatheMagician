@@ -11,5 +11,6 @@ namespace Enemies
         public int health;
         public int damage;
         public float speed;
+        public int experience;
     }
 }

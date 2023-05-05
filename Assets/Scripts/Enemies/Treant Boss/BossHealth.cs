@@ -1,7 +1,7 @@
 using Managers;
 using Misc;
 using UI;
-using Quaternion = UnityEngine.Quaternion;
+using UnityEngine.Events;
 
 namespace Enemies.Treant_Boss
 {
@@ -10,10 +10,10 @@ namespace Enemies.Treant_Boss
     /// </summary>
     public class BossHealth : EntityHealth
     {
-        public Portal portal;
         private HealthBar _healthBarBase;
         private PopUpManager _popUpManager;
         private GameManager _gameManager;
+        public UnityEvent spawnPortalEvent;
 
         private void Awake()
         {
@@ -32,7 +32,7 @@ namespace Enemies.Treant_Boss
 
         protected override void Die()
         {
-            Instantiate(portal, transform.position, Quaternion.identity);
+            spawnPortalEvent?.Invoke();
             _gameManager.UpdateEnemyCounter();
             base.Die();
         }

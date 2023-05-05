@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 1797429542227971268}
   - component: {fileID: 4284501993928441445}
   - component: {fileID: 6677171414704691054}
+  - component: {fileID: 4863482823396020726}
   - component: {fileID: 6377905282259970130}
   - component: {fileID: 7085244520757096809}
   - component: {fileID: 1370423390773089153}
-  - component: {fileID: 6621065528892581665}
   - component: {fileID: 5739871920571337596}
   m_Layer: 8
   m_Name: Boss Treant
@@ -81,6 +81,20 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0027409934, y: -0.035659388}
   m_Size: {x: 0.1078739, y: 0.24246238}
   m_Direction: 0
+--- !u!114 &4863482823396020726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797429542227971265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a726a96ed94b7eac27b7b1a9cf5e04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: 019426f886670ad4aa88b0dcc2ec174d, type: 2}
+  portal: {fileID: 4720687236375783633, guid: 4a7c97f3b12d07c4ca761d5de15d6c3c, type: 3}
 --- !u!114 &6377905282259970130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,13 +180,13 @@ MonoBehaviour:
   movementDirectionSolver: {fileID: 6776892866877016021}
   attackDelay: 2
   rangedAttackDistance: 10
-  meleeAttackDistance: 5
+  explosionAttackDistance: 5
   onAttackRanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 888855013842989078}
         m_TargetAssemblyTypeName: Enemies.EnemyProjectiles.BossRangedAttack, Assembly-CSharp
-        m_MethodName: ShootTowards
+        m_MethodName: ConeShootTowards
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -182,12 +196,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onAttackMelee:
+  onAttackExplosion:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 26900944255017}
         m_TargetAssemblyTypeName: Enemies.EnemyMeleeAttack, Assembly-CSharp
-        m_MethodName: MeleeAttack
+        m_MethodName: ExplosionAttack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -228,20 +242,21 @@ MonoBehaviour:
   currentHealth: 0
   isInvincible: 0
   deathExplosion: {fileID: 8274877615094582550, guid: 102bb8f5e97a240478521be0527b3a97, type: 3}
-  portal: {fileID: 4720687236375783633, guid: 4a7c97f3b12d07c4ca761d5de15d6c3c, type: 3}
---- !u!114 &6621065528892581665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797429542227971265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d9494d1eb1143b6846e4cee21a84315, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: 019426f886670ad4aa88b0dcc2ec174d, type: 2}
+  spawnPortalEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4863482823396020726}
+        m_TargetAssemblyTypeName: Enemies.Treant_Boss.BossEnemy, Assembly-CSharp
+        m_MethodName: SpawnPortal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5739871920571337596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -432,7 +447,7 @@ GameObject:
   - component: {fileID: 8036075938318909877}
   - component: {fileID: 26900944255017}
   m_Layer: 0
-  m_Name: BossMeleeAttack
+  m_Name: BossExplosionAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

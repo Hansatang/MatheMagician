@@ -1,7 +1,7 @@
 ﻿using Managers;
 using Misc;
 using UI;
-using UnityEngine;
+using UnityEngine.Events;
 
 namespace Enemies.Base
 {
@@ -10,10 +10,10 @@ namespace Enemies.Base
     /// </summary>
     public class EnemyHealth : EntityHealth
     {
-        public ExpOrb experienceOrb;
         private HealthBar _healthBarBase;
         private PopUpManager _popUpManager;
         private GameManager _gameManager;
+        public UnityEvent spawnExpEvent;
 
         private void Awake()
         {
@@ -37,8 +37,7 @@ namespace Enemies.Base
         /// </summary>
         protected override void Die()
         {
-            var instantiatedObject = Instantiate(experienceOrb, transform.position, Quaternion.identity);
-            instantiatedObject.SetWorth(maxHealth * 2);
+            spawnExpEvent?.Invoke();
             _gameManager.UpdateEnemyCounter();
             base.Die();
         }

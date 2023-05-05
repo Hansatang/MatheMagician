@@ -4,14 +4,14 @@ using UnityEngine.Events;
 
 namespace AI
 {
-    public class BossEnemyAIBase : EnemyAIBase
+    public class BossEnemyAI : EnemyAIBase
     {
         [SerializeField] private float attackDelay = 2.0f;
         [SerializeField] private float rangedAttackDistance = 10.0f;
-        [SerializeField] private float meleeAttackDistance = 5.0f;
+        [SerializeField] private float explosionAttackDistance = 5.0f;
         private AttackType _currentAttackType;
         public UnityEvent<Vector2> onAttackRanged;
-        public UnityEvent<Vector2> onAttackMelee;
+        public UnityEvent onAttackExplosion;
         public UnityEvent<Vector2> onDash;
 
 
@@ -59,10 +59,10 @@ namespace AI
                     }
                     else if (_currentAttackType == AttackType.Melee)
                     {
-                        if (distance < meleeAttackDistance)
+                        if (distance < explosionAttackDistance)
                         {
                             //Melee Attack Logic
-                            yield return MeleeAttackLogic();
+                            yield return ExplosionAttackLogic();
                         }
                     }
 
@@ -72,10 +72,10 @@ namespace AI
             }
         }
 
-        private object MeleeAttackLogic()
+        private object ExplosionAttackLogic()
         {
             movementInput = Vector2.zero;
-            onAttackMelee?.Invoke(aiData.currentTarget.position);
+            onAttackExplosion?.Invoke();
             _currentAttackType = AttackType.Chase;
             return new WaitForSeconds(attackDelay);
         }
