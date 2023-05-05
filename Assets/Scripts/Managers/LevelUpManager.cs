@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using Player;
+using SO_Definitions;
 using UI;
 using UnityEngine;
 using UnityEngine.Events;
-using Weapons;
 using Random = System.Random;
 
 namespace Managers
@@ -25,6 +25,13 @@ namespace Managers
         public UnityEvent levelUpPause;
         public UnityEvent levelUpUnpause;
 
+        
+        public void LevelUp()
+        {
+            PopulateLevelUpOptions();
+            levelUpPause?.Invoke();
+        }
+        
         /// <summary>
         ///     Method for randomly selecting 3 upgrades, that are being used by the UI for selection
         /// </summary>
@@ -35,16 +42,16 @@ namespace Managers
             var option2Index = random.Next(0, possibleUpgrades.Count);
             var option3Index = random.Next(0, possibleUpgrades.Count);
 
-            levelUpController.PopulateUI(possibleUpgrades[option1Index], possibleUpgrades[option2Index],
-                possibleUpgrades[option3Index]);
+            levelUpController.PopulateUI(new List<ScriptableObject>
+            {
+                possibleUpgrades[option1Index],
+                possibleUpgrades[option2Index],
+                possibleUpgrades[option3Index]
+            });
         }
 
 
-        public void LevelUp()
-        {
-            PopulateLevelUpOptions();
-            levelUpPause?.Invoke();
-        }
+     
 
         /// <summary>
         ///     Method to pass the selected upgrade to playerWeaponsObject

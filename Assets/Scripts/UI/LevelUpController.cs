@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace UI
 {
@@ -8,16 +10,16 @@ namespace UI
     /// </summary>
     public class LevelUpController : MonoBehaviour
     {
-        public HolderBehaviour firstHolder;
-        public HolderBehaviour secondHolder;
-        public HolderBehaviour thirdHolder;
+        public List<LevelUpOptionHolder> levelUpOptionHolders = new(3);
+
         public UnityEvent<int> upgradeSelectionEvent;
 
-        public void PopulateUI(ScriptableObject sOb1, ScriptableObject sOb2, ScriptableObject sOb3)
+        public void PopulateUI(List<ScriptableObject> scriptableObjects)
         {
-            firstHolder.Populate(sOb1);
-            secondHolder.Populate(sOb2);
-            thirdHolder.Populate(sOb3);
+            for (int i = 0; i < levelUpOptionHolders.Count; i++)
+            {
+                levelUpOptionHolders[i].Populate(scriptableObjects[i]);
+            }
         }
 
         public void AddUpgrade(int upgradeDataIndex)

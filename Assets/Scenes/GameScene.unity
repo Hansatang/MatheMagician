@@ -3059,7 +3059,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e5afb3612f411224887c2576b4f8a2db, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -5863,9 +5863,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0036ae4d8d4d1c847bf853fe2babfa5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstHolder: {fileID: 1269807908}
-  secondHolder: {fileID: 1354626530}
-  thirdHolder: {fileID: 1541568488}
+  levelUpOptionHolders:
+  - {fileID: 1269807908}
+  - {fileID: 1354626530}
+  - {fileID: 1541568488}
   upgradeSelectionEvent:
     m_PersistentCalls:
       m_Calls:

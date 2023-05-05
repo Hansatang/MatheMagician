@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
+using Weapons;
 
-namespace Weapons
+namespace SO_Definitions
 {
     /// <summary>
     ///    ScriptableObject responsible for holding the enhancement statistics

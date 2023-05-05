@@ -15,5 +15,6 @@ namespace SO_Definitions
         public Sprite characterSprite;
         public GameObject characterObject;
         public UpgradeData startingWeapon;
+        public AudioClip hitSound;
     }
 }

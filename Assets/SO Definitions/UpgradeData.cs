@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Weapons
+namespace SO_Definitions
 {
     /// <summary>
     ///    ScriptableObject baseline for upgrades, contains general statistics

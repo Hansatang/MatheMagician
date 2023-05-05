@@ -23,6 +23,7 @@ namespace Player
                 startingWeaponIndex.Invoke(_characterData.startingWeapon.upgradeIndex);
                 GetComponentInParent<EntityHealth>().SetHealth(_characterData.characterHealth);
                 GetComponentInParent<PlayerMovement>().SetSpeed(_characterData.characterSpeed);
+                GetComponentInChildren<AudioSource>().clip = _characterData.hitSound;
             }
         }
 

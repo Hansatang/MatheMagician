@@ -12,7 +12,7 @@ namespace Player
         [SerializeField] public PlayerExpBar playerExpBar;
         [SerializeField] public LevelUpManager levelUpManager;
         private int _currentExp;
-        private int _nextLevelExp = 50;
+        private int _nextLevelExp = 10;
 
         private void Awake()
         {
@@ -21,7 +21,7 @@ namespace Player
 
         public void AwardExperience(int worth)
         {
-            _currentExp += worth * 5;
+            _currentExp += worth;
             playerExpBar.SetCurrentExperience(_currentExp);
             if (_currentExp >= _nextLevelExp)
             {

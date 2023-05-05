@@ -19,8 +19,8 @@ MonoBehaviour:
   upgradeImage: {fileID: 21300000, guid: 22538c55dffce6f47834b48a5970cd81, type: 3}
   nextUpgrade: {fileID: 11400000, guid: 0febed28a41aba740aca96aeedd185c7, type: 2}
   previousUpgrade: {fileID: 0}
-  neededToUnlockUpgrade: {fileID: 0}
+  neededToUnlockUpgrade: {fileID: 11400000, guid: c5160c05f8f1b7a4fae8bee85f375fe1, type: 2}
   weaponObject: {fileID: 3269109243607921219, guid: 125abcdc26243d24293f6fa651cb96b3, type: 3}
   speed: 2
   area: 2
-  power: 10
+  power: 4

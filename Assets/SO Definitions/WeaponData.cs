@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Weapons
+namespace SO_Definitions
 {
     /// <summary>
     ///    ScriptableObject responsible for holding the weapon statistics

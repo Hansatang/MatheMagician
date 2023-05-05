@@ -1,3 +1,4 @@
+using SO_Definitions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -9,7 +10,7 @@ namespace UI
     /// <summary>
     ///    Class responsible for presenting the data about possible upgrade to player
     /// </summary>
-    public class HolderBehaviour : MonoBehaviour
+    public class LevelUpOptionHolder : MonoBehaviour
     {
         public Image image;
         public TextMeshProUGUI text;

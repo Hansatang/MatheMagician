@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using SO_Definitions;
 using UnityEngine;
 using Weapons;
 
@@ -73,7 +74,7 @@ namespace Player
 
         /// <summary>
         ///    First it creates the weapon Launcher, the it's being added to the active weapons, so upgrades can be done in a for loop
-        ///    Second it set the already obtained stats upgrades to the weapon
+        /// Second it set the already obtained stats upgrades to the weapon
         /// </summary>
         private void CreateWeaponLauncher(WeaponData weaponObject)
         {
