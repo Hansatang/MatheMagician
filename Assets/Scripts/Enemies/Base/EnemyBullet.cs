@@ -26,7 +26,7 @@ namespace Enemies.Base
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                other.gameObject.GetComponent<EntityHealth>().TakeDamage(2);
+                other.gameObject.GetComponent<EntityHealth>().TakeDamage(1);
                 Destroy(gameObject);
             }
         }

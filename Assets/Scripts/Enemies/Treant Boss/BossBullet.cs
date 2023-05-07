@@ -1,3 +1,4 @@
+using Misc;
 using UnityEngine;
 
 namespace Enemies.Treant_Boss
@@ -20,6 +21,15 @@ namespace Enemies.Treant_Boss
             _bulletBody = GetComponent<Rigidbody2D>();
             _bulletBody.velocity =
                 new Vector2(target.x, target.y).normalized * Force;
+        }
+        
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if (other.gameObject.CompareTag("Player"))
+            {
+                other.gameObject.GetComponent<EntityHealth>().TakeDamage(1);
+                Destroy(gameObject);
+            }
         }
     }
 }
