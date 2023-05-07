@@ -9,7 +9,7 @@ namespace Enemies.Treant_Boss
         [SerializeField] private float startDashTime = 2f;
         [SerializeField] private float dashSpeed = 3f;
         private float _currentDashTime;
-        
+
 
         public void Dash(Vector2 dashDirection)
         {
@@ -21,13 +21,13 @@ namespace Enemies.Treant_Boss
         /// </summary>
         private IEnumerator Dashing(Vector2 dashDirection)
         {
-            _currentDashTime = startDashTime; 
+            _currentDashTime = startDashTime;
             while (_currentDashTime > 0f)
             {
-                _currentDashTime -= Time.deltaTime; 
-                enemyBody.velocity = dashDirection * dashSpeed; 
+                _currentDashTime -= Time.deltaTime;
+                enemyBody.velocity = dashDirection * dashSpeed;
 
-                yield return null; 
+                yield return null;
             }
 
             enemyBody.velocity = new Vector2(0f, 0f);

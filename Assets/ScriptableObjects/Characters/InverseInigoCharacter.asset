@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: InverseInigoCharacter
   m_EditorClassIdentifier: 
   characterName: Inverse Inigo
-  characterHealth: 20
-  characterSpeed: 4
+  characterHealth: 7
+  characterSpeed: 3.5
   characterSprite: {fileID: 21300000, guid: be477d6db4ac03f43899541c58081266, type: 3}
   characterObject: {fileID: 2907305674087903278, guid: 88fa9a2bfeea7ee40881b2c81841adda, type: 3}
   startingWeapon: {fileID: 11400000, guid: 7951c4b25e5b55243a6c1e43a34f692f, type: 2}
-  hitSound: {fileID: 8300000, guid: 6f5ad816493f0ef46b01242da742f461, type: 3}
+  hitSound: {fileID: 8300000, guid: b3266b78b59e8f348a9e503484cf6e02, type: 3}

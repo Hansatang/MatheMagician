@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 1797429542227971268}
   - component: {fileID: 4284501993928441445}
   - component: {fileID: 6677171414704691054}
-  - component: {fileID: -6918229054591570186}
   - component: {fileID: 4303599971381973377}
   - component: {fileID: 6867874658747105874}
   - component: {fileID: 6377905282259970130}
   - component: {fileID: 6973693255500167453}
+  - component: {fileID: -6918229054591570186}
   m_Layer: 8
   m_Name: Angry Mole
   m_TagString: Enemies
@@ -79,20 +79,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.004378331, y: -0.0065888166}
   m_Size: {x: 0.09363525, y: 0.18432127}
   m_Direction: 0
---- !u!114 &-6918229054591570186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797429542227971265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c53888db444f53b3e9f3447f2a347f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: 7c9f29dc997970d4b81cc7a250744225, type: 2}
-  experienceOrb: {fileID: 5285708265491337852, guid: fc66a1447a2d54647b8a69a3e786720f, type: 3}
 --- !u!114 &4303599971381973377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,6 +193,20 @@ MonoBehaviour:
       m_Calls: []
   movementInput: {x: 0, y: 0}
   movementDirectionSolver: {fileID: 6776892866877016021}
+--- !u!114 &-6918229054591570186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797429542227971265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46c53888db444f53b3e9f3447f2a347f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: 7c9f29dc997970d4b81cc7a250744225, type: 2}
+  experienceOrb: {fileID: 5285708265491337852, guid: fc66a1447a2d54647b8a69a3e786720f, type: 3}
 --- !u!1 &2907665466939775500
 GameObject:
   m_ObjectHideFlags: 0

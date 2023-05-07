@@ -6,9 +6,9 @@ namespace AI
 {
     public class SeekBehaviour : SteeringBehaviour
     {
-        [FormerlySerializedAs("targetRechedThreshold")] [SerializeField] private float targetReachedThreshold = 0.5f;
+        [FormerlySerializedAs("targetRechedThreshold")] [SerializeField]
+        private float targetReachedThreshold = 0.5f;
 
-        
 
         private bool _reachedLastTarget = true;
 
@@ -57,7 +57,7 @@ namespace AI
                     if (valueToPutIn > interest[i]) interest[i] = valueToPutIn;
                 }
             }
-            
+
             return (danger, interest);
         }
     }

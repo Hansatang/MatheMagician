@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0972db0b7b5e496eb1885d303de1f964, type: 3}
   m_Name: AngryMoleEnemy
   m_EditorClassIdentifier: 
-  health: 2
+  health: 12
   damage: 1
-  speed: 4
-  experience: 5
+  speed: 3
+  experience: 12

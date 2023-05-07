@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1797429542227971268}
   - component: {fileID: 4284501993928441445}
+  - component: {fileID: 6677171414704691054}
   - component: {fileID: 4303599971381973377}
   - component: {fileID: 6867874658747105874}
   - component: {fileID: 6377905282259970130}
-  - component: {fileID: 6677171414704691054}
   - component: {fileID: 2549570863450283455}
   - component: {fileID: 1285051206818369741}
   m_Layer: 8
@@ -64,6 +64,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!70 &6677171414704691054
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797429542227971265}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.004378331, y: -0.0065888166}
+  m_Size: {x: 0.09363525, y: 0.18432127}
+  m_Direction: 0
 --- !u!114 &4303599971381973377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,22 +138,6 @@ MonoBehaviour:
   targets: []
   obstacles: []
   currentTarget: {fileID: 0}
---- !u!70 &6677171414704691054
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797429542227971265}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.004378331, y: -0.0065888166}
-  m_Size: {x: 0.09363525, y: 0.18432127}
-  m_Direction: 0
 --- !u!114 &2549570863450283455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,8 +206,8 @@ MonoBehaviour:
         m_CallState: 2
   movementInput: {x: 0, y: 0}
   movementDirectionSolver: {fileID: 6776892866877016021}
-  attackDelay: 4
-  attackDistance: 10
+  attackDelay: 2
+  attackDistance: 7
   onAttackPressed:
     m_PersistentCalls:
       m_Calls:

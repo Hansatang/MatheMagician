@@ -14,7 +14,7 @@ namespace Enemies.Treant_Boss
         {
             Destroy(gameObject, 15.0f);
         }
-        
+
         public void SetTarget(Vector2 target)
         {
             _bulletBody = GetComponent<Rigidbody2D>();

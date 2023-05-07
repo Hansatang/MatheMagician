@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Wave_4
   m_EditorClassIdentifier: 
   <EnemiesInWave>k__BackingField:
-  - {fileID: 7549460621587780340, guid: d7b61f97d3911384697e480a8a83e29f, type: 3}
-  <TimeBeforeThisWave>k__BackingField: 60
+  - {fileID: 1797429542227971265, guid: 4389c1d6e4393c147b4560773eff3e84, type: 3}
+  - {fileID: 1797429542227971265, guid: 1f38bec698f717d41beb1508c842cfcf, type: 3}
+  <TimeBeforeThisWave>k__BackingField: 30
   <AttackDirections>k__BackingField: 00000000010000000200000003000000
-  <NumberToSpawn>k__BackingField: 2
+  <NumberToSpawn>k__BackingField: 15

@@ -10,8 +10,12 @@ namespace Enemies
         private static readonly int Horizontal = Animator.StringToHash("Horizontal");
         private static readonly int Vertical = Animator.StringToHash("Vertical");
         private static readonly int IsAttacking = Animator.StringToHash("IsAttacking");
+
         public float hf;
         public float vf;
+
+        private Vector3 _position;
+
         private Animator _anim;
 
         private void Start()
@@ -26,9 +30,9 @@ namespace Enemies
         {
             //Logic for getting the distance between this GameObject and player and transforming it into
             //the Vertical and Horizontal Axis values (between -1 an 1)
-            var position = transform.position;
-            hf = (Mathf.InverseLerp(-10, 10, position.x - lookAtVector.x) - 0.5f) * -2.0f;
-            vf = (Mathf.InverseLerp(-10, 10, position.y - lookAtVector.y) - 0.5f) * -2.0f;
+            _position = transform.position;
+            hf = (Mathf.InverseLerp(-10, 10, _position.x - lookAtVector.x) - 0.5f) * -2.0f;
+            vf = (Mathf.InverseLerp(-10, 10, _position.y - lookAtVector.y) - 0.5f) * -2.0f;
 
             _anim.SetFloat(Horizontal, hf);
             _anim.SetFloat(Vertical, vf);

@@ -1,6 +1,7 @@
 ﻿using Managers;
 using Misc;
 using UI;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Enemies.Base
@@ -41,7 +42,7 @@ namespace Enemies.Base
             _gameManager.UpdateEnemyCounter();
             base.Die();
         }
-        
+
         public override void SetHealth(int health)
         {
             maxHealth = health;

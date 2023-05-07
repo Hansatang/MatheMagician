@@ -8,7 +8,7 @@ namespace AI
         [SerializeField] private float targetDetectionRange = 5;
 
         [SerializeField] private LayerMask obstaclesLayerMask, playerLayerMask;
-        
+
         //gizmo parameters
         private List<Transform> _colliders;
 
