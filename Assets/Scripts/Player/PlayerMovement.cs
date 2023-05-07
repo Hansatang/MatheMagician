@@ -29,7 +29,9 @@ namespace Player
 
         private void MovePlayer()
         {
-            _movementDirection = new Vector2(_playerInput.inputAxis.x, _playerInput.inputAxis.y);
+            _movementDirection.x = _playerInput.inputAxis.x;
+            _movementDirection.y = _playerInput.inputAxis.y;
+
             _playerBody.MovePosition(_playerBody.position +
                                      _movementDirection * (_movementSpeed * Time.fixedDeltaTime));
         }

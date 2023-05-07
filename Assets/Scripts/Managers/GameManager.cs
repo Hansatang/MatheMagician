@@ -12,10 +12,10 @@ namespace Managers
     {
         public int gameTime;
         public int enemyCounter;
-        
+
         public ResultCanvas resultCanvas;
         public WaveManager waveManager;
-        
+
         public UnityEvent resultEvent;
         public UnityEvent<int> timeUpdateEvent;
         public UnityEvent<int> enemyCounterUpdateEvent;

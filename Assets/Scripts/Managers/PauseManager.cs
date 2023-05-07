@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Managers
@@ -8,56 +7,50 @@ namespace Managers
     /// </summary>
     public class PauseManager : MonoBehaviour
     {
-        public static bool GamePaused;
-        public static bool LevelUpPaused;
-        public static bool GameOver;
+        private bool _gamePaused;
+        private bool _levelUpPaused;
+        private bool _gameOver;
         public GameObject menuPanel;
-        public GameObject levelUpPanel;
-        public GameObject defeatPanel;
 
         private void Start()
         {
-            GamePaused = false;
-            LevelUpPaused = false;
-            GameOver = false;
+            _gamePaused = false;
+            _levelUpPaused = false;
+            _gameOver = false;
         }
 
         private void Update()
         {
-            if (!GameOver)
-            {
-                if (Input.GetKeyDown(KeyCode.Escape)) ManualPause();
-                if (!GamePaused && !LevelUpPaused)
-                    Time.timeScale = 1f;
-            }
+            if (_gameOver) return;
+
+            if (Input.GetKeyDown(KeyCode.Escape)) ManualPause();
+            if (!_gamePaused && !_levelUpPaused)
+                Time.timeScale = 1f;
         }
 
         public void ManualPause()
         {
-            GamePaused = !GamePaused;
-            menuPanel.SetActive(GamePaused);
+            _gamePaused = !_gamePaused;
+            menuPanel.SetActive(_gamePaused);
             Time.timeScale = 0f;
         }
 
         public void LevelUpPause()
         {
-            LevelUpPaused = true;
-            levelUpPanel.SetActive(true);
+            _levelUpPaused = true;
             Time.timeScale = 0f;
         }
 
         public void LevelUpUnPause()
         {
-            LevelUpPaused = false;
-            levelUpPanel.SetActive(false);
+            _levelUpPaused = false;
         }
 
 
         public void GameIsOver()
         {
+            _gameOver = true;
             Time.timeScale = 0f;
-            GameOver = true;
-            defeatPanel.SetActive(true);
         }
     }
 }

@@ -17,22 +17,19 @@ namespace Player
 
         private void Update()
         {
-            if (_isAlive)
+            if (!_isAlive) return;
+
+            inputAxis.Set(GetHorizontalAxisValue(), GetVerticalAxisValue());
+            if (inputAxis.x != 0 || inputAxis.y != 0)
             {
-                inputAxis.Set(GetHorizontalAxisValue(), GetVerticalAxisValue());
-
-
-                if (inputAxis.x != 0 || inputAxis.y != 0)
-                {
-                    movementEvent?.Invoke(true, new Vector2(inputAxis.x, inputAxis.y));
-                }
-                else
-                {
-                    movementEvent?.Invoke(false, new Vector2(inputAxis.x, inputAxis.y));
-                }
-
-                rotation = GetRotation();
+                movementEvent?.Invoke(true, new Vector2(inputAxis.x, inputAxis.y));
             }
+            else
+            {
+                movementEvent?.Invoke(false, new Vector2(inputAxis.x, inputAxis.y));
+            }
+
+            rotation = GetRotation();
         }
 
 

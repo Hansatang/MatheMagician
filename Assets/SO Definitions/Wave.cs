@@ -12,5 +12,6 @@ namespace Managers
         [field: SerializeField] public float TimeBeforeThisWave { get; private set; }
         [field: SerializeField] public SpawnDirections[] AttackDirections { get; private set; }
         [field: SerializeField] public float NumberToSpawn { get; private set; }
+        [field: SerializeField] public AudioClip WaveMusic { get; private set; }
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Managers
 {
@@ -19,13 +20,14 @@ namespace Managers
 
         private bool _stopSpawning = true;
 
-        private float _timeBetweenSpawns;
+        private float _nextWaveSpawnTime;
         private float _gameTime;
+        public UnityEvent<AudioClip> newMusicEvent;
 
         private void Awake()
         {
             _currentWave = waves[_currentWaveIndex];
-            _timeBetweenSpawns = _currentWave.TimeBeforeThisWave;
+            _nextWaveSpawnTime = _currentWave.TimeBeforeThisWave;
             _orthographicSize = cam.orthographicSize;
             _negativeRange = -_orthographicSize - _offset;
             _positiveRange = _orthographicSize + _offset;
@@ -36,12 +38,24 @@ namespace Managers
         {
             if (_stopSpawning) return;
 
-            if (_gameTime >= _timeBetweenSpawns)
+            if (_gameTime >= _nextWaveSpawnTime)
             {
                 SpawnWave();
                 IncWave();
+                SetMusic();
 
-                _timeBetweenSpawns = _gameTime + _currentWave.TimeBeforeThisWave;
+                _nextWaveSpawnTime =_currentWave.TimeBeforeThisWave;
+            }
+        }
+
+        /// <summary>
+        ///   Sets the music for wave
+        /// </summary>
+        private void SetMusic()
+        {
+            if (_currentWave.WaveMusic != null)
+            {
+                newMusicEvent?.Invoke(_currentWave.WaveMusic);
             }
         }
 

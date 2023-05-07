@@ -1,12 +1,13 @@
-using Misc;
 using UnityEngine;
 
-public class HealthPickUp : MonoBehaviour
+namespace Misc
 {
-    private void OnTriggerEnter2D(Collider2D other)
+    public class HealthPickUp : MonoBehaviour
     {
-        if (other.gameObject.CompareTag("Player"))
+        private void OnTriggerEnter2D(Collider2D other)
         {
+            if (!other.gameObject.CompareTag("Player")) return;
+
             other.gameObject.GetComponent<EntityHealth>().TakeDamage(-1);
             Destroy(gameObject);
         }

@@ -10,10 +10,11 @@ namespace Player
     /// </summary>
     public class PlayerWeapons : MonoBehaviour
     {
+        private readonly List<WeaponSystem> _weaponSystems = new();
+
         private float _areaEnhancements = 1f;
         private float _powerEnhancements = 1f;
         private float _speedEnhancements = 1f;
-        private readonly List<WeaponSystem> _weaponSystems = new();
 
         /// <summary>
         ///    Check the type of upgrade and acts based on it
@@ -37,12 +38,15 @@ namespace Player
 
         private void ModifyWeaponSystems(WeaponData weaponData)
         {
-            var modifyingWeapon =
-                _weaponSystems.FindIndex(x => x.weaponId == weaponData.previousUpgrade.upgradeIndex);
-            if (modifyingWeapon != -1)
+            if (weaponData.previousUpgrade != null)
             {
-                _weaponSystems[modifyingWeapon].Stop();
-                _weaponSystems.RemoveAt(modifyingWeapon);
+                var modifyingWeapon =
+                    _weaponSystems.FindIndex(x => x.weaponId == weaponData.previousUpgrade.upgradeIndex);
+                if (modifyingWeapon != -1)
+                {
+                    _weaponSystems[modifyingWeapon].Stop();
+                    _weaponSystems.RemoveAt(modifyingWeapon);
+                }
             }
 
             CreateWeaponLauncher(weaponData);
@@ -82,11 +86,13 @@ namespace Player
                 Instantiate(weaponObject.weaponObject, transform.position, Quaternion.identity);
             instantiatedWeapon.transform.parent = gameObject.transform;
             var weaponSystemToAdd = (WeaponSystem) instantiatedWeapon.GetComponent(typeof(WeaponSystem));
+
             weaponSystemToAdd.SetEnhancedStats(weaponObject.speed, weaponObject.area, weaponObject.power);
             weaponSystemToAdd.SetID(weaponObject.upgradeIndex);
-            _weaponSystems.Add(weaponSystemToAdd);
             weaponSystemToAdd.UpgradeAll(_speedEnhancements, _powerEnhancements, _areaEnhancements);
             weaponSystemToAdd.Arm();
+
+            _weaponSystems.Add(weaponSystemToAdd);
         }
     }
 }

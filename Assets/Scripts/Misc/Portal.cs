@@ -17,10 +17,9 @@ namespace Misc
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.CompareTag("Player"))
-            {
-                _gameManager.Victory();
-            }
+            if (!other.gameObject.CompareTag("Player")) return;
+
+            _gameManager.Victory();
         }
     }
 }

@@ -11,7 +11,7 @@ namespace UI
     {
         [SerializeField] private TextMeshProUGUI clockText;
         [SerializeField] private TextMeshProUGUI counterText;
-        
+
 
         public void UpdateClock(int gameTime)
         {

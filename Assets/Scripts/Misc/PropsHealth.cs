@@ -5,7 +5,7 @@ namespace Misc
     public class PropsHealth : EntityHealth
     {
         public HealthPickUp healthPickUp;
-        
+
         /// <summary>
         ///    Shows die instantly to spawn a health pick Up
         /// </summary>

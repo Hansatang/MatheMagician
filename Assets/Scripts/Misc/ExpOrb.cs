@@ -12,11 +12,10 @@ namespace Misc
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.CompareTag("Player"))
-            {
-                other.gameObject.GetComponent<PlayerExperience>().AwardExperience(_worth);
-                Destroy(gameObject);
-            }
+            if (!other.gameObject.CompareTag("Player")) return;
+
+            other.gameObject.GetComponent<PlayerExperience>().AwardExperience(_worth);
+            Destroy(gameObject);
         }
 
         public void SetWorth(int value)

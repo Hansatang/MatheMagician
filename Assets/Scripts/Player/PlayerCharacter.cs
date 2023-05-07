@@ -16,15 +16,14 @@ namespace Player
 
         private void Awake()
         {
-            if (SelectedCharacter.selectedCharacter != null)
-            {
-                _characterData = SelectedCharacter.selectedCharacter;
-                Instantiate(_characterData.characterObject, gameObject.transform);
-                startingWeaponIndex.Invoke(_characterData.startingWeapon.upgradeIndex);
-                GetComponentInParent<EntityHealth>().SetHealth(_characterData.characterHealth);
-                GetComponentInParent<PlayerMovement>().SetSpeed(_characterData.characterSpeed);
-                GetComponentInChildren<AudioSource>().clip = _characterData.hitSound;
-            }
+            if (SelectedCharacter.selectedCharacter == null) return;
+
+            _characterData = SelectedCharacter.selectedCharacter;
+            Instantiate(_characterData.characterObject, gameObject.transform);
+            startingWeaponIndex.Invoke(_characterData.startingWeapon.upgradeIndex);
+            GetComponentInParent<EntityHealth>().SetHealth(_characterData.characterHealth);
+            GetComponentInParent<PlayerMovement>().SetSpeed(_characterData.characterSpeed);
+            GetComponentInChildren<AudioSource>().clip = _characterData.hitSound;
         }
 
         public void PlayerDeath()

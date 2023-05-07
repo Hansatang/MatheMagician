@@ -1,14 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 namespace UI
 {
     /// <summary>
     ///    Class responsible for populating the upgrade holders and invoking the upgrade selection
     /// </summary>
-    public class LevelUpController : MonoBehaviour
+    public class LevelUpCanvas : MonoBehaviour
     {
         public List<LevelUpOptionHolder> levelUpOptionHolders = new(3);
 

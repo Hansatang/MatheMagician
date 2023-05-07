@@ -14,7 +14,7 @@ namespace Player
         public HealthBar playerHealthBar;
         [SerializeField] private float invincibilityDurationSeconds;
         [SerializeField] private float invincibilityDeltaTime;
-        
+
         public UnityEvent deathEvent;
         public UnityEvent<Vector3> invincibilityEvent;
         public AudioSource painSound;

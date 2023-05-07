@@ -19,19 +19,21 @@ namespace Managers
 
         //Necessary Components
         public UpgradesUI upgradesUI;
-        public LevelUpController levelUpController;
+
+        public LevelUpCanvas levelUpCanvas;
+
         public PlayerWeapons playerWeapons;
 
         public UnityEvent levelUpPause;
         public UnityEvent levelUpUnpause;
 
-        
+
         public void LevelUp()
         {
             PopulateLevelUpOptions();
             levelUpPause?.Invoke();
         }
-        
+
         /// <summary>
         ///     Method for randomly selecting 3 upgrades, that are being used by the UI for selection
         /// </summary>
@@ -42,16 +44,13 @@ namespace Managers
             var option2Index = random.Next(0, possibleUpgrades.Count);
             var option3Index = random.Next(0, possibleUpgrades.Count);
 
-            levelUpController.PopulateUI(new List<ScriptableObject>
+            levelUpCanvas.PopulateUI(new List<ScriptableObject>
             {
                 possibleUpgrades[option1Index],
                 possibleUpgrades[option2Index],
                 possibleUpgrades[option3Index]
             });
         }
-
-
-     
 
         /// <summary>
         ///     Method to pass the selected upgrade to playerWeaponsObject
@@ -71,10 +70,13 @@ namespace Managers
 
         private void CheckNextUpgrade(UpgradeData selected)
         {
-            if (selected.nextUpgrade != null)
-                if (selected.neededToUnlockUpgrade == null ||
-                    possibleUpgrades.Find(x => x == selected.neededToUnlockUpgrade))
-                    possibleUpgrades.Add(selected.nextUpgrade);
+            if (selected.nextUpgrade == null) return;
+            
+            if (selected.neededToUnlockUpgrade == null ||
+                possibleUpgrades.Find(x => x == selected.neededToUnlockUpgrade))
+            {
+                possibleUpgrades.Add(selected.nextUpgrade);
+            }
         }
     }
 }
