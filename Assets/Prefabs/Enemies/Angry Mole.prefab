@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startDashTime: 2
-  dashSpeed: 5
+  dashSpeed: 4
 --- !u!114 &6867874658747105874
 MonoBehaviour:
   m_ObjectHideFlags: 0
