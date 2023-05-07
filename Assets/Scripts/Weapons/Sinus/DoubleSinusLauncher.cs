@@ -10,6 +10,7 @@ namespace Weapons.Sinus
     public class DoubleSinusLauncher : WeaponSystem
     {
         [SerializeField] public SinusBullet sinBullet;
+        private readonly float _attackDelay = 1f;
         private PlayerInput _playerInput;
 
         public void Awake()
@@ -20,7 +21,6 @@ namespace Weapons.Sinus
         public override void Arm()
         {
             StartCoroutine(SpawnSinBullet(true));
-
             StartCoroutine(SpawnSinBullet(false));
         }
 
@@ -32,7 +32,7 @@ namespace Weapons.Sinus
                     var instantiatedBullet =
                         Instantiate(sinBullet, transform.position, _playerInput.rotation, gameObject.transform);
                     instantiatedBullet.SetStatistics(speedEnhanced, powerEnhanced, areaEnhanced);
-                    yield return new WaitForSeconds(2);
+                    yield return new WaitForSeconds(_attackDelay);
                 }
                 else
                 {
@@ -40,7 +40,7 @@ namespace Weapons.Sinus
                         Instantiate(sinBullet, transform.position, _playerInput.rotation, gameObject.transform);
                     instantiatedBullet.SetStatistics(speedEnhanced, powerEnhanced, areaEnhanced);
                     instantiatedBullet.Reverse();
-                    yield return new WaitForSeconds(2);
+                    yield return new WaitForSeconds(_attackDelay);
                 }
         }
 

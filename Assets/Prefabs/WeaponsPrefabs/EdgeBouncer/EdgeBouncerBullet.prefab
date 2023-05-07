@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: -8699775544430878988}
   - component: {fileID: -2759983712134645163}
   - component: {fileID: 2839553997101359865}
-  - component: {fileID: 5154338982848799836}
-  m_Layer: 3
-  m_Name: SinusBullet
+  - component: {fileID: 7871079291436449167}
+  m_Layer: 10
+  m_Name: EdgeBouncerBullet
   m_TagString: Bullets
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.078435674, g: 0.38679248, b: 0.041963343, a: 1}
+  m_Color: {r: 0, g: 0.7176821, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -130,7 +130,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 2
+  m_Time: 3
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.25
@@ -160,7 +160,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.078431375, g: 0.38823533, b: 0.043137256, a: 1}
+      key0: {r: 0, g: 0.7176471, b: 1, a: 1}
       key1: {r: 0.9960785, g: 0.9960785, b: 0.9960785, a: 0}
       key2: {r: 0.078431375, g: 0.38823533, b: 0.043137256, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -206,7 +206,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -233,7 +233,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5154338982848799836
+--- !u!114 &7871079291436449167
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -242,6 +242,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2033957587514547960}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a08a00af451ef949850a6d565e07167, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d115d43e4ed1e74da03b03f89f47862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

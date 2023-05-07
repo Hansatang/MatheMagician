@@ -10,7 +10,7 @@ namespace Weapons.Sinus
     public class SinusLauncher : WeaponSystem
     {
         [SerializeField] public SinusBullet sinBullet;
-        private readonly float _attackDelay = 1.5f;
+        private readonly float _attackDelay = 1f;
         private PlayerInput _playerInput;
 
         public void Awake()

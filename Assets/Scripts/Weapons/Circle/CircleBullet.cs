@@ -9,19 +9,20 @@ namespace Weapons.Circle
     public class CircleBullet : MonoBehaviour
     {
         private float _angle;
-        private float _area;
-
-        private int _power;
+        private Vector3 _offset;
 
         //Weapon general Stats
         private float _speed;
+        private float _area;
+        private int _power;
 
         private void Update()
         {
             _angle += _speed * Time.deltaTime;
 
-            var offset = new Vector3(Mathf.Sin(_angle), Mathf.Cos(_angle), 0) * _area;
-            transform.position = transform.parent.position + offset;
+            _offset.x = Mathf.Sin(_angle) * _area;
+            _offset.y = Mathf.Cos(_angle) * _area;
+            transform.position = transform.parent.position + _offset;
         }
 
         private void OnCollisionEnter2D(Collision2D other)

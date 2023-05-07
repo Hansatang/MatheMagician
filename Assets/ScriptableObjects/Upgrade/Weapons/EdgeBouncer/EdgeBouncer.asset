@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16deb351bcd545cf9b22cde338d69ba2, type: 3}
-  m_Name: Rotation4Launcher
+  m_Name: EdgeBouncer
   m_EditorClassIdentifier: 
-  upgradeIndex: 104
-  upgradeName: Quarduple Rotation
-  upgradeDescription: Rotate Around Player x4
-  tier: 2
-  upgradeImage: {fileID: 21300000, guid: d59ff638a09b0b84184c5dd3bdd73e5f, type: 3}
+  upgradeIndex: 105
+  upgradeName: Edge Bouncer
+  upgradeDescription: It bounces from the edges of your screen
+  tier: 1
+  upgradeImage: {fileID: 21300000, guid: eec1e2ce573a2614cbf0ced6d609e47b, type: 3}
   nextUpgrade: {fileID: 0}
-  previousUpgrade: {fileID: 11400000, guid: 7951c4b25e5b55243a6c1e43a34f692f, type: 2}
+  previousUpgrade: {fileID: 11400000}
   neededToUnlockUpgrade: {fileID: 0}
-  weaponObject: {fileID: 3269109243607921219, guid: edeb5c9f4e578b346b0fa1af917309f7, type: 3}
-  speed: 4
-  area: 2
-  power: 2
+  weaponObject: {fileID: 8358427125773032475, guid: 79a5e03f049405844aacee1c20718e9b, type: 3}
+  speed: 10
+  area: 0.5
+  power: 5
