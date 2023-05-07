@@ -15,7 +15,7 @@ namespace Weapons.Sinus
 
         public override void Arm()
         {
-            _playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
+            _playerInput = GameObject.Find("Player").GetComponent<PlayerInput>();
             StartCoroutine(SpawnSinBullet());
         }
 
