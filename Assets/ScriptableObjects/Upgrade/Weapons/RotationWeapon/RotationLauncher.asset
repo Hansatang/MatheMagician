@@ -23,4 +23,4 @@ MonoBehaviour:
   weaponObject: {fileID: 3269109243607921219, guid: 125abcdc26243d24293f6fa651cb96b3, type: 3}
   speed: 3
   area: 2
-  power: 40
+  power: 4
