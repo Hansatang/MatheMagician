@@ -71,9 +71,9 @@ namespace Managers
         private void CheckNextUpgrade(UpgradeData selected)
         {
             if (selected.nextUpgrade == null) return;
-            
+
             if (selected.neededToUnlockUpgrade == null ||
-                possibleUpgrades.Find(x => x == selected.neededToUnlockUpgrade))
+                chosenUpgrades.FindIndex(x => x == selected.neededToUnlockUpgrade) != -1)
             {
                 possibleUpgrades.Add(selected.nextUpgrade);
             }

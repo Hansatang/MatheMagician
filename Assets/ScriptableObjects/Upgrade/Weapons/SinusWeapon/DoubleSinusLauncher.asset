@@ -16,7 +16,7 @@ MonoBehaviour:
   upgradeName: Double Sinus
   upgradeDescription: Double the trouble
   tier: 2
-  upgradeImage: {fileID: 21300000, guid: 03d93f0af71a932438f67fe810db03b9, type: 3}
+  upgradeImage: {fileID: 21300000, guid: 1e08dbd0de1d24b4fa9ac49c8b10c0fe, type: 3}
   nextUpgrade: {fileID: 0}
   previousUpgrade: {fileID: 11400000, guid: 09021839f15b48c4192aa8735ecfa63c, type: 2}
   neededToUnlockUpgrade: {fileID: 0}
