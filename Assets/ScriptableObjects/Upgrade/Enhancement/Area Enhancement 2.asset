@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 2
   upgradeName: Area
-  upgradeDescription: Increase the area to 120%
+  upgradeDescription: Increase the area to 130%
   tier: 2
   upgradeImage: {fileID: 21300000, guid: c47d07607041a9e46ac5a017fa569294, type: 3}
   nextUpgrade: {fileID: 11400000, guid: 1445767554cd0ac4c8367f07404aca74, type: 2}
   previousUpgrade: {fileID: 11400000, guid: 52becaa76aabb134ebffa9fab32375ca, type: 2}
   neededToUnlockUpgrade: {fileID: 0}
   enhancementType: 2
-  enhancementMultiplier: 1.2
+  enhancementMultiplier: 1.3

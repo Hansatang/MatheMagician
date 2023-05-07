@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 7
   upgradeName: Power
-  upgradeDescription: Increase the power to 120%
+  upgradeDescription: Increase the power to 130%
   tier: 2
   upgradeImage: {fileID: 21300000, guid: 6c7218760d7e1b041a1cbf797895f78a, type: 3}
   nextUpgrade: {fileID: 11400000, guid: 5443170acc7c15e428047b22de977c8f, type: 2}
   previousUpgrade: {fileID: 11400000, guid: 6916295bc6a9d074ca621a2679bd2213, type: 2}
   neededToUnlockUpgrade: {fileID: 0}
   enhancementType: 0
-  enhancementMultiplier: 1.2
+  enhancementMultiplier: 1.3

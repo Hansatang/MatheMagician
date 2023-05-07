@@ -1,3 +1,4 @@
+using MainMenuScripts;
 using UnityEngine;
 
 namespace Managers
@@ -10,11 +11,19 @@ namespace Managers
         private bool _gamePaused;
         private bool _levelUpPaused;
         private bool _gameOver;
-        public GameObject menuPanel;
+        public PauseMenu menuPanel;
 
         private void Start()
         {
-            _gamePaused = false;
+            if (PlayerPrefs.GetInt("SawHelp") == 1)
+            {
+                _gamePaused = false;
+            }
+            else
+            {
+                HelpPause();
+            }
+
             _levelUpPaused = false;
             _gameOver = false;
         }
@@ -31,7 +40,14 @@ namespace Managers
         public void ManualPause()
         {
             _gamePaused = !_gamePaused;
-            menuPanel.SetActive(_gamePaused);
+            menuPanel.SetActivePauseMenu(_gamePaused);
+            Time.timeScale = 0f;
+        }
+
+        private void HelpPause()
+        {
+            _gamePaused = !_gamePaused;
+            menuPanel.ActivateHelpPanel();
             Time.timeScale = 0f;
         }
 
@@ -45,7 +61,6 @@ namespace Managers
         {
             _levelUpPaused = false;
         }
-
 
         public void GameIsOver()
         {

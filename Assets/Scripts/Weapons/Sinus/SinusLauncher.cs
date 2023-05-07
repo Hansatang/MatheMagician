@@ -13,13 +13,9 @@ namespace Weapons.Sinus
         private readonly float _attackDelay = 1f;
         private PlayerInput _playerInput;
 
-        public void Awake()
-        {
-            _playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
-        }
-
         public override void Arm()
         {
+            _playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
             StartCoroutine(SpawnSinBullet());
         }
 

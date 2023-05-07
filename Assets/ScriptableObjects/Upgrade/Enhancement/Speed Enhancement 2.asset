@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 12
   upgradeName: Speed
-  upgradeDescription: Increase the speed to 120%
+  upgradeDescription: Increase the speed to 130%
   tier: 2
   upgradeImage: {fileID: 21300000, guid: 6a736cfd9250d5c4a9ff3e0e4ad0cb5c, type: 3}
   nextUpgrade: {fileID: 11400000, guid: 531664a0e6c6ca4498f23714377e9ecb, type: 2}
   previousUpgrade: {fileID: 11400000, guid: ab0ad0fe92092214e825b513bf299ac1, type: 2}
   neededToUnlockUpgrade: {fileID: 0}
   enhancementType: 1
-  enhancementMultiplier: 1.2
+  enhancementMultiplier: 1.3

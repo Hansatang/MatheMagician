@@ -207,7 +207,7 @@ MonoBehaviour:
   movementInput: {x: 0, y: 0}
   movementDirectionSolver: {fileID: 6776892866877016021}
   attackDelay: 2
-  attackDistance: 7
+  attackDistance: 10
   onAttackPressed:
     m_PersistentCalls:
       m_Calls:

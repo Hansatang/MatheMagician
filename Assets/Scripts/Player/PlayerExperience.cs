@@ -11,7 +11,6 @@ namespace Player
     {
         [SerializeField] public PlayerExpBar playerExpBar;
         [SerializeField] public LevelUpManager levelUpManager;
-        private const int LevelUpIncrement = 10;
         private int _currentExp;
         private int _nextLevelExp = 10;
 
@@ -27,7 +26,7 @@ namespace Player
             if (_currentExp >= _nextLevelExp)
             {
                 _currentExp -= _nextLevelExp;
-                _nextLevelExp += LevelUpIncrement;
+                _nextLevelExp *= 2;
                 playerExpBar.SetNextLevelExperience(_nextLevelExp);
                 levelUpManager.LevelUp();
             }

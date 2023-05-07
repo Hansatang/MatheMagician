@@ -28,7 +28,7 @@ namespace UI
         private void SetStatistics(int gameTime, int enemyCounter)
         {
             var t = TimeSpan.FromSeconds(gameTime);
-            summaryText.text = "Your survived " + $"{t.Minutes:D2}:{t.Seconds:D2} " + ", destroying " + enemyCounter +
+            summaryText.text = "You survived " + $"{t.Minutes:D2}:{t.Seconds:D2}" + ", destroying " + enemyCounter +
                                " enemies.";
         }
     }

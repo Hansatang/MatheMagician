@@ -23,8 +23,8 @@ namespace Weapons.Sinus
         private void Start()
         {
             _pos = transform.position;
-            Destroy(gameObject, 5.0f);
             _axis = transform.right;
+            Destroy(gameObject, 5.0f);
         }
 
         private void Update()
