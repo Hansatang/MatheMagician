@@ -1,76 +1,81 @@
 using Misc;
 using UnityEngine;
 
-public class EdgeBouncerBullet : MonoBehaviour
+namespace Weapons.EdgeBouncer
 {
-    private Rigidbody2D _body;
-    private Camera _camera;
-    private Vector2 _screenPosition;
-
-    //Weapon general Stats
-    private float _speed;
-    private float _area;
-    private int _power;
-
-    private void Start()
+    public class EdgeBouncerBullet : MonoBehaviour
     {
-        _camera = FindObjectOfType<Camera>();
-        _body = GetComponent<Rigidbody2D>();
-        _body.velocity = new Vector2(1f, 1f) * _speed;
-    }
+        private Rigidbody2D _body;
+        private Camera _camera;
+        private Vector2 _screenPosition;
 
-    private void Update()
-    {
-        _screenPosition = _camera.WorldToScreenPoint(transform.position);
+        //Weapon general Stats
+        private float _speed;
+        private float _area;
+        private int _power;
 
-        if (_screenPosition.y > Screen.height)
+        private void Start()
         {
-            SetWorldPosition();
-            Move(Vector3.down);
+            _camera = FindObjectOfType<Camera>();
+            _body = GetComponent<Rigidbody2D>();
+            _body.velocity = new Vector2(1f, 1f) * _speed;
         }
 
-        else if (_screenPosition.y < 0f)
+        private void Update()
         {
-            SetWorldPosition();
-            Move(Vector3.up);
+            _screenPosition = _camera.WorldToScreenPoint(transform.position);
+
+            if (_screenPosition.y > Screen.height)
+            {
+                SetWorldPosition();
+                Move(Vector3.down);
+            }
+
+            else if (_screenPosition.y < 0f)
+            {
+                SetWorldPosition();
+                Move(Vector3.up);
+            }
+
+            else if (_screenPosition.x > Screen.width)
+            {
+                SetWorldPosition();
+                Move(Vector3.right);
+            }
+
+            else if (_screenPosition.x < 0f)
+            {
+                SetWorldPosition();
+                Move(Vector3.left);
+            }
         }
 
-        else if (_screenPosition.x > Screen.width)
+        private void SetWorldPosition()
         {
-            SetWorldPosition();
-            Move(Vector3.right);
+            _screenPosition.x = Mathf.Clamp(_screenPosition.x, 0f, Screen.width);
+            _screenPosition.y = Mathf.Clamp(_screenPosition.y, 0f, Screen.height);
+            Vector3 newWorldPosition = _camera.ScreenToWorldPoint(_screenPosition);
+            transform.position = new Vector2(newWorldPosition.x, newWorldPosition.y);
         }
 
-        else if (_screenPosition.x < 0f)
+        private void Move(Vector3 inNormal)
         {
-            SetWorldPosition();
-            Move(Vector3.left);
+            _body.velocity = Vector3.Reflect(_body.velocity.normalized, inNormal) * _speed;
         }
-    }
 
-    private void SetWorldPosition()
-    {
-        _screenPosition.x = Mathf.Clamp(_screenPosition.x, 0f, Screen.width);
-        _screenPosition.y = Mathf.Clamp(_screenPosition.y, 0f, Screen.height);
-        Vector3 newWorldPosition = _camera.ScreenToWorldPoint(_screenPosition);
-        transform.position = new Vector2(newWorldPosition.x, newWorldPosition.y);
-    }
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.CompareTag("Enemies"))
+            {
+                other.gameObject.GetComponent<EntityHealth>().TakeDamage(_power);
+            }
+        }
 
-    private void Move(Vector3 inNormal)
-    {
-        _body.velocity = Vector3.Reflect(_body.velocity.normalized, inNormal) * _speed;
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Enemies"))
-            other.gameObject.GetComponent<EntityHealth>().TakeDamage(_power);
-    }
-
-    public void SetStatistics(float speed, int power, float area)
-    {
-        _area = area;
-        _speed = speed;
-        _power = power;
+        public void SetStatistics(float speed, int power, float area)
+        {
+            _area = area;
+            _speed = speed;
+            _power = power;
+        }
     }
 }

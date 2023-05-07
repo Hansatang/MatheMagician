@@ -7,6 +7,7 @@ TagManager:
   - Enemies
   - SinBullet
   - Bullets
+  - BouncingBullet
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Obstacles
   - Enemies
   - EnemyBullet
-  - 
+  - BouncingBullet
   - 
   - 
   - 
