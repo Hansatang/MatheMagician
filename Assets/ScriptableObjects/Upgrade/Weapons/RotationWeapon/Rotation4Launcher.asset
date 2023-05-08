@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 104
   upgradeName: Quarduple Rotation
-  upgradeDescription: Rotate Around Player x4
+  upgradeDescription: Three projectiles orbits around the character.
   tier: 2
   upgradeImage: {fileID: 21300000, guid: d59ff638a09b0b84184c5dd3bdd73e5f, type: 3}
   nextUpgrade: {fileID: 0}

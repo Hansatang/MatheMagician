@@ -1,4 +1,5 @@
 using System.Collections;
+using Misc;
 using Player;
 using UnityEngine;
 
@@ -7,46 +8,32 @@ namespace Weapons.Sinus
     /// <summary>
     ///    Class responsible for creating and managing the stats of two projectiles 
     /// </summary>
-    public class DoubleSinusLauncher : WeaponSystem
+    public class DoubleSinusLauncher : SinusLauncher
     {
-        [SerializeField] public SinusBullet sinBullet;
-        private readonly float _attackDelay = 1f;
-        private PlayerInput _playerInput;
-
-        public void Awake()
-        {
-            _playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
-        }
-
         public override void Arm()
         {
-            StartCoroutine(SpawnSinBullet(true));
-            StartCoroutine(SpawnSinBullet(false));
+            base.Arm();
+            StartCoroutine(SpawnSinBulletReversed());
         }
 
-        private IEnumerator SpawnSinBullet(bool upper)
+        private IEnumerator SpawnSinBulletReversed()
         {
             while (true)
-                if (upper)
-                {
-                    var instantiatedBullet =
-                        Instantiate(sinBullet, transform.position, _playerInput.rotation, gameObject.transform);
-                    instantiatedBullet.SetStatistics(speedEnhanced, powerEnhanced, areaEnhanced);
-                    yield return new WaitForSeconds(_attackDelay);
-                }
-                else
-                {
-                    var instantiatedBullet =
-                        Instantiate(sinBullet, transform.position, _playerInput.rotation, gameObject.transform);
-                    instantiatedBullet.SetStatistics(speedEnhanced, powerEnhanced, areaEnhanced);
-                    instantiatedBullet.Reverse();
-                    yield return new WaitForSeconds(_attackDelay);
-                }
+            {
+                var instantiatedObject = Instantiate(sinBullet, transform.position, playerInput.rotation,
+                    gameObject.transform);
+                instantiatedObject.SetStats(enhancedSpeed, enhancedPower, enhancedArea);
+                instantiatedObject.Reverse();
+                yield return new WaitForSeconds(AttackDelay);
+            }
         }
+
 
         public override void Stop()
         {
             Destroy(gameObject);
         }
+
+        
     }
 }

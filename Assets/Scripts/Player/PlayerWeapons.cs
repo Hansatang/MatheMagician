@@ -87,10 +87,10 @@ namespace Player
             instantiatedWeapon.transform.parent = gameObject.transform;
             var weaponSystemToAdd = (WeaponSystem) instantiatedWeapon.GetComponent(typeof(WeaponSystem));
 
-            weaponSystemToAdd.SetEnhancedStats(weaponObject.speed, weaponObject.area, weaponObject.power);
+            weaponSystemToAdd.SetBaseStats(weaponObject.speed, weaponObject.area, weaponObject.power);
             weaponSystemToAdd.SetID(weaponObject.upgradeIndex);
-            weaponSystemToAdd.UpgradeAll(_speedEnhancements, _powerEnhancements, _areaEnhancements);
             weaponSystemToAdd.Arm();
+            weaponSystemToAdd.UpgradeAll(_speedEnhancements, _powerEnhancements, _areaEnhancements);
 
             _weaponSystems.Add(weaponSystemToAdd);
         }

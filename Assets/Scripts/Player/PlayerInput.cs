@@ -49,13 +49,13 @@ namespace Player
         /// </summary>
         private Quaternion GetRotation()
         {
-            if (inputAxis.x == 0 && inputAxis.y == 0)
+            if (Input.GetAxis("Shooting Horizontal") == 0 && Input.GetAxis("Shooting Vertical") == 0)
             {
                 return rotation;
             }
 
             return rotation = Quaternion.Euler(0, 0,
-                Mathf.Atan2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * -Mathf.Rad2Deg);
+                Mathf.Atan2(Input.GetAxis("Shooting Horizontal"), Input.GetAxis("Shooting Vertical")) * -Mathf.Rad2Deg);
         }
 
         public void DenyInput()

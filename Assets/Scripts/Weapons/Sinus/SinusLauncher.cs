@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Player;
 using UnityEngine;
@@ -10,24 +11,44 @@ namespace Weapons.Sinus
     public class SinusLauncher : WeaponSystem
     {
         [SerializeField] public SinusBullet sinBullet;
-        private readonly float _attackDelay = 1f;
-        private PlayerInput _playerInput;
+        protected const float AttackDelay = 1f;
+        protected PlayerInput playerInput;
+
+        protected float enhancedSpeed;
+        protected int enhancedPower;
+        protected float enhancedArea;
 
         public override void Arm()
         {
-            _playerInput = GameObject.Find("Player").GetComponent<PlayerInput>();
+            playerInput = GameObject.Find("Player").GetComponent<PlayerInput>();
             StartCoroutine(SpawnSinBullet());
         }
 
-        private IEnumerator SpawnSinBullet()
+        protected IEnumerator SpawnSinBullet()
         {
             while (true)
             {
-                var instantiatedBullet =
-                    Instantiate(sinBullet, transform.position, _playerInput.rotation, gameObject.transform);
-                instantiatedBullet.SetStatistics(speedEnhanced, powerEnhanced, areaEnhanced);
-                yield return new WaitForSeconds(_attackDelay);
+                Instantiate(sinBullet, transform.position, playerInput.rotation, gameObject.transform)
+                    .SetStats(enhancedSpeed, enhancedPower, enhancedArea);
+                yield return new WaitForSeconds(AttackDelay);
             }
+        }
+
+        public override void UpgradeAll(float speedEnhancements, float powerEnhancements, float areaEnhancements)
+        {
+            enhancedSpeed = initialSpeed * speedEnhancements;
+            enhancedPower = (int) Math.Ceiling(initialPower * powerEnhancements);
+            enhancedArea = initialArea * areaEnhancements;
+        }
+
+        public override void SetBaseStats(float speed, float area, float power)
+        {
+            initialSpeed = speed;
+            initialPower = (int) Math.Ceiling(power);
+            initialArea = area;
+            enhancedSpeed = initialSpeed;
+            enhancedPower = initialPower;
+            enhancedArea = initialArea;
         }
 
         public override void Stop()

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 101
   upgradeName: Sinus
-  upgradeDescription: It moves like a sin function
+  upgradeDescription: Fires quickly in the faced direction.
   tier: 1
   upgradeImage: {fileID: 21300000, guid: 663a79f194b91454aa36d58ffb23feb0, type: 3}
   nextUpgrade: {fileID: 11400000, guid: 8fc4e8e166c53084496b3c0c7c38040f, type: 2}

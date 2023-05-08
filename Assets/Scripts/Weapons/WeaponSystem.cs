@@ -12,10 +12,7 @@ namespace Weapons
         public float initialSpeed;
         public float initialArea;
         public int initialPower;
-        public float speedEnhanced;
-        public float areaEnhanced;
-        public int powerEnhanced;
-
+        
         public virtual void Arm()
         {
         }
@@ -27,12 +24,10 @@ namespace Weapons
 
         public virtual void UpgradeAll(float speedEnhancements, float powerEnhancements, float areaEnhancements)
         {
-            speedEnhanced = initialSpeed * speedEnhancements;
-            powerEnhanced = (int) Math.Ceiling(initialPower * powerEnhancements);
-            areaEnhanced = initialArea * areaEnhancements;
+          
         }
 
-        public void SetEnhancedStats(float speed, float area, float power)
+        public virtual void SetBaseStats(float speed, float area, float power)
         {
             initialSpeed = speed;
             initialPower = (int) Math.Ceiling(power);

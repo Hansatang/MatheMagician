@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 105
   upgradeName: Edge Bouncer
-  upgradeDescription: It bounces from the edges of your screen
+  upgradeDescription: Passes through enemies, bounces around.
   tier: 1
   upgradeImage: {fileID: 21300000, guid: eec1e2ce573a2614cbf0ced6d609e47b, type: 3}
   nextUpgrade: {fileID: 0}

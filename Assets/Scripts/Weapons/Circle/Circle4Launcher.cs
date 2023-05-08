@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,7 +16,6 @@ namespace Weapons.Circle
             {
                 var instantiatedBullet = Instantiate(circleBullet, transform.parent.position, Quaternion.identity,
                     gameObject.transform);
-                instantiatedBullet.SetStatistics(speedEnhanced, powerEnhanced, areaEnhanced);
                 instantiatedBullet.SetStartingAngle(i);
                 _activeBullets.Add(instantiatedBullet);
             }
@@ -31,10 +31,10 @@ namespace Weapons.Circle
 
         public override void UpgradeAll(float speedEnhancements, float powerEnhancements, float areaEnhancements)
         {
-            base.UpgradeAll(speedEnhancements, powerEnhancements, areaEnhancements);
             foreach (var bullet in _activeBullets)
             {
-                bullet.SetStatistics(speedEnhanced, powerEnhanced, areaEnhanced);
+                bullet.SetStats(initialSpeed * speedEnhancements,
+                    (int) Math.Ceiling(initialPower * powerEnhancements), initialArea * areaEnhancements);
             }
         }
     }

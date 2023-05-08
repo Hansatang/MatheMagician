@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Weapons.EdgeBouncer
@@ -11,13 +12,12 @@ namespace Weapons.EdgeBouncer
             var instantiatedBullet = Instantiate(edgeBouncerBullet, transform.parent.position, Quaternion.identity,
                 gameObject.transform);
             edgeBouncerBullet = instantiatedBullet;
-            edgeBouncerBullet.SetStatistics(speedEnhanced, powerEnhanced, areaEnhanced);
         }
 
         public override void UpgradeAll(float speedEnhancements, float powerEnhancements, float areaEnhancements)
         {
-            base.UpgradeAll(speedEnhancements, powerEnhancements, areaEnhancements);
-            edgeBouncerBullet.SetStatistics(speedEnhanced, powerEnhanced, areaEnhanced);
+            edgeBouncerBullet.SetStats(initialSpeed * speedEnhancements,
+                (int) Math.Ceiling(initialPower * powerEnhancements), initialArea * areaEnhancements);
         }
     }
 }

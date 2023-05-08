@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeIndex: 103
   upgradeName: Rotation
-  upgradeDescription: Rotate Around Player
+  upgradeDescription: Orbits around the character.
   tier: 1
   upgradeImage: {fileID: 21300000, guid: 22538c55dffce6f47834b48a5970cd81, type: 3}
   nextUpgrade: {fileID: 11400000, guid: 0febed28a41aba740aca96aeedd185c7, type: 2}
