@@ -4,6 +4,7 @@ This is a roguelike shoot 'em up game written in C# using Unity. [Play](https://
 
 In MatheMagician, your objective is to defeat the moles and escape this realm by defeating The Treant!
 
+[Game Showcase on Youtube](https://youtu.be/oW4ofsDZYJM)
 
 Third Party Assets:
 * [Ambient Music](https://assetstore.unity.com/packages/audio/music/seamless-loop-and-short-music-107732)
